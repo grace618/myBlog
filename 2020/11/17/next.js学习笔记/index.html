@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+***************  *      *     *
+      8          *    *       *
+      8          *  *         *
+      8          **           *
+      8          *  *         *
+      8          *    *       *
+      8          *      *     *
+      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<!--<![endif]-->
+
+<head>
+  <title>next.js学习笔记 | GRACE&#39;S BLOG</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="GRACE'S BLOG">
+    <meta name="author" content="grace">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/img/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="GRACE&#39;S BLOG" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+    
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+  
+  
+  
+
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+<div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+    <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+        <img src="/img/close.png" alt="Close" />
+    </div>
+    <!-- Lists in Slidebars -->
+    <ul class="sb-menu">
+        <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+        <li><a href="/archives" class="animsition-link" title="archive">archives</a>
+        </li>
+        <!-- Dropdown Menu -->
+        
+        
+        
+    </ul>
+    <!-- Lists in Slidebars -->
+    <ul class="sb-menu secondary">
+        
+        <li><a href="/about.html" class="animsition-link" title="about">About</a></li>
+        <!-- <li><a href="/atom.xml" class="animsition-link" title="rss">RSS</a></li> -->
+    </ul>
+</div>
+
+<!-- ============================ END Off-canvas navigation =========================== -->
+
+<!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+<div id="sb-site">
+    <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+    <!-- ============================ Header & Logo bar =========================== -->
+
+    <div id="navigation" class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <!-- Nav logo -->
+                <div class="logo">
+                    <a href="/" title="Logo" class="animsition-link">
+                        
+                    </a>
+                </div>
+                <!-- // Nav logo -->
+                <!-- Info-bar -->
+                <nav>
+                    <ul class="nav">
+                        <li><a href="/" class="animsition-link">GRACE'S BLOG</a></li>
+                        <li class="nolink"><span>Always </span>Creative.</li>
+                        
+                        
+                        
+                        
+                        
+                        <li class="nolink"><span>Welcome!</span></li>
+                    </ul>
+                </nav>
+                <!--// Info-bar -->
+            </div>
+            <!-- // .container -->
+            <!-- <div class="learnmore sb-toggle-right">More</div> -->
+            <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+            </button>
+        </div>
+        <!-- // .navbar-inner -->
+    </div>
+
+    <!-- ============================ Header & Logo bar =========================== -->
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2020-11-17T06:54:05.821Z" itemprop="datePublished">
+          2020-11-17
+      </time>
+    
+</span>
+                <h1>next.js学习笔记</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<p>######1 安装 npx create-next-app<br>######2 _app.js _document.js server.js<br>######3 css 这使用了一个名为styled-jsx的库。这是一个“ CSS-in-JS”库-它使您可以在React组件中编写CSS，并且CSS样式将受到限制（其他组件不会受到影响）。<br>==Next.js内置了对styled-jsx的支持，但是您也可以使用其他流行的CSS-in-JS库，例如styled-components或情感。<br>==Next.js具有对CSS和Sass的内置支持，可让您导入.css和.scss文件。<br>==还支持使用流行的CSS库，例如Tailwind CSS。<br>==要使用CSS模块，CSS文件名必须以结尾.module.css<br>==要加载全局CSS文件，请创建一个名为_app.js under 的文件<br>######4 _app.js<br>该App组件是顶级组件，将在所有不同页面上通用。App例如，在页面之间导航时，可以使用此组件来保持状态<br>######5自定义PostCSS配置<br>开箱即用，无需配置，Next.js使用PostCSS编译CSS 。<br>######6 搭配material ui<br>如果不配置，会对样式有影响<br>我们很清楚这个问题。我们最近引入了SSR API，它创建了更多的约束，更易于使用，并且应该减少出现此类问题的可能性。<br>虽然您必须在v3中配置_document.js和_app.js，但使用v4配置_document.js就足够了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">参考https:&#x2F;&#x2F;github.com&#x2F;mui-org&#x2F;material-ui&#x2F;blob&#x2F;v3.x&#x2F;examples&#x2F;nextjs&#x2F;pages&#x2F;_document.js</span><br><span class="line">https:&#x2F;&#x2F;itnext.io&#x2F;next-js-with-material-ui-7a7f6485f671</span><br><span class="line">__document.js</span><br><span class="line">&#x2F;* eslint-disable react&#x2F;jsx-filename-extension *&#x2F;</span><br><span class="line">import React from &#39;react&#39;;</span><br><span class="line">import Document, &#123;</span><br><span class="line">  Html, Main, NextScript,</span><br><span class="line">&#125; from &#39;next&#x2F;document&#39;;</span><br><span class="line">import &#123; ServerStyleSheets &#125; from &#39;@material-ui&#x2F;core&#x2F;styles&#39;;</span><br><span class="line"></span><br><span class="line">export default class MyDocument extends Document &#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    return (</span><br><span class="line">      &lt;Html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">        &lt;body&gt;</span><br><span class="line">          &lt;Main &#x2F;&gt;</span><br><span class="line">          &lt;NextScript &#x2F;&gt;</span><br><span class="line">        &lt;&#x2F;body&gt;</span><br><span class="line">      &lt;&#x2F;Html&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; &#96;getInitialProps&#96; belongs to &#96;_document&#96; (instead of &#96;_app&#96;),</span><br><span class="line">&#x2F;&#x2F; it&#39;s compatible with server-side generation (SSG).</span><br><span class="line">MyDocument.getInitialProps &#x3D; async (ctx) &#x3D;&gt; &#123;</span><br><span class="line"></span><br><span class="line">  &#x2F;&#x2F; Render app and page and get the context of the page with collected side effects.</span><br><span class="line">  const sheets &#x3D; new ServerStyleSheets();</span><br><span class="line">  const originalRenderPage &#x3D; ctx.renderPage;</span><br><span class="line"></span><br><span class="line">  ctx.renderPage &#x3D; () &#x3D;&gt; originalRenderPage(&#123;</span><br><span class="line">    enhanceApp: (App) &#x3D;&gt; (props) &#x3D;&gt; sheets.collect(&lt;App &#123;...props&#125; &#x2F;&gt;),</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  const initialProps &#x3D; await Document.getInitialProps(ctx);</span><br><span class="line"></span><br><span class="line">  return &#123;</span><br><span class="line">    ...initialProps,</span><br><span class="line">    &#x2F;&#x2F; Styles fragment is rendered after the app and page rendering finish.</span><br><span class="line">    styles: [...React.Children.toArray(initialProps.styles), sheets.getStyleElement()],</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">_app.js</span><br><span class="line">React.useEffect(() &#x3D;&gt; &#123;</span><br><span class="line">  &#x2F;&#x2F; Remove the server-side injected CSS.</span><br><span class="line">  const jssStyles &#x3D; document.querySelector(&#39;#jss-server-side&#39;);</span><br><span class="line">  if (jssStyles) &#123;</span><br><span class="line">    jssStyles.parentElement.removeChild(jssStyles);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;, []);</span><br></pre></td></tr></table></figure>
+<p>要自定义PostCSS配置，您可以创建一个名为的顶级文件postcss.config.js。如果您正在使用Tailwind CSS之类的库，这将很有用。<br>######7 获取数据<br>node-fetch<br>######8 国际化<br>（1）报错</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">You have not declared a namespacesRequired array on your page-level component: withI18nextTranslation(Home). This will cause all namespaces to be sent down to the client, </span><br><span class="line">possibly negatively impacting the performance of your app. For more info, </span><br><span class="line">see: https:&#x2F;&#x2F;github.com&#x2F;isaachinman&#x2F;next-i18next#4-declaring-namespace-dependencies</span><br></pre></td></tr></table></figure>
+<p>（1）解决</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Custom404.getInitialProps &#x3D; async () &#x3D;&gt; (&#123;</span><br><span class="line">    namespacesRequired: [&#39;common&#39;],</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>（2）版本6.02开始 无服务器<br>设置 _app.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; import React, &#123; useEffect &#125; from &#39;react&#39;;</span><br><span class="line">&#x2F;&#x2F; import &#39;..&#x2F;styles&#x2F;global.css&#39;</span><br><span class="line">&#x2F;&#x2F; import &#123; appWithTranslation &#125; from &#39;..&#x2F;i18n&#39;</span><br><span class="line">&#x2F;&#x2F; function App(&#123; Component, pageProps &#125;) &#123;</span><br><span class="line">&#x2F;&#x2F;     useEffect(() &#x3D;&gt; &#123;</span><br><span class="line">&#x2F;&#x2F;         const jssStyles &#x3D; document.querySelector(&#39;#jss-server-side&#39;);</span><br><span class="line">&#x2F;&#x2F;         if (jssStyles) &#123;</span><br><span class="line">&#x2F;&#x2F;             jssStyles.parentElement.removeChild(jssStyles);</span><br><span class="line">&#x2F;&#x2F;         &#125;</span><br><span class="line">&#x2F;&#x2F;     &#125;, []);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;     return &lt;Component &#123;...pageProps&#125; &#x2F;&gt;</span><br><span class="line">&#x2F;&#x2F; &#125;</span><br><span class="line">&#x2F;&#x2F; export default appWithTranslation(App)</span><br><span class="line"></span><br><span class="line">import App from &#39;next&#x2F;app&#39;</span><br><span class="line">import React, &#123; useEffect &#125; from &#39;react&#39;;</span><br><span class="line">import &#123; appWithTranslation &#125; from &#39;..&#x2F;i18n&#39;</span><br><span class="line"></span><br><span class="line">const MyApp &#x3D; (&#123; Component, pageProps &#125;) &#x3D;&gt; &#123;</span><br><span class="line">    useEffect(() &#x3D;&gt; &#123;</span><br><span class="line">        const jssStyles &#x3D; document.querySelector(&#39;#jss-server-side&#39;);</span><br><span class="line">        if (jssStyles) &#123;</span><br><span class="line">            jssStyles.parentElement.removeChild(jssStyles);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;, []);</span><br><span class="line">    return &lt;Component &#123;...pageProps&#125; &#x2F;&gt;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">MyApp.getInitialProps &#x3D; async (appContext) &#x3D;&gt; (&#123; ...await App.getInitialProps(appContext) &#125;)</span><br><span class="line"></span><br><span class="line">export default appWithTranslation(MyApp)</span><br></pre></td></tr></table></figure>
+<p>(2)设置next.config.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const &#123; nextI18NextRewrites &#125; &#x3D; require(&#39;next-i18next&#x2F;rewrites&#39;)</span><br><span class="line"></span><br><span class="line">const localeSubpaths &#x3D; &#123;&#125;</span><br><span class="line"></span><br><span class="line">module.exports &#x3D; &#123;</span><br><span class="line">    rewrites: async () &#x3D;&gt; nextI18NextRewrites(localeSubpaths),</span><br><span class="line">    publicRuntimeConfig: &#123;</span><br><span class="line">        localeSubpaths,</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>(2)i18n.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">const i18n &#x3D; require(&#39;i18next&#39;)</span><br><span class="line">const NextI18Next &#x3D; require(&#39;next-i18next&#39;).default</span><br><span class="line">const detector &#x3D; require(&#39;i18next-browser-languagedetector&#39;)</span><br><span class="line">const &#123; localeSubpaths &#125; &#x3D; require(&#39;next&#x2F;config&#39;).default().publicRuntimeConfig</span><br><span class="line">const path &#x3D; require(&#39;path&#39;)</span><br><span class="line">module.exports &#x3D; new NextI18Next(&#123;</span><br><span class="line">    defaultLanguage: &#39;en&#39;,</span><br><span class="line">    otherLanguages: [&#39;de&#39;],</span><br><span class="line">    fallbackLng: &quot;en&quot;,</span><br><span class="line">    browserLanguageDetection: true,</span><br><span class="line">    localePath: path.resolve(&#39;.&#x2F;public&#x2F;static&#x2F;locales&#39;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>(3)设置_error.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">import PropTypes from &#39;prop-types&#39;</span><br><span class="line">import &#123; withTranslation &#125; from &#39;..&#x2F;i18n&#39;</span><br><span class="line"></span><br><span class="line">const Error &#x3D; (&#123; statusCode, t &#125;) &#x3D;&gt; (</span><br><span class="line">    &lt;p&gt;</span><br><span class="line">        &#123;statusCode</span><br><span class="line">            ? t(&#39;error-with-status&#39;, &#123; statusCode &#125;)</span><br><span class="line">            : t(&#39;error-without-status&#39;)&#125;</span><br><span class="line">    &lt;&#x2F;p&gt;</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">Error.getInitialProps &#x3D; async (&#123; res, err &#125;) &#x3D;&gt; &#123;</span><br><span class="line">    let statusCode &#x3D; null</span><br><span class="line">    if (res) &#123;</span><br><span class="line">        (&#123; statusCode &#125; &#x3D; res)</span><br><span class="line">    &#125; else if (err) &#123;</span><br><span class="line">        (&#123; statusCode &#125; &#x3D; err)</span><br><span class="line">    &#125;</span><br><span class="line">    return &#123;</span><br><span class="line">        namespacesRequired: [&#39;common&#39;],</span><br><span class="line">        statusCode,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Error.defaultProps &#x3D; &#123;</span><br><span class="line">    statusCode: null,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Error.propTypes &#x3D; &#123;</span><br><span class="line">    statusCode: PropTypes.number,</span><br><span class="line">    t: PropTypes.func.isRequired,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export default withTranslation(&#39;common&#39;)(Error)</span><br></pre></td></tr></table></figure>
+<p>(3)设置404.js<br>(4)pages/404` can not have getInitialProps/getServerSideProps,</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function Custom404() &#123;</span><br><span class="line">    return &lt;h1&gt;404 - Page Not Found&lt;&#x2F;h1&gt;</span><br><span class="line">&#125;</span><br><span class="line">Custom404.getInitialProps &#x3D; async () &#x3D;&gt; (&#123;</span><br><span class="line">    namespacesRequired: [&#39;common&#39;],</span><br><span class="line">&#125;)</span><br><span class="line">export default Custom404</span><br></pre></td></tr></table></figure>
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
+    
+    <a class="pull-left" href="/2020/11/17/%E5%9B%BE%E7%89%87%E4%B8%8A%E4%BC%A0bug/" style="float: left;">
+        ← 图片上传bug
+    </a>
+    
+    
+    <a class="pull-right" href="/2020/11/17/%E9%98%85%E8%AF%BBvue%20%E6%96%87%E6%A1%A3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+        阅读vue 文档学习笔记 →
+    </a>
+    
+</nav>
+
+        <div class="col-md-8 col-md-offset-2 col-sm-24"><script type="text/javascript">
+  /**
+   * 搜狐畅言
+   */
+
+  /*
+  document.write('<div id="SOHUCS" sid="' + window.location.pathname.slice(1) + '" ></div>');
+
+  window.onload = function () {
+    (function () {
+      var appid = 'cytXXXX';
+      var conf = 'prod_xxxxxxxxxxxxxxxxx';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      var loadJs = function (d, a, id) {
+        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+        var b = document.createElement("script");
+        b.setAttribute("type", "text/javascript");
+        b.setAttribute("charset", "UTF-8");
+        b.setAttribute("src", d);
+        if (id) {
+          b.setAttribute("id", id);
+        }
+        if (typeof a === "function") {
+          if (window.attachEvent) {
+            b.onreadystatechange = function () {
+              var e = b.readyState;
+              if (e === "loaded" || e === "complete") {
+                b.onreadystatechange = null;
+                a()
+              }
+            }
+          } else {
+            b.onload = a
+          }
+        }
+        c.appendChild(b)
+      };
+
+      loadJs("https://changyan.sohu.com/upload/changyan.js", function () {
+        window.changyan.api.config({
+          appid: appid,
+          conf: conf
+        })
+      });
+    })();
+  }
+  */
+
+</script>
+</div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By grace. All Rights Reserved.
+                </p>
+                <p>Theme By <a target="_blank" rel="noopener" href="//go.kieran.top" style="color: #767D84">Kieran</a></p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    
+                    
+                    
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+
+    resizeHero();
+
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$('#intro').find('img').each(function(){
+  var alt = this.alt;
+
+  if (alt){
+    $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
+  }
+
+  $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
+});
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+      
+</body>
+</html>

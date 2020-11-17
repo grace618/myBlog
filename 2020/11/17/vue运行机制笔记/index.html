@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+***************  *      *     *
+      8          *    *       *
+      8          *  *         *
+      8          **           *
+      8          *  *         *
+      8          *    *       *
+      8          *      *     *
+      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<!--<![endif]-->
+
+<head>
+  <title>vue运行机制笔记 | GRACE&#39;S BLOG</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="GRACE'S BLOG">
+    <meta name="author" content="grace">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/img/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="GRACE&#39;S BLOG" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+    
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+  
+  
+  
+
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+<div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+    <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+        <img src="/img/close.png" alt="Close" />
+    </div>
+    <!-- Lists in Slidebars -->
+    <ul class="sb-menu">
+        <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+        <li><a href="/archives" class="animsition-link" title="archive">archives</a>
+        </li>
+        <!-- Dropdown Menu -->
+        
+        
+        
+    </ul>
+    <!-- Lists in Slidebars -->
+    <ul class="sb-menu secondary">
+        
+        <li><a href="/about.html" class="animsition-link" title="about">About</a></li>
+        <!-- <li><a href="/atom.xml" class="animsition-link" title="rss">RSS</a></li> -->
+    </ul>
+</div>
+
+<!-- ============================ END Off-canvas navigation =========================== -->
+
+<!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+<div id="sb-site">
+    <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+    <!-- ============================ Header & Logo bar =========================== -->
+
+    <div id="navigation" class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <!-- Nav logo -->
+                <div class="logo">
+                    <a href="/" title="Logo" class="animsition-link">
+                        
+                    </a>
+                </div>
+                <!-- // Nav logo -->
+                <!-- Info-bar -->
+                <nav>
+                    <ul class="nav">
+                        <li><a href="/" class="animsition-link">GRACE'S BLOG</a></li>
+                        <li class="nolink"><span>Always </span>Creative.</li>
+                        
+                        
+                        
+                        
+                        
+                        <li class="nolink"><span>Welcome!</span></li>
+                    </ul>
+                </nav>
+                <!--// Info-bar -->
+            </div>
+            <!-- // .container -->
+            <!-- <div class="learnmore sb-toggle-right">More</div> -->
+            <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+            </button>
+        </div>
+        <!-- // .navbar-inner -->
+    </div>
+
+    <!-- ============================ Header & Logo bar =========================== -->
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2020-11-17T06:52:42.146Z" itemprop="datePublished">
+          2020-11-17
+      </time>
+    
+</span>
+                <h1>vue运行机制笔记</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<p>######组件精讲<br>vue组件的三个API:prop,event,slot</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;button :class&#x3D;&quot;&#39;i-button-size&#39;+size&quot; :disabled&#x3D;&#39;disabled&#39; @click&#x3D;&quot;handleClick&quot;&gt;</span><br><span class="line">        &lt;slot&gt;&lt;&#x2F;slot&gt;    </span><br><span class="line">        &lt;!-- 具名插槽 --&gt;</span><br><span class="line">        &lt;slot name&#x3D;&quot;icon&quot;&gt;&lt;&#x2F;slot&gt;  </span><br><span class="line">    &lt;&#x2F;button&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line">&lt;script&gt;</span><br></pre></td></tr></table></figure>
+<p>######判断参数是否是其中之一</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">function oneOf(value,sizeList)&#123;</span><br><span class="line">        for(let i&#x3D;0;i&lt;sizeList.length;i++)&#123;</span><br><span class="line">            if(value&#x3D;&#x3D;&#x3D;sizeList[i])&#123;</span><br><span class="line">                return true</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return false</span><br><span class="line">&#125;</span><br><span class="line">export default &#123;</span><br><span class="line">    props:&#123;</span><br><span class="line">        size:&#123;</span><br><span class="line">            validator(value)&#123;</span><br><span class="line">                return oneOf(value,[&#39;small&#39;,&#39;large&#39;,&#39;default&#39;]);</span><br><span class="line">            &#125;,</span><br><span class="line">            default:&#39;default&#39;</span><br><span class="line">        &#125;,</span><br><span class="line">        disabled:&#123;</span><br><span class="line">            type:Boolean,</span><br><span class="line">            default:false</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line">        handleClick(event)&#123;</span><br><span class="line">            this.$emit(&#39;on-click&#39;,event)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br><span class="line"></span><br><span class="line">&lt;i-button size&#x3D;&quot;large&quot; disabled @on-click&#x3D;&quot;handleClick&quot;&gt;&lt;&#x2F;i-button&gt;</span><br><span class="line">&lt;i-button  @click.native&#x3D;&quot;handleClick&quot;&gt;&lt;&#x2F;i-button&gt;   </span><br></pre></td></tr></table></figure>
+<p>######组件通信<br>无依赖的组件通信方法provide/inject</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;A.vue</span><br><span class="line"></span><br><span class="line">export default&#123;</span><br><span class="line">    provide:&#123;</span><br><span class="line">        name:&#39;Aresn&#39;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;B.vue</span><br><span class="line">export default&#123;</span><br><span class="line">    inject:[&#39;name&#39;],</span><br><span class="line">    mounted()&#123;</span><br><span class="line">        console.log(this.name) &#x2F;&#x2F;aresn</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>app.vue 是整个项目第一个被渲染的组件，而且只会渲染一次（即使切换路由，app.vue 也不会被再次渲染），<br>利用这个特性，很适合做一次性全局的状态数据管理，例如，我们将用户的登录信息保存起来：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">    provide()&#123;</span><br><span class="line">        return&#123;</span><br><span class="line">            app:this</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    data()&#123;</span><br><span class="line">        return &#123;</span><br><span class="line">            userInfo:null</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line">        getUserInfo()&#123;</span><br><span class="line">            &#x2F;&#x2F;伪代码</span><br><span class="line">            $.ajax(&#39;&#x2F;user&#x2F;info&#39;,(data)&#x3D;&gt;&#123;</span><br><span class="line">                this.userInfo&#x3D;data</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    mounted()&#123;</span><br><span class="line">        this.getUserInfo()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div&gt;&#123;&#123;app.userinfo&#125;&#125;&lt;&#x2F;div&gt; </span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">    inject:[&#39;app&#39;],</span><br><span class="line">    methods:&#123;</span><br><span class="line">        changeUserInfo()&#123;</span><br><span class="line">            &#x2F;&#x2F;伪代码</span><br><span class="line">            $.ajax(&#39;&#x2F;user&#x2F;update&#39;,()&#x3D;&gt;&#123;</span><br><span class="line">                this.app.getUserInfo()</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+<p>如果你的项目足够复杂，或需要多人协同开发时，在 app.vue 里会写非常多的代码，多到结构复杂难以维护。这时可以使用 Vue.js 的混合 mixins，将不同的逻辑分开到不同的 js 文件里。</p>
+<p>比如上面的用户信息，就可以放到混合里：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">import mixins_user from &#39;..&#x2F;mixins&#x2F;user.js&#39;</span><br><span class="line">export default &#123;</span><br><span class="line">    mixins: [mixins_user]</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br><span class="line">function broadcast(compoentName,event,params)&#123;</span><br><span class="line">    this.$children.forEach(child&#x3D;&gt;&#123;</span><br><span class="line">        const name&#x3D;child.$options.name</span><br><span class="line">        if(name&#x3D;&#x3D;&#x3D;componentName)&#123;</span><br><span class="line">            child.$emit.apply(child,[eventName].concat(params))</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            broadcast.apply(child,[componentName,eventName].concat(params))</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line">export default&#123;</span><br><span class="line">    methods:&#123;</span><br><span class="line">        dispatch(compnentName,eventName,params)&#123;</span><br><span class="line">            let parent&#x3D;this.$parent||this.$root;</span><br><span class="line">            let name&#x3D;parent.$options.name</span><br><span class="line">            while(parent&amp;&amp;(!name||name!&#x3D;componentName))&#123;</span><br><span class="line">                parent&#x3D;parent.$parent</span><br><span class="line">                if(parent)&#123;</span><br><span class="line">                    name&#x3D;parent.$options.name</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            if(parent)&#123;</span><br><span class="line">                parent.$emit.apply(parent,[eventName].concat(params))</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>//得理解思路才行，具体代码可以不用太认真，有一个总体的概念<br>//动态渲染.vue文件的组件 —display</p>
+<p>######运行机制</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">new vue &#x3D;&gt;init&#x3D;&gt;$mount&#x3D;&gt;render function &#x3D;&gt;vnode</span><br><span class="line">init 对数据进行响应式化</span><br><span class="line">render function 会被转化成 VNode 节点</span><br><span class="line">    obj: 目标对象</span><br><span class="line">    prop: 需要操作的目标对象的属性名</span><br><span class="line">    descriptor: 描述符</span><br><span class="line">Object.defineProperty(obj,prop,descrptor)</span><br><span class="line"></span><br><span class="line">Object.defineProperty 用来把对象变成可观察的</span><br><span class="line"></span><br><span class="line">function defineReactive(obj,key,val)&#123;</span><br><span class="line">    Object.defineProperty(obj,key,&#123;</span><br><span class="line">        enumerable:true, &#x2F;&#x2F;属性可枚举</span><br><span class="line">        configurable:true, &#x2F;&#x2F;属性可被修改或删除</span><br><span class="line">        get:function reactiveGetter()&#123;</span><br><span class="line">            return val;</span><br><span class="line">        &#125;,</span><br><span class="line">        set:function reactiveSetter(newVal)&#123;</span><br><span class="line">            if(newVal&#x3D;&#x3D;&#x3D;val) return ;</span><br><span class="line">            cb(newVal)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当然这是不够的，我们需要在上面再封装一层 observer 。这个函数传入一个 value（需要「响应式」化的对象），通过遍历所有属性的方式对该对象的每一个属性都通过 defineReactive 处理。<br>（注：实际上 observer 会进行递归调用，为了便于理解去掉了递归的过程）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">function observer(obj)&#123;</span><br><span class="line">    if(!obj||(typeof obj!&#x3D;&#x3D;&#39;object&#39;))&#123;</span><br><span class="line">        return</span><br><span class="line">    &#125;</span><br><span class="line">    Object.keys(obj).forEach(key&#x3D;&gt;&#123;</span><br><span class="line">        defineReactive(obj,key,obj[key])</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line">class Vue&#123;</span><br><span class="line">    constructor(options)&#123;</span><br><span class="line">        this._data&#x3D;options.data;</span><br><span class="line">        observer(this._data)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>订阅者dep (Dependency)<br>主要作用是存放watcher观察者对象</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">class Dep&#123;</span><br><span class="line">    constructor()&#123;</span><br><span class="line">        &#x2F;&#x2F;用来存放watcher对象的数组</span><br><span class="line">        this.subs&#x3D;[]</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;&#x2F;在subs中添加一个watch对象</span><br><span class="line">    addSub(sub)&#123;</span><br><span class="line">        this.subs.push(sub)</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;&#x2F;通知所有watcher对象视图更新</span><br><span class="line">    notify()&#123;</span><br><span class="line">        this.subs.forEach(sub&#x3D;&gt;&#123;</span><br><span class="line">            sub.update()</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>######完成两件事<br>1 用addSub方法可以在目前的Dep对象中增加一个watcher的订阅操作<br>2 用notify方法通知目前对象dep对象的subs中的所有watcher对象触发更新操作</p>
+<p>观察者watcher</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class watcher&#123;</span><br><span class="line">    constructor()&#123;</span><br><span class="line">        &#x2F;*在new一个watch对象时将该对象赋值给Dep.target,在get中用到*&#x2F;</span><br><span class="line">        Dep.target&#x3D;this;</span><br><span class="line">    &#125;</span><br><span class="line">    update()&#123;</span><br><span class="line">        console.log(&#39;视图更新啦)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>修改一下 defineReactive 以及 Vue 的构造函数，来完成依赖收集。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">function defineReactive(obj,key,val)&#123;</span><br><span class="line">    &#x2F;&#x2F;一个Dep类对象</span><br><span class="line">    const dep&#x3D;new Dep()</span><br><span class="line"></span><br><span class="line">    Object.defineProperty(obj,key,&#123;</span><br><span class="line">        enumerable:true,</span><br><span class="line">        configurable:true,</span><br><span class="line">        get:function reactiveGetter()&#123;</span><br><span class="line">            dep.addSub(Dep.target)</span><br><span class="line">            return val;</span><br><span class="line">        &#125;,</span><br><span class="line">        set:function reactiveSetter(newVal)&#123;</span><br><span class="line">            if(newVal&#x3D;&#x3D;&#x3D;val) return;</span><br><span class="line">            dep.notify()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line">class Vue&#123;</span><br><span class="line">    constructor(options)&#123;</span><br><span class="line">        this._data&#x3D;options.data;</span><br><span class="line">        observer(this._data)</span><br><span class="line">        &#x2F;*新建一个watch观察者对象，这时候Dep.target会指向这个watcher对象*&#x2F;</span><br><span class="line">        new watcher()</span><br><span class="line">        &#x2F;&#x2F;模拟render过程，触发test属性的get函数</span><br><span class="line">        console.log(&#39;render~&#39;,this._data.test)</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>数据状态更新时的差异diff及patch机制</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">const nodeOps&#x3D;&#123;</span><br><span class="line">    setTextContent(text)&#123;</span><br><span class="line">        if(platform&#x3D;&#x3D;&#x3D;&#39;weex&#39;)&#123;</span><br><span class="line">            node.parentNode.setAttr(&#39;value&#39;,text)</span><br><span class="line">        &#125;else if(platform&#x3D;&#x3D;&#x3D;&#39;web&#39;)&#123;</span><br><span class="line">            node.setTextContent&#x3D;text</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    parentNode()&#123;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">    removeChild()&#123;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">    nextSibling()&#123;</span><br><span class="line"></span><br><span class="line">    &#125;,</span><br><span class="line">    insertBefore()&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>patch的diff算法，是通过同层的树节点进行比较，而非对树进行逐层遍历搜索，时间复杂度O(n)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">patch的简单过程代码</span><br><span class="line">function patch(oldVnode,vnode,parentElm)&#123;</span><br><span class="line">    if(!oldVnode)&#123;</span><br><span class="line">        addVnodes(parentElm,null,vnode,0,vnode.length-1)</span><br><span class="line">    &#125;else if(!vnode)&#123;</span><br><span class="line">        removeVnodes(parentElm,oldVnode,0,oldVnode.length-1)</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        if(sameVnode(oldVnode,vnode))&#123;</span><br><span class="line">            patchVnode(oldVNode,vnode)</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            removeVnodes(parentElm,oldVNode,0,oldVNode.length-1)</span><br><span class="line">            addVnodes(parentElm,null,vnode,0,vnode.length-1)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>sameVnode的判断</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br></pre></td><td class="code"><pre><span class="line">function sameVnode()&#123;</span><br><span class="line">    return (</span><br><span class="line">        a.key&#x3D;&#x3D;&#x3D;b.key&amp;&amp;</span><br><span class="line">        a.tag&#x3D;&#x3D;&#x3D;b.tag&amp;&amp;</span><br><span class="line">        a.isComment&#x3D;&#x3D;&#x3D;b.isComment&amp;&amp;</span><br><span class="line">        (!!a.data)&#x3D;&#x3D;&#x3D;(!!b.data) &amp;&amp;</span><br><span class="line">        sameInputType(a,b)</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br><span class="line">function sameInputType(a,b)&#123;</span><br><span class="line">    if(a.tag!&#x3D;&#x3D;&#39;input&#39;) return true</span><br><span class="line">    let i</span><br><span class="line">    const typeA&#x3D;(i&#x3D;a.data)&amp;&amp;(i&#x3D;i.attrs)&amp;&amp;i.type</span><br><span class="line">    const typeB&#x3D;(i&#x3D;b.data)&amp;&amp;(i&#x3D;i.attrs)&amp;&amp;i.type</span><br><span class="line">    return typeA&#x3D;&#x3D;&#x3D;typeB</span><br><span class="line">&#125;</span><br><span class="line">######对比相同的节点有哪些变化</span><br><span class="line">function patchVnode(oldVnode,vnode)&#123;</span><br><span class="line">    if(oldVNode&#x3D;&#x3D;&#x3D;vnode)&#123;</span><br><span class="line">        return</span><br><span class="line">    &#125;</span><br><span class="line">    if(vnode.isStatic&amp;&amp;oldVnode.isStatic&amp;&amp;vnode.key&#x3D;&#x3D;&#x3D;oldnode.key)&#123;</span><br><span class="line">        vnode.elm&#x3D;oldVnode.elm;</span><br><span class="line">        vnode.componentInstance&#x3D;oldVnode.componentInstance</span><br><span class="line">        return</span><br><span class="line">    &#125;</span><br><span class="line">    const elm&#x3D;vnode.elm&#x3D;oldVNode.elm</span><br><span class="line">    const oldCh&#x3D;oldVnode.children;</span><br><span class="line">    const ch&#x3D;vnode.children</span><br><span class="line"></span><br><span class="line">    if(vnode.text)&#123;</span><br><span class="line">        nodeOps.setTextContent(elm,vnode.text)</span><br><span class="line">    &#125;else </span><br><span class="line">    if(oldCh&amp;&amp;ch&amp;&amp;(oldCh!&#x3D;&#x3D;ch))&#123;</span><br><span class="line">        updateChildren(elm,oldCh,ch)</span><br><span class="line">    &#125;else if(ch)&#123;</span><br><span class="line">        if(oldVnode.text) nodeOps.setTextContent(elm,&#39;&#39;)</span><br><span class="line">        addVnodes(elm,null,ch,0,ch.length-1)</span><br><span class="line">    &#125;else if(oldCh)&#123;</span><br><span class="line">        removeVnodes(elm,oldCh,0,oldCh.length-1)</span><br><span class="line">    &#125;else if(oldVNode.text)&#123;</span><br><span class="line">        nodeOps.setTextContent(elm,&#39;&#39;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;updateChildren</span><br><span class="line">function updateChildren(parentElm,oldCh,newCh)&#123;</span><br><span class="line">    let oldStartIdx&#x3D;0;</span><br><span class="line">    let newStartIdx&#x3D;0;</span><br><span class="line">    let oldEndIdx&#x3D;oldCh.length-1</span><br><span class="line">    let oldStartVnode&#x3D;oldCh[0]</span><br><span class="line">    let oldEndVnode&#x3D;oldCh[oldEndIdx]</span><br><span class="line">    let newEndIdx&#x3D;newCh.length-1</span><br><span class="line">    let newStartVnode&#x3D;newCh[0]</span><br><span class="line">    let newEndVnode&#x3D;newCh[newEndIdx]</span><br><span class="line">    let oldKeyToIdx,idxInOld,elmToMove,refElm;</span><br><span class="line"></span><br><span class="line">    while(oldStartIdx&lt;&#x3D;oldEndIdx&amp;&amp;newStartIdx&lt;&#x3D;newEndIdx)&#123;</span><br><span class="line">        if(!oldStartVnode)&#123;</span><br><span class="line">            oldStartVnode&#x3D;oldCh[++oldStartIdx]</span><br><span class="line">        &#125;else if(!oldEndVnode)&#123;</span><br><span class="line">            oldEndVnode&#x3D;oldCh[--oldEndIdx]</span><br><span class="line">        &#125;else if ( sameVnode(oldStartVnode,newStartVnode) )&#123;</span><br><span class="line">            patchVnode(oldStartVnode,newStartVnode)</span><br><span class="line">            oldStartVnode&#x3D;oldCh[++oldStartIdx]</span><br><span class="line">            newStartVnode&#x3D;newCh[++newStartIdx]</span><br><span class="line">        &#125;else if(sameVnode(oldEndVnode,newEndVnode))&#123;</span><br><span class="line">            patchVnode(oldEndVnode,newEndVnode)</span><br><span class="line">            oldEndVnode&#x3D;oldCh[--oldEndIdx]</span><br><span class="line">            newEndVnode&#x3D;newCh[--newEndIdx]</span><br><span class="line">        &#125;else if(sameVnode(oldStartVnode,newEndVnode))&#123;</span><br><span class="line">            patchVnode(oldStartVnode,newEndVnode)</span><br><span class="line">            nodeOps.insertBefore(parentElm,oldStartVnode.elm,nodeOps.nextSibling(oldEndVnode.oldStartVnode&#x3D;oldCh[++oldStartIdx]))</span><br><span class="line">            newEndVnode&#x3D;newCh[--newEndIdx]</span><br><span class="line">        &#125;else if(sameVnode(oldEndVnode,newStartVnode))&#123;</span><br><span class="line">            patchVnode(oldEndVnode,newStartVnode)</span><br><span class="line">            nodeOps.insertBefore(parentElm,oldEndVnode.elm,oldStartVnode.elm)</span><br><span class="line">            oldEndVnode&#x3D;oldCh[--oldEndIdx]</span><br><span class="line">            newStartVnode&#x3D;newCh[++newStartIdx]</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            let elmToMove&#x3D;oldCh[idxInOld]</span><br><span class="line">            if(!oldKeyToIdx) oldKeyToIdx&#x3D;createKeyToOldIdx(oldCh,oldStartIdx,oldEndIdx)</span><br><span class="line">            idxInOld&#x3D;newStartVnode.key?oldKeyToIdx[newStartVnode.key]:null</span><br><span class="line">            if(!idexInOld)&#123;</span><br><span class="line">                createElm(newStartVnode,parentElm);</span><br><span class="line">                newStartVnode&#x3D;newCh[++newStartIdx]</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                elmToMove&#x3D;oldCh[idxInOld]</span><br><span class="line">                if(sameVnode(elmToMove,newStartVnode))&#123;</span><br><span class="line">                    patchVnode(elmToMove,newStartVnode)</span><br><span class="line">                    oldCh[idxInOld]&#x3D;undefined</span><br><span class="line">                    nodeOps.insertBefore(parentElm,newStartVnode.elm,oldStartVnode.elm)</span><br><span class="line">                    newStartVnode&#x3D;newCh[++newStartIdx]</span><br><span class="line">                &#125;else&#123;</span><br><span class="line">                    createElm(newStartVnode,parentElm)</span><br><span class="line">                    newStartVnode&#x3D;newCh[++newStartIdx]</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    if(oldStartIdx&gt;oldEndIdx)&#123;</span><br><span class="line">        refElm&#x3D;(newCh[newEndIdx+1])?newCh[newEndIdx+1].elm:null;</span><br><span class="line">        addVnodes(parentElm,refElm,newCh,newStartIdx,newEndIdx)</span><br><span class="line">    &#125;else if(newStartIdx&gt;newEndIdx)&#123;</span><br><span class="line">        removeVnodes(parentElm,oldCh,oldStartIdx,oldEndIdx)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>######nexttick原理<br>Vue.js 实现了一个 nextTick 函数，传入一个 cb ，这个 cb 会被存储到一个队列中，在下一个 tick 时触发队列中的所有 cb 事件。</p>
+<p>因为目前浏览器平台并没有实现 nextTick 方法，所以 Vue.js 源码中分别用 Promise、setTimeout、setImmediate 等方式在 microtask（或是task）中创建一个事件，目的是在当前调用栈执行完毕以后（不一定立即）才会去执行这个事件。</p>
+<p>笔者用 setTimeout 来模拟这个方法，当然，真实的源码中会更加复杂，笔者在小册中只讲原理，有兴趣了解源码中 nextTick 的具体实现的同学可以参考next-tick。</p>
+<p>首先定义一个 callbacks 数组用来存储 nextTick，在下一个 tick 处理这些回调函数之前，所有的 cb 都会被存在这个 callbacks 数组中。pending 是一个标记位，代表一个等待的状态。</p>
+<p>setTimeout 会在 task 中创建一个事件 flushCallbacks ，flushCallbacks 则会在执行时将 callbacks 中的所有 cb 依次执行。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">let callbacks&#x3D;[]</span><br><span class="line">let pending&#x3D;false;</span><br><span class="line">function nexttick(cb)&#123;</span><br><span class="line">    callbacks.push(cb)</span><br><span class="line">    if(!pending)&#123;</span><br><span class="line">        pending&#x3D;true;</span><br><span class="line">        setTimeout(flushCallbacks,0)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function flushCallbacks()&#123;</span><br><span class="line">    pending&#x3D;false;</span><br><span class="line">    const copies&#x3D;callbacks.slice(0)</span><br><span class="line">    callbacks.length&#x3D;0;</span><br><span class="line">    for(let i&#x3D;0;i&lt;copies.length;i++)&#123;</span><br><span class="line">        copies[i]()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>//update 方法，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">let uid&#x3D;0;</span><br><span class="line">class watcher&#123;</span><br><span class="line">    constructor()&#123;</span><br><span class="line">        this.id&#x3D;++uid;</span><br><span class="line">    &#125;</span><br><span class="line">    update()&#123;</span><br><span class="line">        console.log(&#39;watch&#39;+this.id+&#39;update&#39;)</span><br><span class="line">        queueWatcher(this)</span><br><span class="line">    &#125;</span><br><span class="line">    run()&#123;</span><br><span class="line">        console.log(&#39;watch&#39;+this.id+&#39;视图更新啦&#39;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>######queueWatcher<br>我们使用一个叫做 has 的 map，里面存放 id -&gt; true ( false ) 的形式，用来判断是否已经存在相同的 Watcher 对象 （这样比每次都去遍历 queue 效率上会高很多）。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">let has&#x3D;&#123;&#125;</span><br><span class="line">let queue&#x3D;[]</span><br><span class="line">let waiting&#x3D;false</span><br><span class="line"></span><br><span class="line">function queueWatcher(watcher)&#123;</span><br><span class="line">    const id&#x3D;watcher.id;</span><br><span class="line">    if(has[id]&#x3D;&#x3D;null)&#123;</span><br><span class="line">        has[id]&#x3D;true;</span><br><span class="line">        queue.push(watcher)</span><br><span class="line">        if(!waiting)&#123;</span><br><span class="line">            waiting&#x3D;true;</span><br><span class="line">            nextTick(flushSchedulerQueue)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>//flushSchedulerQueue</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">function flushSchedulerQueue()&#123;</span><br><span class="line">    let watcher ,id;</span><br><span class="line">    for(index&#x3D;0;index&lt;queue.length;index++)&#123;</span><br><span class="line">        watcher&#x3D;queue[index]</span><br><span class="line">        id&#x3D;watcher.id</span><br><span class="line">        has[id]&#x3D;null</span><br><span class="line">        watcher.run();</span><br><span class="line">    &#125;</span><br><span class="line">    waiting&#x3D;false</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>######store<br>理解 Vuex 的核心在于理解其如何与 Vue 本身结合，如何利用 Vue 的响应式机制来实现核心 Store 的「响应式化」。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">let Vue;</span><br><span class="line">export default install(_Vue)&#123;</span><br><span class="line">    Vue.mixin(&#123;beforeCreate:vuexInit&#125;)</span><br><span class="line">    Vue&#x3D;_Vue</span><br><span class="line">&#125;</span><br><span class="line">function vuexInit()&#123;</span><br><span class="line">    const options&#x3D;this.$options;</span><br><span class="line">    if(options.store)&#123;</span><br><span class="line">        this.$store&#x3D;options.store</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        this.$store&#x3D;options.parent.$store</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
+    
+    <a class="pull-left" href="/2020/11/17/%E9%98%85%E8%AF%BBvue%20%E6%96%87%E6%A1%A3%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="float: left;">
+        ← 阅读vue 文档学习笔记
+    </a>
+    
+    
+    <a class="pull-right" href="/2020/11/17/vue%E9%A2%84%E6%B8%B2%E6%9F%93/">
+        vue预渲染 →
+    </a>
+    
+</nav>
+
+        <div class="col-md-8 col-md-offset-2 col-sm-24"><script type="text/javascript">
+  /**
+   * 搜狐畅言
+   */
+
+  /*
+  document.write('<div id="SOHUCS" sid="' + window.location.pathname.slice(1) + '" ></div>');
+
+  window.onload = function () {
+    (function () {
+      var appid = 'cytXXXX';
+      var conf = 'prod_xxxxxxxxxxxxxxxxx';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      var loadJs = function (d, a, id) {
+        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+        var b = document.createElement("script");
+        b.setAttribute("type", "text/javascript");
+        b.setAttribute("charset", "UTF-8");
+        b.setAttribute("src", d);
+        if (id) {
+          b.setAttribute("id", id);
+        }
+        if (typeof a === "function") {
+          if (window.attachEvent) {
+            b.onreadystatechange = function () {
+              var e = b.readyState;
+              if (e === "loaded" || e === "complete") {
+                b.onreadystatechange = null;
+                a()
+              }
+            }
+          } else {
+            b.onload = a
+          }
+        }
+        c.appendChild(b)
+      };
+
+      loadJs("https://changyan.sohu.com/upload/changyan.js", function () {
+        window.changyan.api.config({
+          appid: appid,
+          conf: conf
+        })
+      });
+    })();
+  }
+  */
+
+</script>
+</div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By grace. All Rights Reserved.
+                </p>
+                <p>Theme By <a target="_blank" rel="noopener" href="//go.kieran.top" style="color: #767D84">Kieran</a></p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    
+                    
+                    
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+
+    resizeHero();
+
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$('#intro').find('img').each(function(){
+  var alt = this.alt;
+
+  if (alt){
+    $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
+  }
+
+  $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
+});
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+      
+</body>
+</html>

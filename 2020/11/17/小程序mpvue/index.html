@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+***************  *      *     *
+      8          *    *       *
+      8          *  *         *
+      8          **           *
+      8          *  *         *
+      8          *    *       *
+      8          *      *     *
+      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<!--<![endif]-->
+
+<head>
+  <title>小程序mpvue | GRACE&#39;S BLOG</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="GRACE'S BLOG">
+    <meta name="author" content="grace">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/img/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="GRACE&#39;S BLOG" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+    
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+  
+  
+  
+
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+<div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+    <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+        <img src="/img/close.png" alt="Close" />
+    </div>
+    <!-- Lists in Slidebars -->
+    <ul class="sb-menu">
+        <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+        <li><a href="/archives" class="animsition-link" title="archive">archives</a>
+        </li>
+        <!-- Dropdown Menu -->
+        
+        
+        
+    </ul>
+    <!-- Lists in Slidebars -->
+    <ul class="sb-menu secondary">
+        
+        <li><a href="/about.html" class="animsition-link" title="about">About</a></li>
+        <!-- <li><a href="/atom.xml" class="animsition-link" title="rss">RSS</a></li> -->
+    </ul>
+</div>
+
+<!-- ============================ END Off-canvas navigation =========================== -->
+
+<!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+<div id="sb-site">
+    <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+    <!-- ============================ Header & Logo bar =========================== -->
+
+    <div id="navigation" class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <!-- Nav logo -->
+                <div class="logo">
+                    <a href="/" title="Logo" class="animsition-link">
+                        
+                    </a>
+                </div>
+                <!-- // Nav logo -->
+                <!-- Info-bar -->
+                <nav>
+                    <ul class="nav">
+                        <li><a href="/" class="animsition-link">GRACE'S BLOG</a></li>
+                        <li class="nolink"><span>Always </span>Creative.</li>
+                        
+                        
+                        
+                        
+                        
+                        <li class="nolink"><span>Welcome!</span></li>
+                    </ul>
+                </nav>
+                <!--// Info-bar -->
+            </div>
+            <!-- // .container -->
+            <!-- <div class="learnmore sb-toggle-right">More</div> -->
+            <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+            </button>
+        </div>
+        <!-- // .navbar-inner -->
+    </div>
+
+    <!-- ============================ Header & Logo bar =========================== -->
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2020-11-17T07:00:38.331Z" itemprop="datePublished">
+          2020-11-17
+      </time>
+    
+</span>
+                <h1>小程序mpvue</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<p>###小程序原生<br>一.页面传值的三种方式<br>1.利用url传值<code>url?params=data&amp;params1=data1</code><br> 取值<code>onLoad: function(option)&#123;option.params&#125;</code><br>2.本地储存<br>3.全局的app对象<br>二.跳转到tabbar页的时候</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;navigator url&#x3D;&quot;&#x2F;page&#x2F;index&#x2F;index&quot; open-type&#x3D;&quot;switchTab&quot; &gt;切换 Tab&lt;&#x2F;navigator&gt;</span><br><span class="line">&#x2F;&#x2F;js</span><br><span class="line">wx.switchTab(&#123;</span><br><span class="line">      url: &#39;..&#x2F;b&#x2F;b&#39;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>三设置数组的其中的一个属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var active &#x3D; this.data.cartInfo[e.currentTarget.dataset.index].active</span><br><span class="line">    var circle &#x3D; &#39;cartInfo[&#39;+e.currentTarget.dataset.index+&#39;].active&#39;</span><br><span class="line">    this.setData(&#123;</span><br><span class="line">      [circle]:!active</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
+<p>四 post 请求</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">data 参数说明</span><br><span class="line">最终发送给服务器的数据是 String 类型，如果传入的 data 不是 String 类型，</span><br><span class="line">会被转换成 String 。转换规则如下：</span><br><span class="line">1.对于 GET 方法的数据，会将数据转换成query string</span><br><span class="line">（encodeURIComponent(k)&#x3D;encodeURIComponent(v)</span><br><span class="line">&amp;encodeURIComponent(k)&#x3D;encodeURIComponent(v)...）</span><br><span class="line"></span><br><span class="line">2.对于 POST 方法且 header[&#39;content-type&#39;] 为 application&#x2F;json 的数据，</span><br><span class="line">会对数据进行 JSON 序列化</span><br><span class="line"></span><br><span class="line">3.对于 POST 方法且 header[&#39;content-type&#39;] 为 </span><br><span class="line">application&#x2F;x-www-form-urlencoded 的数据，</span><br><span class="line">会将数据转换成 query string </span><br><span class="line">（encodeURIComponent(k)&#x3D;encodeURIComponent(v)</span><br><span class="line">&amp;encodeURIComponent(k)&#x3D;encodeURIComponent(v)...）</span><br></pre></td></tr></table></figure>
+<p>五 页面刷新<br>当返回上一页面需要刷新数据时，可以请求写在onshow函数中<br>###mpvue<br><a target="_blank" rel="noopener" href="http://mpvue.com/">mpvue docs</a><br>由于vue-cli 已经升级到3.0 ，所以要更新一下,Vue CLI 的包名称由 vue-cli 改成了 @vue/cli。 如果你已经全局安装了旧版本的 vue-cli (1.x 或 2.x)，需要先卸载<br><code>npm uninstall vue-cli -g </code><br>安装<br><code>npm install -g @vue/cli</code><br>检查版本<br><code>vue --version</code><br>Vue CLI 3 和旧版使用了相同的 vue 命令，所以 Vue CLI 2 (vue-cli) 被覆盖了。如果你仍然需要使用旧版本的 vue init 功能，你可以全局安装一个桥接工具</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install -g @vue&#x2F;cli-init</span><br><span class="line"># &#96;vue init&#96; 的运行效果将会跟 &#96;vue-cli@2.x&#96; 相同</span><br></pre></td></tr></table></figure>
+<p>创建mpvue项目</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> vue init mpvue&#x2F;mpvue-quickstart my-project</span><br><span class="line">cd my-project</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<p> 搭配 VueX、mpVue-Router-Patch、mpVue-wxParse、Flyio 、mpvue-entry<br>新建页面时需要重新编译<br>###mpvue-entry<br>集中式页面配置，自动生成各页面的入口文件，优化目录结构，支持新增页面热更新<br>,v1.5.0 版本开始支持 mpvue-loader@^1.1.0 版本，新版 src 目录下需存在 app.json 文件<br>安装<br><code>npm i mpvue-entry -D</code><br>配置<br>build/webpack.base.conf.js目录<br><img src="https://upload-images.jianshu.io/upload_images/7339286-2736d76ce388ead7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="2018-09-10_183119.png"><br><img src="https://upload-images.jianshu.io/upload_images/7339286-7a1257c8a62367f8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="2018-09-10_183316.png"></p>
+<p>###mpVue-Router-Patch<br>vue-router路由是不能支持的，因为小程序无法动态的插入和控制节点，几乎无法实现。而且小程序对页面的切换性能做了很多优化，页面切换体验也好了很多，所以使用 vue-router 也不那么必要<br>如果是h5和小程序互相转换的话，可以使用Vue-Router-Patch，在 mpvue 中使用 vue-router 兼容的路由写法<br>安装<br><code>npm i mpvue-router-patch</code><br>使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; main.js</span><br><span class="line">import Vue from &#39;vue&#39;</span><br><span class="line">import MpvueRouterPatch from &#39;mpvue-router-patch&#39;</span><br><span class="line"></span><br><span class="line">Vue.use(MpvueRouterPatch)</span><br></pre></td></tr></table></figure>
+<p>router/index.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">module.exports&#x3D;[</span><br><span class="line">    &#123;</span><br><span class="line">        path:&#39;&#x2F;pages&#x2F;index&#x2F;index&#39;,</span><br><span class="line">        name:&#39;首页&#39;,</span><br><span class="line">        config:&#123;</span><br><span class="line">            navigationBarTitleText:&#39;首页&#39;,</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;   </span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p>###flyio<br><a target="_blank" rel="noopener" href="https://wendux.github.io/dist/#/doc/flyio/readme">fly docs</a><br>安装 <code>npm i flyio -D</code></p>
+<p>src/utils/fly.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">var Fly&#x3D;require(&quot;flyio&#x2F;dist&#x2F;npm&#x2F;wx&quot;)</span><br><span class="line">var fly&#x3D;new Fly</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; fly.config.baseURL&#x3D;&#39;xxx&#39;  实例级配置</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;设置超时</span><br><span class="line">fly.config.timeout &#x3D; 20000;</span><br><span class="line">&#x2F;&#x2F;请求拦截器</span><br><span class="line">fly.interceptors.request.use((request)&#x3D;&gt;&#123;</span><br><span class="line">    &#x2F;&#x2F;给所有请求添加自定义header</span><br><span class="line">    request.headers[&quot;X-Tag&quot;]&#x3D;&#39;flyio&#39;</span><br><span class="line">    return request</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;响应拦截器</span><br><span class="line">fly.interceptors.response.use( </span><br><span class="line">    (response)&#x3D;&gt;&#123;</span><br><span class="line">        return response.data</span><br><span class="line">    &#125;,</span><br><span class="line">    (err,promise)&#x3D;&gt;&#123;</span><br><span class="line">         return promise.resolve()</span><br><span class="line">    &#125;</span><br><span class="line">)</span><br><span class="line">export default fly</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>使用,api接口单独文件<br>src/service/api.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import req from &#39;..&#x2F;utils&#x2F;fly&#39;</span><br><span class="line"></span><br><span class="line">const getlist&#x3D;()&#x3D;&gt;&#123;</span><br><span class="line">  &#x2F;&#x2F;flyio返回的应该是一个promise对象</span><br><span class="line">   return req.get(&#39;https:&#x2F;&#x2F;api.ithome.com&#x2F;xml&#x2F;slide&#x2F;slide.xml&#39;)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">export &#123;getlist&#125; </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>如果需要使用vuex 数据共享</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import &#123;getlist&#125; from &#39;..&#x2F;..&#x2F;service&#x2F;api&#39;</span><br><span class="line"> actions: &#123;</span><br><span class="line">      async getArticle(&#123;commit,state&#125;)&#123;  &#x2F;&#x2F;不需要共享可以不放vuex里，此处为了练习</span><br><span class="line">          try&#123;</span><br><span class="line">            var list&#x3D;await getlist()  &#x2F;&#x2F;await一个promise对象</span><br><span class="line">            return list</span><br><span class="line">          &#125;catch(err)&#123;</span><br><span class="line">            console.log(err)</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>在.vue文件中触发</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">this.$store.dispatch(&#39;getArticle&#39;).then(res&#x3D;&gt;&#123;</span><br><span class="line">     console.log(res)</span><br><span class="line">   &#125;)</span><br></pre></td></tr></table></figure>
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
+    
+    <a class="pull-left" href="/2020/11/17/vue%E9%A1%B9%E7%9B%AE%E4%B8%ADvuedraggable%E7%9A%84%E4%BD%BF%E7%94%A8/" style="float: left;">
+        ← vue项目中vuedraggable的使用
+    </a>
+    
+    
+    <a class="pull-right" href="/2020/11/17/vue%E9%80%92%E5%BD%92%E7%BB%84%E4%BB%B6/">
+        vue递归组件 →
+    </a>
+    
+</nav>
+
+        <div class="col-md-8 col-md-offset-2 col-sm-24"><script type="text/javascript">
+  /**
+   * 搜狐畅言
+   */
+
+  /*
+  document.write('<div id="SOHUCS" sid="' + window.location.pathname.slice(1) + '" ></div>');
+
+  window.onload = function () {
+    (function () {
+      var appid = 'cytXXXX';
+      var conf = 'prod_xxxxxxxxxxxxxxxxx';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      var loadJs = function (d, a, id) {
+        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+        var b = document.createElement("script");
+        b.setAttribute("type", "text/javascript");
+        b.setAttribute("charset", "UTF-8");
+        b.setAttribute("src", d);
+        if (id) {
+          b.setAttribute("id", id);
+        }
+        if (typeof a === "function") {
+          if (window.attachEvent) {
+            b.onreadystatechange = function () {
+              var e = b.readyState;
+              if (e === "loaded" || e === "complete") {
+                b.onreadystatechange = null;
+                a()
+              }
+            }
+          } else {
+            b.onload = a
+          }
+        }
+        c.appendChild(b)
+      };
+
+      loadJs("https://changyan.sohu.com/upload/changyan.js", function () {
+        window.changyan.api.config({
+          appid: appid,
+          conf: conf
+        })
+      });
+    })();
+  }
+  */
+
+</script>
+</div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By grace. All Rights Reserved.
+                </p>
+                <p>Theme By <a target="_blank" rel="noopener" href="//go.kieran.top" style="color: #767D84">Kieran</a></p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    
+                    
+                    
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+
+    resizeHero();
+
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$('#intro').find('img').each(function(){
+  var alt = this.alt;
+
+  if (alt){
+    $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
+  }
+
+  $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
+});
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+      
+</body>
+</html>

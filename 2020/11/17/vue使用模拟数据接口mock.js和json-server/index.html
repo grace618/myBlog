@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+***************  *      *     *
+      8          *    *       *
+      8          *  *         *
+      8          **           *
+      8          *  *         *
+      8          *    *       *
+      8          *      *     *
+      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<!--<![endif]-->
+
+<head>
+  <title>vue使用模拟数据接口mock.js和json-server | GRACE&#39;S BLOG</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="GRACE'S BLOG">
+    <meta name="author" content="grace">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/img/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="GRACE&#39;S BLOG" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+    
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+  
+  
+  
+
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+<div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+    <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+        <img src="/img/close.png" alt="Close" />
+    </div>
+    <!-- Lists in Slidebars -->
+    <ul class="sb-menu">
+        <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+        <li><a href="/archives" class="animsition-link" title="archive">archives</a>
+        </li>
+        <!-- Dropdown Menu -->
+        
+        
+        
+    </ul>
+    <!-- Lists in Slidebars -->
+    <ul class="sb-menu secondary">
+        
+        <li><a href="/about.html" class="animsition-link" title="about">About</a></li>
+        <!-- <li><a href="/atom.xml" class="animsition-link" title="rss">RSS</a></li> -->
+    </ul>
+</div>
+
+<!-- ============================ END Off-canvas navigation =========================== -->
+
+<!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+<div id="sb-site">
+    <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+    <!-- ============================ Header & Logo bar =========================== -->
+
+    <div id="navigation" class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <!-- Nav logo -->
+                <div class="logo">
+                    <a href="/" title="Logo" class="animsition-link">
+                        
+                    </a>
+                </div>
+                <!-- // Nav logo -->
+                <!-- Info-bar -->
+                <nav>
+                    <ul class="nav">
+                        <li><a href="/" class="animsition-link">GRACE'S BLOG</a></li>
+                        <li class="nolink"><span>Always </span>Creative.</li>
+                        
+                        
+                        
+                        
+                        
+                        <li class="nolink"><span>Welcome!</span></li>
+                    </ul>
+                </nav>
+                <!--// Info-bar -->
+            </div>
+            <!-- // .container -->
+            <!-- <div class="learnmore sb-toggle-right">More</div> -->
+            <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+            </button>
+        </div>
+        <!-- // .navbar-inner -->
+    </div>
+
+    <!-- ============================ Header & Logo bar =========================== -->
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2020-11-17T07:08:23.665Z" itemprop="datePublished">
+          2020-11-17
+      </time>
+    
+</span>
+                <h1>vue使用模拟数据接口mock.js和json-server</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<p>###<br>前后端分离的开发中，如果要同时进行开发，可以前端先模拟数据<br>###mock.js<br>1.安装<br><code>npm install mockjs  --save-dev</code><br>2. 新建src/mock.js文件<br>mockjs里面有很多方法，可以模拟许多数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import Mock from &#39;mockjs&#39;;  </span><br><span class="line">export default Mock.mock(&#39;msg&#39;, &#123;  </span><br><span class="line">    &#39;user&#39;    : &#39;a&#39;,  </span><br><span class="line">    &#39;password|1-100&#39;: 100</span><br><span class="line">&#125;); </span><br></pre></td></tr></table></figure>
+<p>3.使用<br>在模块化开发中，methods方法里面使用axios获取数据，由于axios已经设置过全局注册，所以使用了this.axios<br><code>import mockdata from &quot;@/mock.js&quot;</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">    methods:&#123;</span><br><span class="line">onSubmit()&#123;</span><br><span class="line"> this.axios.get(&#39;msg&#39;).then(res&#x3D;&gt;&#123;</span><br><span class="line">                         &#x2F;&#x2F; this.data1 &#x3D; res.data;</span><br><span class="line">                          console.log(res);</span><br><span class="line">                           &#125;)</span><br><span class="line">&#125;</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
+<p>###json-server<br>项目练习到后面才感觉json-server居然没有post请求<br>1.安装<br><code> npm install json-server --save</code><br>2 .db文件<br>在根目录下和index同级的位置新建db.json文件，例如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;posts&quot;: [</span><br><span class="line">    &#123; &quot;id&quot;: 1, &quot;title&quot;: &quot;json-server&quot;, &quot;author&quot;: &quot;typicode&quot; &#125;</span><br><span class="line">  ],</span><br><span class="line">  &quot;comments&quot;: [</span><br><span class="line">    &#123; &quot;id&quot;: 1, &quot;body&quot;: &quot;some comment&quot;, &quot;postId&quot;: 1 &#125;</span><br><span class="line">  ],</span><br><span class="line">  &quot;profile&quot;: &#123; &quot;name&quot;: &quot;typicode&quot; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>3.设置json-server<br>在build/webpack.dev.conf.js中加入如下代码（之前是在 build/dev-server.js）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const jsonServer &#x3D; require(&#39;json-server&#39;)</span><br><span class="line">const server &#x3D; jsonServer.create()</span><br><span class="line">const router &#x3D; jsonServer.router(&#39;db.json&#39;)</span><br><span class="line">const middlewares &#x3D; jsonServer.defaults()</span><br><span class="line"></span><br><span class="line">server.use(middlewares)</span><br><span class="line">server.use(router)</span><br><span class="line">server.listen(3000, () &#x3D;&gt; &#123;</span><br><span class="line">  console.log(&#39;JSON Server is running&#39;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>4.设置代理<br>config/index.js中找到proxyTable</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">proxyTable: &#123;</span><br><span class="line">       &#39;&#x2F;api&#39;: &#123;</span><br><span class="line">           changeOrigin: true,&#x2F;&#x2F; 如果接口跨域，需要进行这个参数配置</span><br><span class="line">           target: &#39;http:&#x2F;&#x2F;localhost:3000&#39;,&#x2F;&#x2F; 接口的域名</span><br><span class="line">           pathRewrite: &#123;</span><br><span class="line">             &#39;^&#x2F;api&#39;: &#39;&#39;&#x2F;&#x2F;后面可以使重写的新路径，一般不做更改</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;  </span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>5.使用数据<br>api/后面的路径是db.json的字段名称，对象或者是数组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">methods:&#123;</span><br><span class="line">			Submit()&#123;</span><br><span class="line">				this.axios.get(&#39;&#x2F;api&#x2F;posts&#39;)&#x2F;&#x2F;代替http:&#x2F;&#x2F;localhost:3000&#x2F;posts</span><br><span class="line">        .then((res) &#x3D;&gt; &#123;</span><br><span class="line">           console.log(res)</span><br><span class="line">        &#125;)</span><br><span class="line">			&#125;，</span><br><span class="line">&#x2F;&#x2F;删除数据</span><br><span class="line">		deletepizza(index)&#123;</span><br><span class="line">			this.axios.delete(&#39;&#x2F;api&#x2F;pizzamenu&#x2F;&#39;+index).then(res&#x3D;&gt;&#123;</span><br><span class="line">				this.showpizza();</span><br><span class="line">			&#125;)</span><br><span class="line">		&#125;</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
+<p>6.启动 npm run dev<br>7.参考This is an <a target="_blank" rel="noopener" href="https://github.com/typicode/json-server">json-server</a>.</p>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
+    
+    <a class="pull-left" href="/2020/11/17/sublime%20text3%E8%BF%9E%E6%8E%A5sftp/ftp%E4%B8%8A%E4%BC%A0%E6%9C%8D%E5%8A%A1%E5%99%A8/" style="float: left;">
+        ← sublime text3连接sftp/ftp上传服务器
+    </a>
+    
+    
+    <a class="pull-right" href="/2020/11/17/%E7%94%A8vuex%E5%AE%9E%E7%8E%B0%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%B0%8F%E5%BA%94%E7%94%A8/">
+        用vuex实现的两个小应用 →
+    </a>
+    
+</nav>
+
+        <div class="col-md-8 col-md-offset-2 col-sm-24"><script type="text/javascript">
+  /**
+   * 搜狐畅言
+   */
+
+  /*
+  document.write('<div id="SOHUCS" sid="' + window.location.pathname.slice(1) + '" ></div>');
+
+  window.onload = function () {
+    (function () {
+      var appid = 'cytXXXX';
+      var conf = 'prod_xxxxxxxxxxxxxxxxx';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      var loadJs = function (d, a, id) {
+        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+        var b = document.createElement("script");
+        b.setAttribute("type", "text/javascript");
+        b.setAttribute("charset", "UTF-8");
+        b.setAttribute("src", d);
+        if (id) {
+          b.setAttribute("id", id);
+        }
+        if (typeof a === "function") {
+          if (window.attachEvent) {
+            b.onreadystatechange = function () {
+              var e = b.readyState;
+              if (e === "loaded" || e === "complete") {
+                b.onreadystatechange = null;
+                a()
+              }
+            }
+          } else {
+            b.onload = a
+          }
+        }
+        c.appendChild(b)
+      };
+
+      loadJs("https://changyan.sohu.com/upload/changyan.js", function () {
+        window.changyan.api.config({
+          appid: appid,
+          conf: conf
+        })
+      });
+    })();
+  }
+  */
+
+</script>
+</div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By grace. All Rights Reserved.
+                </p>
+                <p>Theme By <a target="_blank" rel="noopener" href="//go.kieran.top" style="color: #767D84">Kieran</a></p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    
+                    
+                    
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+
+    resizeHero();
+
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$('#intro').find('img').each(function(){
+  var alt = this.alt;
+
+  if (alt){
+    $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
+  }
+
+  $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
+});
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+      
+</body>
+</html>

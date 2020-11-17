@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+***************  *      *     *
+      8          *    *       *
+      8          *  *         *
+      8          **           *
+      8          *  *         *
+      8          *    *       *
+      8          *      *     *
+      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<!--<![endif]-->
+
+<head>
+  <title>阅读vue 文档学习笔记 | GRACE&#39;S BLOG</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="GRACE'S BLOG">
+    <meta name="author" content="grace">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/img/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="GRACE&#39;S BLOG" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+    
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+  
+  
+  
+
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+<div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+    <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+        <img src="/img/close.png" alt="Close" />
+    </div>
+    <!-- Lists in Slidebars -->
+    <ul class="sb-menu">
+        <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+        <li><a href="/archives" class="animsition-link" title="archive">archives</a>
+        </li>
+        <!-- Dropdown Menu -->
+        
+        
+        
+    </ul>
+    <!-- Lists in Slidebars -->
+    <ul class="sb-menu secondary">
+        
+        <li><a href="/about.html" class="animsition-link" title="about">About</a></li>
+        <!-- <li><a href="/atom.xml" class="animsition-link" title="rss">RSS</a></li> -->
+    </ul>
+</div>
+
+<!-- ============================ END Off-canvas navigation =========================== -->
+
+<!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+<div id="sb-site">
+    <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+    <!-- ============================ Header & Logo bar =========================== -->
+
+    <div id="navigation" class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <!-- Nav logo -->
+                <div class="logo">
+                    <a href="/" title="Logo" class="animsition-link">
+                        
+                    </a>
+                </div>
+                <!-- // Nav logo -->
+                <!-- Info-bar -->
+                <nav>
+                    <ul class="nav">
+                        <li><a href="/" class="animsition-link">GRACE'S BLOG</a></li>
+                        <li class="nolink"><span>Always </span>Creative.</li>
+                        
+                        
+                        
+                        
+                        
+                        <li class="nolink"><span>Welcome!</span></li>
+                    </ul>
+                </nav>
+                <!--// Info-bar -->
+            </div>
+            <!-- // .container -->
+            <!-- <div class="learnmore sb-toggle-right">More</div> -->
+            <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+            </button>
+        </div>
+        <!-- // .navbar-inner -->
+    </div>
+
+    <!-- ============================ Header & Logo bar =========================== -->
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2020-11-17T06:53:14.267Z" itemprop="datePublished">
+          2020-11-17
+      </time>
+    
+</span>
+                <h1>阅读vue 文档学习笔记</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<p>v2.6<br>######模板语法<br>可以用方括号括起来的 JavaScript 表达式作为一个指令的参数：<br><code>&lt;a v-bind:[attributeName]=&quot;url&quot;&gt; ... &lt;/a&gt;</code><br>同样地，你可以使用动态参数为一个动态的事件名绑定处理函数：<br><code>&lt;a v-on:[eventName]=&quot;doSomething&quot;&gt; ... &lt;/a&gt;</code><br>对动态参数的值的约束<br>动态参数预期会求出一个字符串，异常情况下值为 null。<br>这个特殊的 null 值可以被显性地用于移除绑定。<br>任何其它非字符串类型的值都将会触发一个警告。</p>
+<p>######计算属性缓存vs方法<br>计算属性基于它们的响应式依赖进行缓存，<br>这也同样意味着下面的计算属性将不再更新，因为 Date.now() 不是响应式依赖：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">computed: &#123;</span><br><span class="line">  now: function () &#123;</span><br><span class="line">    return Date.now()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>######计算属性的setter</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">computed:&#123;</span><br><span class="line">get:function()&#123;</span><br><span class="line"> return this.firstName+&#39; &#39;+this.lastName</span><br><span class="line">&#125;,</span><br><span class="line">set:function(newValue)&#123;</span><br><span class="line">	var names&#x3D;newValue.split(&#39; &#39;)</span><br><span class="line">	this.firstName&#x3D;names[0]</span><br><span class="line">	this.lastName&#x3D;names[names.length-1]</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>######侦听器<br>虽然计算属性在大多数情况下更合适，但有时也需要一个自定义的侦听器。<br>这就是为什么 Vue 通过 watch 选项提供了一个更通用的方法，来响应数据的变化。<br>当需要在数据变化时执行异步或开销较大的操作时，这个方式是最有用的。</p>
+<p>######class与style绑定<br>绑定class<br>对象绑定</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;div</span><br><span class="line">  class&#x3D;&quot;static&quot;</span><br><span class="line">  v-bind:class&#x3D;&quot;&#123; active: isActive, &#39;text-danger&#39;: hasError &#125;&quot;</span><br><span class="line">&gt;&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+<p>和如下 data：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">data: &#123;</span><br><span class="line">  isActive: true,</span><br><span class="line">  hasError: false</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>######数组语法<br>我们可以把一个数组传给 v-bind:class，以应用一个 class 列表：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div v-bind:class&#x3D;&quot;[activeClass, errorClass]&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">data: &#123;</span><br><span class="line">  activeClass: &#39;active&#39;,</span><br><span class="line">  errorClass: &#39;text-danger&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在数组中使用对象<br>`</p>
+<div v-bind:class="[{ active: isActive }, errorClass]"></div>
+`
+######绑定内联样式
+v-bind:style 的对象语法十分直观——看着非常像 CSS，但其实是一个 JavaScript 对象。
+CSS 属性名可以用驼峰式 (camelCase) 或短横线分隔 (kebab-case，记得用引号括起来) 来命名：
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div v-bind:style&#x3D;&quot;&#123; color: activeColor, fontSize: fontSize + &#39;px&#39; &#125;&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">data: &#123;</span><br><span class="line">  activeColor: &#39;red&#39;,</span><br><span class="line">  fontSize: 30</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+######数组语法数组语法
+v-bind:style 的数组语法可以将多个样式对象应用到同一个元素上：
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;div v-bind:style&#x3D;&quot;[baseStyles, overridingStyles]&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line"></span><br><span class="line">Vue.component(&#39;blog-post&#39;,&#123;</span><br><span class="line">	props:[&#39;title&#39;],</span><br><span class="line">	template:&#96;&lt;h3&gt;&#123;&#123;title&#125;&#125;&lt;&#x2F;h3&gt;&#96;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+######全局注册
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(&#39;my-component-name&#39;, &#123;</span><br><span class="line">  &#x2F;&#x2F; ... 选项 ...</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+######局部注册
+在这些情况下，你可以通过一个普通的 JavaScript 对象来定义组件：
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var ComponentA &#x3D; &#123; &#x2F;* ... *&#x2F; &#125;</span><br><span class="line">var ComponentB &#x3D; &#123; &#x2F;* ... *&#x2F; &#125;</span><br><span class="line">var ComponentC &#x3D; &#123; &#x2F;* ... *&#x2F; &#125;</span><br></pre></td></tr></table></figure>
+然后在 components 选项中定义你想要使用的组件：
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">new Vue(&#123;</span><br><span class="line">  el: &#39;#app&#39;,</span><br><span class="line">  components: &#123;</span><br><span class="line">    &#39;component-a&#39;: ComponentA,</span><br><span class="line">    &#39;component-b&#39;: ComponentB</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+######基础组件的自动化全局注册
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">import Vue from &#39;vue&#39;</span><br><span class="line">import upperFirst from &#39;lodash&#x2F;upperFirst&#39;</span><br><span class="line">import camelCase from &#39;lodash&#x2F;cameCase&#39;</span><br><span class="line">const requireComponent&#x3D;require.context(</span><br><span class="line">   &#x2F;&#x2F;其组件目录的相对路径</span><br><span class="line">  &#39;.&#x2F;components&#39;,</span><br><span class="line">  &#x2F;&#x2F;是否查询其子目录</span><br><span class="line">  false,</span><br><span class="line">  &#x2F;&#x2F;匹配基础组件的文件名的正则表达式</span><br><span class="line">  &#x2F;Base[A-Z]\w+\.(vue|js)$&#x2F;</span><br><span class="line">)</span><br><span class="line">requireComponent.keys().forEach(fileName&#x3D;&gt;&#123;</span><br><span class="line">	&#x2F;&#x2F;获取组件配置</span><br><span class="line">	const componentConfig&#x3D;requireComponent(fileName)</span><br><span class="line">	&#x2F;&#x2F;获取组件的PascalCase命名</span><br><span class="line">	const componentName&#x3D;upperFirst(</span><br><span class="line">		cmaeCase(</span><br><span class="line">			fileName.split(&#39;&#x2F;&#39;).pop().replace(&#x2F;\.\w+$&#x2F;,&#39;&#39;)</span><br><span class="line">		)</span><br><span class="line">	)</span><br><span class="line">&#x2F;&#x2F;全局注册</span><br><span class="line">Vue.component(componentName,</span><br><span class="line">	&#x2F;&#x2F;如果这个组件选项是通过&#39;export default&#39;导出</span><br><span class="line">	&#x2F;&#x2F;那么就会优先使用&#39;.default&#39;</span><br><span class="line">	&#x2F;&#x2F;否则回退到使用模块的根</span><br><span class="line">	componentConfig.default||componnentConfig</span><br><span class="line">)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+传入一个对象的所有属性
+如果你想要将一个对象的所有属性都作为 prop 传入，你可以使用不带参数的 v-bind (取代 v-bind:prop-name)。例如，对于一个给定的对象 post：
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">post: &#123;</span><br><span class="line">  id: 1,</span><br><span class="line">  title: &#39;My Journey with Vue&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+下面的模板：
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;blog-post v-bind&#x3D;&quot;post&quot;&gt;&lt;&#x2F;blog-post&gt;</span><br><span class="line">等价于：</span><br><span class="line"></span><br><span class="line">&lt;blog-post</span><br><span class="line">  v-bind:id&#x3D;&quot;post.id&quot;</span><br><span class="line">  v-bind:title&#x3D;&quot;post.title&quot;</span><br><span class="line">&gt;&lt;&#x2F;blog-post&gt;</span><br></pre></td></tr></table></figure>
+
+<p>######单向数据流<br>所有的 prop 都使得其父子 prop 之间形成了一个单向下行绑定：父级 prop 的更新会向下流动到子组件中，但是反过来则不行。这样会防止从子组件意外改变父级组件的状态，从而导致你的应用的数据流向难以理解。</p>
+<p>额外的，每次父级组件发生更新时，子组件中所有的 prop 都将会刷新为最新的值。这意味着你不应该在一个子组件内部改变 prop。如果你这样做了，Vue 会在浏览器的控制台中发出警告。</p>
+<p>这里有两种常见的试图改变一个 prop 的情形：</p>
+<p>这个 prop 用来传递一个初始值；这个子组件接下来希望将其作为一个本地的 prop 数据来使用。在这种情况下，最好定义一个本地的 data 属性并将这个 prop 用作其初始值：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">props: [&#39;initialCounter&#39;],</span><br><span class="line">data: function () &#123;</span><br><span class="line">  return &#123;</span><br><span class="line">    counter: this.initialCounter</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个 prop 以一种原始的值传入且需要进行转换。在这种情况下，最好使用这个 prop 的值来定义一个计算属性：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">props: [&#39;size&#39;],</span><br><span class="line">computed: &#123;</span><br><span class="line">  normalizedSize: function () &#123;</span><br><span class="line">    return this.size.trim().toLowerCase()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意在 JavaScript 中对象和数组是通过引用传入的，所以对于一个数组或对象类型的 prop 来说，在子组件中改变这个对象或数组本身将会影响到父组件的状态。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">propF:&#123;</span><br><span class="line">validator:function(value)&#123;</span><br><span class="line"> return [&#39;success&#39;,&#39;danger&#39;].indexOf(value)!&#x3D;&#x3D;-1</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>######将原生事件绑定到组件<br>在有的时候这是很有用的，不过在你尝试监听一个类似 <input> 的非常特定的元素时，这并不是个好主意。<br>比如上述 <base-input> 组件可能做了如下重构，所以根元素实际上是一个 <label> 元素：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(&#39;base-input&#39;,&#123;</span><br><span class="line">	inheritAttrs:false,</span><br><span class="line">	props:[&#39;label&#39;,&#39;value&#39;],</span><br><span class="line">	computed:&#123;</span><br><span class="line">		inputListeners:function()&#123;</span><br><span class="line">		  var vm&#x3D;this</span><br><span class="line">		  return Object.assign(&#123;&#125;,</span><br><span class="line">			this.$listeners,</span><br><span class="line">			&#x2F;&#x2F;然后我们添加自定义监听器</span><br><span class="line">			&#x2F;&#x2F;或覆写一些监听器的行为</span><br><span class="line">			&#123;</span><br><span class="line">				&#x2F;&#x2F;这里确保组件配合&#39;v-model&#39;的工作</span><br><span class="line">				input:function(event)&#123;</span><br><span class="line">					vm.$emit(&#39;input&#39;,event.target.value)</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		  )</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;,</span><br><span class="line">	template:&#96;</span><br><span class="line">	  &lt;label&gt;</span><br><span class="line">		&#123;&#123;label&#125;&#125;</span><br><span class="line">		&lt;input</span><br><span class="line">			v-bind&#x3D;&quot;$attrs&quot;</span><br><span class="line">			v-bind:value&#x3D;&quot;value&quot;</span><br><span class="line">			v-on&#x3D;&quot;inputListeners&quot;</span><br><span class="line">		&gt;</span><br><span class="line">	  &lt;&#x2F;label&gt;</span><br><span class="line">	&#96;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>######具名参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;container&quot;&gt;</span><br><span class="line">  &lt;header&gt;</span><br><span class="line">    &lt;slot name&#x3D;&quot;header&quot;&gt;&lt;&#x2F;slot&gt;</span><br><span class="line">  &lt;&#x2F;header&gt;</span><br><span class="line">  &lt;main&gt;</span><br><span class="line">    &lt;slot&gt;&lt;&#x2F;slot&gt;</span><br><span class="line">  &lt;&#x2F;main&gt;</span><br><span class="line">  &lt;footer&gt;</span><br><span class="line">    &lt;slot name&#x3D;&quot;footer&quot;&gt;&lt;&#x2F;slot&gt;</span><br><span class="line">  &lt;&#x2F;footer&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+<p>一个不带 name 的 <slot> 出口会带有隐含的名字“default”。</p>
+<p>在向具名插槽提供内容的时候，我们可以在一个 <template> 元素上使用 v-slot 指令，并以 v-slot 的参数的形式提供其名称：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;base-layout&gt;</span><br><span class="line">  &lt;template v-slot:header&gt;</span><br><span class="line">    &lt;h1&gt;Here might be a page title&lt;&#x2F;h1&gt;</span><br><span class="line">  &lt;&#x2F;template&gt;</span><br><span class="line"></span><br><span class="line">  &lt;p&gt;A paragraph for the main content.&lt;&#x2F;p&gt;</span><br><span class="line">  &lt;p&gt;And another one.&lt;&#x2F;p&gt;</span><br><span class="line"></span><br><span class="line">  &lt;template v-slot:footer&gt;</span><br><span class="line">    &lt;p&gt;Here&#39;s some contact info&lt;&#x2F;p&gt;</span><br><span class="line">  &lt;&#x2F;template&gt;</span><br><span class="line">&lt;&#x2F;base-layout&gt;</span><br></pre></td></tr></table></figure>
+<p>现在 <template> 元素中的所有内容都将会被传入相应的插槽。任何没有被包裹在带有 v-slot 的 <template> 中的内容都会被视为默认插槽的内容。</p>
+<p>######过渡js钩子</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">&lt;transition v-on:enter&#x3D;&quot;enter&quot;&gt;&lt;&#x2F;transition&gt;</span><br><span class="line"></span><br><span class="line">状态过滤-把过渡放组件里</span><br><span class="line">Vue.component(&#39;animated-integer&#39;,&#123;</span><br><span class="line">template:&#39;&lt;span&gt;&#123;&#123;tweeningValue&#125;&#125;&lt;&#x2F;span&gt;&#39;,</span><br><span class="line">props:&#123;</span><br><span class="line">	value:&#123;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;,</span><br><span class="line">data:function()&#123;</span><br><span class="line">&#125;,</span><br><span class="line">watch:&#123;</span><br><span class="line">&#125;,</span><br><span class="line">mouted:function()&#123;</span><br><span class="line">&#125;,</span><br><span class="line">methods:&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br><span class="line">&lt;div id&#x3D;&quot;example&quot;&gt;</span><br><span class="line"> &lt;animated-integer&gt;&lt;&#x2F;animated-integer&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line">new Vue(&#123;</span><br><span class="line"> el:&#39;#example&#39;,</span><br><span class="line"> data:&#123;</span><br><span class="line">  firstnumber:20,</span><br><span class="line">  lastnumber:40</span><br><span class="line"> &#125;,</span><br><span class="line"> computed:&#123;</span><br><span class="line">	result:function()&#123;</span><br><span class="line">	</span><br><span class="line">	&#125;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">混入</span><br><span class="line">var myMixin&#x3D;&#123;</span><br><span class="line"> created:function()&#123;</span><br><span class="line">  </span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line">var Component&#x3D;Vue.extend(&#123;</span><br><span class="line"> mixins:[myMixin]</span><br><span class="line">&#125;)</span><br><span class="line">var component&#x3D;new Component()</span><br></pre></td></tr></table></figure>
+<p>选项合并<br>1 数据对象在内部会进行递归合并，并在发生冲突时以组件数据优先。<br>2 同名钩子函数将合并为一个数组，因此都将被调用。另外，混入对象的钩子将在组件自身钩子之前调用</p>
+<p>全局混入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Vue.mixin(&#123;</span><br><span class="line">  created:function()&#123;</span><br><span class="line">	var myOption&#x3D;this.$options.myOption</span><br><span class="line">	if(myOption)&#123;</span><br><span class="line">		console.log(myOption)</span><br><span class="line">	&#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">new Vue(&#123;</span><br><span class="line"> myOption:&#39;HELLO&#39;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>######自定义选项合并策略<br>//函数<br>Vue.config.optionMergeStrategies.myOption=function(toVal,fromVal){<br>  //返回合并后的值<br>}<br>//或者使用与methods相同的合并策略</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var strategies&#x3D;Vue.config.optionMergeStrategies</span><br><span class="line">strategies.myOption&#x3D;strategies.methods</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">const merge&#x3D;Vue.config.optionMergeStrategies.computed</span><br><span class="line">Vue.config.optionMergeStragies.vux&#x3D;function(toVal,fromVal)&#123;</span><br><span class="line"> if(!toVal) return fromVal</span><br><span class="line"> if(!fromVal) return toVal</span><br><span class="line"> return &#123;</span><br><span class="line">	getters:merge(toVal.getters,fromVal.getters),</span><br><span class="line">	state:merge(toVal.state,fromVal.state),</span><br><span class="line">	actions:merge(toVal.actions,fromVal.actions)</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>自定义指令<br>全局指令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Vue.directive(&#39;focus&#39;,&#123;</span><br><span class="line">	&#x2F;&#x2F;当被绑定元素插入到dom时</span><br><span class="line">	inserted:function(el)&#123;</span><br><span class="line">	    &#x2F;&#x2F;聚焦元素</span><br><span class="line">		el.focus()</span><br><span class="line">	&#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>注册局部指令，组件中也接受一个directives的选项</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">directives:&#123;</span><br><span class="line">	focus:&#123;</span><br><span class="line">		inserted:function(el)&#123;</span><br><span class="line">			el.focus()</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;input v-focus&gt;</span><br></pre></td></tr></table></figure>
+<p>一个指令定义对象可以提供如下几个钩子函数 (均为可选)：</p>
+<p>bind：只调用一次，指令第一次绑定到元素时调用。在这里可以进行一次性的初始化设置。</p>
+<p>inserted：被绑定元素插入父节点时调用 (仅保证父节点存在，但不一定已被插入文档中)。</p>
+<p>update：所在组件的 VNode 更新时调用，但是可能发生在其子 VNode 更新之前。指令的值可能发生了改变，也可能没有。<br>但是你可以通过比较更新前后的值来忽略不必要的模板更新 (详细的钩子函数参数见下)。<br>componentUpdated：指令所在组件的 VNode 及其子 VNode 全部更新后调用。</p>
+<p>unbind：只调用一次，指令与元素解绑时调用。</p>
+<p>######函数简写<br>在很多时候，你可能想在 bind 和 update 时触发相同行为，而不关心其它的钩子。比如这样写:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Vue.directive(&#39;color-swatch&#39;, function (el, binding) &#123;</span><br><span class="line">  el.style.backgroundColor &#x3D; binding.value</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>######渲染函数<br>createElement 参数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">createElement(</span><br><span class="line">  &#x2F;&#x2F; &#123;String | Object | Function&#125;</span><br><span class="line">  &#x2F;&#x2F; 一个 HTML 标签名、组件选项对象，或者</span><br><span class="line">  &#x2F;&#x2F; resolve 了上述任何一种的一个 async 函数。必填项。</span><br><span class="line">	&#39;div&#39;,</span><br><span class="line">	&#x2F;&#x2F;&#123;object&#125; 一个与模板中属性对应的数据对象</span><br><span class="line">	&#123;</span><br><span class="line">	</span><br><span class="line">	&#125;,</span><br><span class="line">	&#x2F;&#x2F;子级虚拟节点（Vnode）,由createElement(),构建而成</span><br><span class="line">	&#x2F;&#x2F;也可以使用字符串来生成‘文本虚拟节点’，可选</span><br><span class="line">	[</span><br><span class="line">	 &#39;some word&#39;,</span><br><span class="line">	 createElment(MyComponent,&#123;</span><br><span class="line">		props:&#123;</span><br><span class="line">			someProp:&#39;foobar&#39;</span><br><span class="line">		&#125;</span><br><span class="line">	 &#125;)</span><br><span class="line">	]</span><br><span class="line"></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>示例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">var getChildrenTextContext&#x3D;function(children)&#123;</span><br><span class="line">	return children.map(function(node)&#123;</span><br><span class="line">		return node.children?getChildrenTextContext(node.children):</span><br><span class="line">		node.text</span><br><span class="line">	&#125;).join(&#39;&#39;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Vue.component(&#39;anchored-heading&#39;,&#123;</span><br><span class="line">	render:function(createElement)&#123;</span><br><span class="line">		var headingId&#x3D;getChildrenTextContext(this.$slots.default)</span><br><span class="line">		.toLowerCase()</span><br><span class="line">		.replace(&#x2F;\W+&#x2F;g,&#39;-&#39;)</span><br><span class="line">		.replace(&#x2F;(^-|-$)&#x2F;,&#39;&#39;)</span><br><span class="line">		</span><br><span class="line">		return createElement(</span><br><span class="line">			&#39;h&#39;+this.level,</span><br><span class="line">			[</span><br><span class="line">			  createElement(&#39;a&#39;,&#123;</span><br><span class="line">				attrs:&#123;</span><br><span class="line">					name:headingId,</span><br><span class="line">					href:&#39;#&#39;+headingId</span><br><span class="line">				&#125;</span><br><span class="line">			  &#125;,this.$slots.default)</span><br><span class="line">			]</span><br><span class="line">		)</span><br><span class="line">	&#125;,</span><br><span class="line">	props:&#123;</span><br><span class="line">		level:&#123;</span><br><span class="line">			type:Number,</span><br><span class="line">			required:true</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;)</span><br><span class="line">&#x2F;&#x2F;v-model</span><br><span class="line">props:[&#39;value&#39;],</span><br><span class="line">render:function(createElement)&#123;</span><br><span class="line"> var self&#x3D;this</span><br><span class="line"> return createElement(&#39;input&#39;,&#123;</span><br><span class="line">	domProps:&#123;</span><br><span class="line">		value:self.value</span><br><span class="line">	&#125;,</span><br><span class="line">	on:&#123;</span><br><span class="line">		input:function(event)&#123;</span><br><span class="line">			self.$emit(&#39;input&#39;,event.target.value)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"> &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>######函数式组件</p>
+<p>之前创建的锚点标题组件是比较简单，没有管理任何状态，也没有监听任何传递给它的状态，也没有生命周期方法。实际上，它只是一个接受一些 prop 的函数。<br>在这样的场景下，我们可以将组件标记为 functional，这意味它无状态 (没有响应式数据)，也没有实例 (没有 this 上下文)。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Vue.component(&#39;my-component&#39;,&#123;</span><br><span class="line"> functional:true,</span><br><span class="line"> props:&#123;</span><br><span class="line">	</span><br><span class="line"> &#125;,</span><br><span class="line"> render:function(createElement,content)&#123;</span><br><span class="line"> </span><br><span class="line"> &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>######插件<br>插件通常用来为 Vue 添加全局功能。插件的功能范围没有严格的限制——一般有下面几种：</p>
+<p>添加全局方法或者属性。如: vue-custom-element</p>
+<p>添加全局资源：指令/过滤器/过渡等。如 vue-touch</p>
+<p>通过全局混入来添加一些组件选项。如 vue-router</p>
+<p>添加 Vue 实例方法，通过把它们添加到 Vue.prototype 上实现。</p>
+<p>一个库，提供自己的 API，同时提供上面提到的一个或多个功能。如 vue-router</p>
+<p>Vue.js 的插件应该暴露一个 install 方法。这个方法的第一个参数是 Vue 构造器，第二个参数是一个可选的选项对象：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">MyPlugin.install&#x3D;function(Vue,options)&#123;</span><br><span class="line">    &#x2F;&#x2F;全局方法或属性</span><br><span class="line">	Vue.myGlobalMethod&#x3D;function()&#123;</span><br><span class="line">	</span><br><span class="line">	&#125;</span><br><span class="line">	&#x2F;&#x2F;添加全局资源</span><br><span class="line">	Vue.directive(&#39;my-directive&#39;,&#123;</span><br><span class="line">		bind(el,binding,vnode,oldVnode)&#123;</span><br><span class="line">		</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;)</span><br><span class="line">	&#x2F;&#x2F;注入组件选项</span><br><span class="line">	Vue.mixin(&#123;</span><br><span class="line">		created:function()&#123;</span><br><span class="line">		</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	&#125;)</span><br><span class="line">	&#x2F;&#x2F;添加实例方法</span><br><span class="line">	Vue.prototype.$myMethod&#x3D;function(methodOptions)&#123;</span><br><span class="line">	</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
+    
+    <a class="pull-left" href="/2020/11/17/next.js%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="float: left;">
+        ← next.js学习笔记
+    </a>
+    
+    
+    <a class="pull-right" href="/2020/11/17/vue%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6%E7%AC%94%E8%AE%B0/">
+        vue运行机制笔记 →
+    </a>
+    
+</nav>
+
+        <div class="col-md-8 col-md-offset-2 col-sm-24"><script type="text/javascript">
+  /**
+   * 搜狐畅言
+   */
+
+  /*
+  document.write('<div id="SOHUCS" sid="' + window.location.pathname.slice(1) + '" ></div>');
+
+  window.onload = function () {
+    (function () {
+      var appid = 'cytXXXX';
+      var conf = 'prod_xxxxxxxxxxxxxxxxx';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      var loadJs = function (d, a, id) {
+        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+        var b = document.createElement("script");
+        b.setAttribute("type", "text/javascript");
+        b.setAttribute("charset", "UTF-8");
+        b.setAttribute("src", d);
+        if (id) {
+          b.setAttribute("id", id);
+        }
+        if (typeof a === "function") {
+          if (window.attachEvent) {
+            b.onreadystatechange = function () {
+              var e = b.readyState;
+              if (e === "loaded" || e === "complete") {
+                b.onreadystatechange = null;
+                a()
+              }
+            }
+          } else {
+            b.onload = a
+          }
+        }
+        c.appendChild(b)
+      };
+
+      loadJs("https://changyan.sohu.com/upload/changyan.js", function () {
+        window.changyan.api.config({
+          appid: appid,
+          conf: conf
+        })
+      });
+    })();
+  }
+  */
+
+</script>
+</div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By grace. All Rights Reserved.
+                </p>
+                <p>Theme By <a target="_blank" rel="noopener" href="//go.kieran.top" style="color: #767D84">Kieran</a></p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    
+                    
+                    
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+
+    resizeHero();
+
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$('#intro').find('img').each(function(){
+  var alt = this.alt;
+
+  if (alt){
+    $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
+  }
+
+  $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
+});
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+      
+</body>
+</html>

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+***************  *      *     *
+      8          *    *       *
+      8          *  *         *
+      8          **           *
+      8          *  *         *
+      8          *    *       *
+      8          *      *     *
+      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<!--<![endif]-->
+
+<head>
+  <title>关于css和html(二) | GRACE&#39;S BLOG</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="GRACE'S BLOG">
+    <meta name="author" content="grace">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/img/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="GRACE&#39;S BLOG" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+    
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+  
+  
+  
+
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+<div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+    <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+        <img src="/img/close.png" alt="Close" />
+    </div>
+    <!-- Lists in Slidebars -->
+    <ul class="sb-menu">
+        <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+        <li><a href="/archives" class="animsition-link" title="archive">archives</a>
+        </li>
+        <!-- Dropdown Menu -->
+        
+        
+        
+    </ul>
+    <!-- Lists in Slidebars -->
+    <ul class="sb-menu secondary">
+        
+        <li><a href="/about.html" class="animsition-link" title="about">About</a></li>
+        <!-- <li><a href="/atom.xml" class="animsition-link" title="rss">RSS</a></li> -->
+    </ul>
+</div>
+
+<!-- ============================ END Off-canvas navigation =========================== -->
+
+<!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+<div id="sb-site">
+    <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+    <!-- ============================ Header & Logo bar =========================== -->
+
+    <div id="navigation" class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <!-- Nav logo -->
+                <div class="logo">
+                    <a href="/" title="Logo" class="animsition-link">
+                        
+                    </a>
+                </div>
+                <!-- // Nav logo -->
+                <!-- Info-bar -->
+                <nav>
+                    <ul class="nav">
+                        <li><a href="/" class="animsition-link">GRACE'S BLOG</a></li>
+                        <li class="nolink"><span>Always </span>Creative.</li>
+                        
+                        
+                        
+                        
+                        
+                        <li class="nolink"><span>Welcome!</span></li>
+                    </ul>
+                </nav>
+                <!--// Info-bar -->
+            </div>
+            <!-- // .container -->
+            <!-- <div class="learnmore sb-toggle-right">More</div> -->
+            <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+            </button>
+        </div>
+        <!-- // .navbar-inner -->
+    </div>
+
+    <!-- ============================ Header & Logo bar =========================== -->
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2020-11-17T07:12:06.203Z" itemprop="datePublished">
+          2020-11-17
+      </time>
+    
+</span>
+                <h1>关于css和html(二)</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<p>###背景图<br>在浏览器窗口缩小时，可以设置body，html的最小宽度<br>###动画</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">div</span><br><span class="line">&#123;</span><br><span class="line">animation:mymove 5s infinite;</span><br><span class="line">-webkit-animation:mymove 5s infinite; &#x2F;* Safari 和 Chrome *&#x2F;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">animation-name	规定需要绑定到选择器的 keyframe 名称。。</span><br><span class="line">animation-duration	规定完成动画所花费的时间，以秒或毫秒计。</span><br><span class="line">animation-timing-function	规定动画的速度曲线。</span><br><span class="line">animation-delay	规定在动画开始之前的延迟。</span><br><span class="line">animation-iteration-count	规定动画应该播放的次数。</span><br><span class="line">animation-direction	规定是否应该轮流反向播放动画。</span><br></pre></td></tr></table></figure>
+<p>使用简写属性，将动画与 div 元素绑定：<br>使用@keyframs和animation,绑定元素动画</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">@keyframs</span><br><span class="line"></span><br><span class="line">.btn_wish&#123;</span><br><span class="line">	cursor: pointer;</span><br><span class="line">	animation: stat .5s infinite alternate;</span><br><span class="line">	-webkit-animation: stat .5s infinite alternate;</span><br><span class="line">	-moz-animation: stat .5s infinite alternate;</span><br><span class="line">	-ms-animation: stat .5s infinite alternate;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@-moz-keyframes stat&#123;</span><br><span class="line">	from&#123;transform: scale(0.95);&#125;</span><br><span class="line">	to&#123;transform: scale(1.0);&#125;</span><br><span class="line">&#125;</span><br><span class="line">@-webkit-keyframes stat&#123;</span><br><span class="line">	from&#123;transform: scale(0.95);&#125;</span><br><span class="line">	to&#123;transform: scale(1.0);&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>设置动画播放次数，可以设置成无限次，让元素一直运动。<br>###css画六边形</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">	&lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">	&lt;title&gt;Document&lt;&#x2F;title&gt;</span><br><span class="line">	&lt;style&gt;</span><br><span class="line">		.wrapper&#123;</span><br><span class="line">			width: 100px;</span><br><span class="line">			margin:20px auto;</span><br><span class="line">		&#125;</span><br><span class="line">		.wrapper div&#123;</span><br><span class="line">			width: 100px;</span><br><span class="line">			height: 200px;</span><br><span class="line">			overflow: hidden;</span><br><span class="line">		&#125;</span><br><span class="line">		.box&#123;</span><br><span class="line">			transform:rotateZ(60deg);</span><br><span class="line">		&#125;</span><br><span class="line">		.inner&#123;</span><br><span class="line">			transform: rotateZ(60deg);</span><br><span class="line">			background: red;</span><br><span class="line">			cursor: pointer;</span><br><span class="line">		&#125;</span><br><span class="line">		.inner:hover&#123;</span><br><span class="line">			background: blue;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&lt;&#x2F;style&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">	&lt;div class&#x3D;&quot;wrapper&quot;&gt;</span><br><span class="line">		&lt;div class&#x3D;&quot;wrapper-box&quot;&gt;</span><br><span class="line">			&lt;div class&#x3D;&quot;box&quot;&gt;</span><br><span class="line">				&lt;div class&#x3D;&quot;inner&quot;&gt;</span><br><span class="line">				&lt;&#x2F;div&gt;</span><br><span class="line">			&lt;&#x2F;div&gt;</span><br><span class="line">		&lt;&#x2F;div&gt;</span><br><span class="line">	&lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+<p>###offset</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;.btn1&quot;).click(function()&#123;</span><br><span class="line">  x&#x3D;$(&quot;p&quot;).offset();</span><br><span class="line">  $(&quot;#span1&quot;).text(x.left);</span><br><span class="line">  $(&quot;#span2&quot;).text(x.top);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">$(selector).offset()</span><br></pre></td></tr></table></figure>
+<p>返回第一个匹配元素的偏移坐标。<br>该方法返回的对象包含两个整型属性：top 和 left，以像素计。此方法只对可见元素有效。<br>语法<br>###复制内容到剪贴板<br>  引入<script src="js/clipboard.js"></script><br>  然后在js中写出兼容代码<br> 复制兼容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line">   var ClipBoard &#x3D; function(obj)&#123;</span><br><span class="line">    this.handlerID &#x3D; obj.handlerID || null;</span><br><span class="line">    this.textID &#x3D; obj.textID || null;</span><br><span class="line">    this.type &#x3D; obj.type || &#39;copy&#39;;</span><br><span class="line">    this.isAttr &#x3D; obj.isAttr || false;</span><br><span class="line">    this.isPlugin &#x3D; true;</span><br><span class="line">    this.isActive &#x3D; false;</span><br><span class="line"></span><br><span class="line">    var ua &#x3D; window.navigator.userAgent;</span><br><span class="line">    var is_IE &#x3D; ua.match(&#x2F;(rv:|msie )\d+&#x2F;i);</span><br><span class="line">    var IE_Version &#x3D; is_IE ? parseInt(is_IE[0].split(&#x2F;:| &#x2F;g)[1]) : 9;</span><br><span class="line">    if(IE_Version &lt;&#x3D; 8)&#123;</span><br><span class="line">        this.isPlugin &#x3D; false;</span><br><span class="line">    &#125;</span><br><span class="line">    var handlerObj &#x3D; document.getElementById(obj.handlerID);</span><br><span class="line">    if(typeof this.type &#x3D;&#x3D;&#x3D; &#39;string&#39;)&#123;</span><br><span class="line">        handlerObj.setAttribute(&#39;data-clipboard-action&#39;,this.type)</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        throw error(&#39;type类型错误！&#39;);</span><br><span class="line">    &#125;</span><br><span class="line">    if(!obj.isAttr &amp;&amp; obj.textID)&#123;</span><br><span class="line">        handlerObj.setAttribute(&#39;data-clipboard-target&#39;,&#39;#&#39;+obj.textID);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">   ClipBoard.prototype.attach &#x3D; function()&#123;</span><br><span class="line">    if(this.isActive)&#123; &#x2F;&#x2F; 对象已经被实例化</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    var tip &#x3D; &#39;复制&#39;;</span><br><span class="line">    if(this.type &#x3D;&#x3D;&#x3D; &#39;cut&#39;)&#123;</span><br><span class="line">        tip &#x3D; &#39;剪切&#39;;</span><br><span class="line">    &#125;</span><br><span class="line">    this.isActive &#x3D; true;</span><br><span class="line">    if(this.isPlugin)&#123;</span><br><span class="line">        var clip &#x3D; new Clipboard(&#39;#&#39;+this.handlerID);</span><br><span class="line">        clip.on(&#39;success&#39;, function(e) &#123;</span><br><span class="line">            alert(tip+&#39;成功，可通过Ctrl+V进行粘贴！&#39;);</span><br><span class="line">        &#125;);</span><br><span class="line">        clip.on(&#39;error&#39;, function(e) &#123;</span><br><span class="line">            alert(e.action+&#39;操作失败！&#39;);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;else if(window.attachEvent)&#123;</span><br><span class="line">        var self &#x3D; this;</span><br><span class="line">        var handlerObj &#x3D; document.getElementById(this.handlerID);</span><br><span class="line">        handlerObj.attachEvent(&#39;onclick&#39;,function()&#123;</span><br><span class="line">            var text &#x3D; &#39;&#39;;</span><br><span class="line">            if(self.isAttr)&#123;&#x2F;&#x2F; 复制属性值</span><br><span class="line">                text &#x3D; handlerObj.getAttribute(&#39;data-clipboard-text&#39;);</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                var textObj &#x3D; document.getElementById(self.textID);</span><br><span class="line">                text &#x3D; textObj.value || textObj.innerHTML;</span><br><span class="line">            &#125;</span><br><span class="line">            window.clipboardData.setData(&#39;Text&#39;,text);</span><br><span class="line">            alert(tip+&#39;成功，可通过Ctrl+V进行粘贴！&#39;);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">            alert(&#39;浏览器版本过低，不支持该插件！&#39;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">	var c1 &#x3D; new ClipBoard(&#123;</span><br><span class="line">	    handlerID: &#39;Copy_btn1&#39;,  &#x2F;&#x2F;点击的那个按钮</span><br><span class="line">	    textID: &#39;card_num&#39;,    &#x2F;&#x2F;要复制的文本</span><br><span class="line">	    isAttr: false,</span><br><span class="line">	    type:&#39;copy&#39;</span><br><span class="line">	&#125;);</span><br><span class="line">	c1.attach();</span><br><span class="line">	var c2 &#x3D; new ClipBoard(&#123;</span><br><span class="line">	    handlerID: &#39;Copy_btn2&#39;,</span><br><span class="line">	    textID: &#39;card_pass&#39;,</span><br><span class="line">	    isAttr: false,</span><br><span class="line">	    type:&#39;copy&#39;</span><br><span class="line">	&#125;);</span><br><span class="line">	c2.attach();</span><br><span class="line">	var c3 &#x3D; new ClipBoard(&#123;</span><br><span class="line">	    handlerID: &#39;Copy_btn3&#39;,</span><br><span class="line">	    textID: &#39;card_num1&#39;,</span><br><span class="line">	    isAttr: false,</span><br><span class="line">	    type:&#39;copy&#39;</span><br><span class="line">	&#125;);</span><br><span class="line">	c3.attach();</span><br><span class="line">	var c4 &#x3D; new ClipBoard(&#123;</span><br><span class="line">	    handlerID: &#39;Copy_btn4&#39;,</span><br><span class="line">	    textID: &#39;card_pass1&#39;,</span><br><span class="line">	    isAttr: false,</span><br><span class="line">	    type:&#39;copy&#39;</span><br><span class="line">	&#125;);</span><br><span class="line">	c4.attach();</span><br></pre></td></tr></table></figure>
+<p>###百度分享</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">  &lt;script&gt;</span><br><span class="line">  window._bd_share_config&#x3D;&#123;</span><br><span class="line">		&quot;common&quot;:&#123;&quot;bdSnsKey&quot;:&#123;&#125;,&quot;bdText&quot;:&quot;&quot;,&quot;bdMini&quot;:&quot;2&quot;,&quot;bdMiniList&quot;:false,&quot;bdPic&quot;:&quot;&quot;,&quot;bdStyle&quot;:&quot;1&quot;,&quot;bdSize&quot;:&quot;16&quot;&#125;,</span><br><span class="line">		&quot;share&quot;:&#123;&quot;bdSize&quot;:16&#125;</span><br><span class="line">		&#125;;</span><br><span class="line">with(document)0[(getElementsByTagName(&#39;head&#39;)[0]||body).appendChild(createElement(&#39;script&#39;)).src&#x3D;&#39;http:&#x2F;&#x2F;bdimg.share.baidu.com&#x2F;static&#x2F;api&#x2F;js&#x2F;share.js?v&#x3D;89860593.js?cdnversion&#x3D;&#39;+~(-new Date()&#x2F;36e5)];</span><br><span class="line">   &lt;script&#x2F;&gt;</span><br><span class="line"></span><br><span class="line">  html</span><br><span class="line">&lt;div class&#x3D;&quot;bdsharebuttonbox&quot;&gt;</span><br><span class="line">		&lt;a href&#x3D;&quot;#&quot;  data-cmd&#x3D;&quot;more&quot;&gt;分享到：&lt;&#x2F;a&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+<p>html的书写，div添加类bdsharebuttonbox,给a添加data-cmd=”more”，如果是鼠标移入出现分享框，添加class=”bds_more”</p>
+<p>如果不要a的自带样式，删除link链接或者删除a的用js添加的类样式，或许重写自动生成的.bdshare-button-style0-16 a这个样式比较好<br>删除链接参考</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">var deleteMk&#x3D;&quot;0&quot;;</span><br><span class="line">		function deleteBdStyle()&#123;</span><br><span class="line">			var links&#x3D;$(&quot;link&quot;);</span><br><span class="line">			for(var i&#x3D;0;i&lt;links.length;i++)&#123;</span><br><span class="line">				if($(links.get(i)).attr(&quot;href&quot;).indexOf(&quot;share_style0_16.css&quot;)!&#x3D;(-1))&#123;</span><br><span class="line">					$(links.get(i)).remove();</span><br><span class="line">					deleteMk&#x3D;&quot;1&quot;;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			if(deleteMk&#x3D;&#x3D;&quot;0&quot;)&#123;</span><br><span class="line">				setTimeout(function()&#123;deleteBdStyle();&#125;,100)</span><br><span class="line">			&#125;else&#123;</span><br><span class="line">				$(&quot;.nav2&quot;).show();</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line">deleteBdStyle();</span><br></pre></td></tr></table></figure>
+<p>###remove<br>移除所有 <p> 元素：<br>$(“button”).click(function(){<br>  $(“p”).remove();<br>});<br>亲自试一试<br>定义和用法<br>remove() 方法移除被选元素，包括所有文本和子节点。<br>该方法不会把匹配的元素从 jQuery 对象中删除，因而可以在将来再使用这些匹配的元素。  返回匹配的元素，比如<p>This is a paragraph.</p><br>但除了这个元素本身得以保留之外，remove() 不会保留元素的 jQuery 数据。其他的比如绑定的事件、附加的数据等都会被移除。这一点与 detach() 不同。<br>语法<br>$(selector).remove()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$(document).ready(function()&#123;</span><br><span class="line">  $(&quot;button&quot;).click(function()&#123;</span><br><span class="line">    $(&quot;body&quot;).append($(&quot;p&quot;).remove());</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>###get()<br>定义和用法<br>get() 方法获得由选择器指定的 DOM 元素。<br>语法<br>$(selector).get(index)<br>###css元素晃动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">@keyframes swing&#123;</span><br><span class="line">20%&#123;transform:rotate(15deg)&#125;</span><br><span class="line">40%&#123;transform:rotate(-10deg)&#125;</span><br><span class="line">60%&#123;transform:rotate(5deg)&#125;</span><br><span class="line">80%&#123;transform:rotate(-5deg)&#125;</span><br><span class="line">100%&#123;transform:rotate(0deg)&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@-webkit-keyframes swing&#123;</span><br><span class="line">20%&#123;-webkit-transform:rotate(15deg)&#125;</span><br><span class="line">40%&#123;-webkit-transform:rotate(-10deg)&#125;</span><br><span class="line">60%&#123;-webkit-transform:rotate(5deg)&#125;</span><br><span class="line">80%&#123;-webkit-transform:rotate(-5deg)&#125;</span><br><span class="line">100%&#123;-webkit-transform:rotate(0deg)&#125;</span><br><span class="line">&#125;</span><br><span class="line">@-moz-keyframes swing&#123;</span><br><span class="line">20%&#123;-moz-transform:rotate(15deg)&#125;</span><br><span class="line">40%&#123;-moz-transform:rotate(-10deg)&#125;</span><br><span class="line">60%&#123;-moz-transform:rotate(5deg)&#125;</span><br><span class="line">80%&#123;-moz-transform:rotate(-5deg)&#125;</span><br><span class="line">100%&#123;-moz-transform:rotate(0deg)&#125;</span><br><span class="line">&#125;</span><br><span class="line">.btn a:hover div&#123;</span><br><span class="line">	  -webkit-animation: swing 1s .2s ease both;</span><br><span class="line">	  transform-origin: center top;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>###子元素的margin合并<br>给父元素加上 padding/border/overflow:hidden(IE要添加zoom:1)，</p>
+<p>或者给父元素/子元素设置为 float/position:absolute.</p>
+<p>(CSS2.1规定浮动元素和绝对定位元素不参与margin折叠)。</p>
+<p>###居中<br>或许可以尝试text-align:center;<br>###移动端全屏滑动<br>用zepto.js 里的swipe事件，和轮播图类似<br>###setTimeout传参问题</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function translate(ele,num,end)&#123;</span><br><span class="line">    ele.animate(&#123;&quot;marginTop&quot;:&quot;-666px&quot;&#125;,1000,&quot;linear&quot;,function()&#123;</span><br><span class="line">      ele.css(&quot;marginTop&quot;,&quot;0&quot;)</span><br><span class="line">      if(num&#x3D;&#x3D;0)&#123;  &#x2F;&#x2F;停止时确定位置</span><br><span class="line">        ele.animate(&#123;&quot;marginTop&quot;:-(end*66)+&quot;px&quot;&#125;,(end*100),&quot;linear&quot;);</span><br><span class="line">      &#125;else&#123;</span><br><span class="line">        num--;   &#x2F;&#x2F;滚动两轮，从-666px到0</span><br><span class="line">        translate(ele,num,end);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"> &#x2F;&#x2F; setTimeout( translate($(&quot;.num1&quot;),2,1),100);传参无效</span><br><span class="line"> setTimeout(function()&#123;translate($(&quot;.num2&quot;),2,2);&#125;,400);</span><br></pre></td></tr></table></figure>
+<p>###动画<br>如果是有规律的动画，可以是从0%到100%<br>###ie7 overflow-hidden<br>css兼容ie7：</p>
+<p>做页面的时候用负边距居中的时候在IE7下面，父节点中的overflow:hiden失效的问题，查阅了一些资料，总结一下解决方法。</p>
+<p>问题原因：</p>
+<p>当父元素的直接子元素或者下级子元素的样式拥有position:relative属性时，父元素的overflow:hidden属性就会失效。</p>
+<p>解决方法：</p>
+<p>我们在IE7内发现子元素会超出父元素设定的高度，即使父元素设置了overflow:hidden。</p>
+<p>解决这个bug很简单，在父元素中使用position:relative;即可解决该bug，就是用到overflow的父节点中增加相对定位即可。<br>###图片放大镜效果<br>改变弹窗的img路径，还原图片大小<br>###移入移出<br>mouseleave和mouseout区别<br>mouseenter和mouseover区别</p>
+<p>#提示<br>[if lt IE 7]&gt;<br>    <div style="position:fixed;left:0;top:0;width:100%;height:50px;background:red;color:#fff;border-bottom:1px
+    solid #fff;text-align:center;line-height:50px;font-size:16px;z-index: 999999"><br>        您使用的浏览器版本过低，可能会影响到您浏览本网页，建议您升级您的浏览器。<br>    </div><br>    &lt;![endif]<br>再给这段加个注释符号<br>###设置网页在线人工客服<br>有时候可能会出现这些问题<br><img src="https://upload-images.jianshu.io/upload_images/7339286-90c33de6cef0d3e6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="QQ图片20180411151331.png"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/7339286-48b86499460c785e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="QQ图片20180411151339.png"><br>访问 <a target="_blank" rel="noopener" href="http://shang.qq.com/v3/widget.html">http://shang.qq.com/v3/widget.html</a><br>在顶部导航那里点击【推广工具】<br>设置之后会出现如下图，有时候代码里没有加入qq号，可能要自己加入<br><img src="https://upload-images.jianshu.io/upload_images/7339286-c0590655faf2681d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="2018-04-11_151510.png"><br>核心代码<br><a  target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=QQ号&#10;&amp;site=qq&amp;menu=yes"></a><br>###css3实现效果<br>#边框外发光效果<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123; -webkit-box-shadow: 0px 10px 20px 1px #b9b4b4;</span><br><span class="line">    box-shadow: 0px 10px 20px 1px #b9b4b4;</span><br><span class="line">    z-index: 1;</span><br><span class="line">    position: relative;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>第一个参数，水平位移，第二个参数，垂直位移，第三个参数，模糊范围，第四个参数，阴影范围<br>加层级是为了能让元素不被周围元素覆盖阴影<br>#border的虚线<br>width: 100%;<br>height: 1px;<br>background-image: linear-gradient(to right, #ccc 0%, #ccc 50%, transparent 50%);<br>background-size: 8px 1px;<br>background-repeat: repeat-x;<br>比原来的间距宽一些<br><img src="https://upload-images.jianshu.io/upload_images/7339286-37bafa02b41834ca.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="虚线效果.png"><br>#阴影滑动覆盖元素效果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">.country a:before&#123;</span><br><span class="line">   content:&#39;&#39;;</span><br><span class="line">    position: absolute;</span><br><span class="line">    width: 0px;</span><br><span class="line">    height: 100%;</span><br><span class="line">    left: 0px;</span><br><span class="line">    display: block;</span><br><span class="line">    transition:all .6s ease;</span><br><span class="line">    -moz-transition: all .6s ease;</span><br><span class="line">    -o-transition: all .6s ease;</span><br><span class="line">    -webkit-transition: all .6s ease;</span><br><span class="line">&#125;</span><br><span class="line">.country a:hover:before&#123;</span><br><span class="line">  content:&#39;&#39;;</span><br><span class="line">   background: #000;</span><br><span class="line">   opacity: 0.45;</span><br><span class="line">   width: 232px;</span><br><span class="line">   filter: alpha(opacity&#x3D;40);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>有一种从左到右的滑动效果，这里利用伪类实现，初始宽度为0。如果初始宽度不为0 ，利用transform:translateX()这种属性则会影响旁边的元素，,<img src="https://upload-images.jianshu.io/upload_images/7339286-1221b77e49816ff9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="2018-03-27_155415.png"><br>#多行文本溢出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-webkit-box-orient: vertical;</span><br><span class="line">    -webkit-line-clamp: 2;</span><br><span class="line">    overflow: hidden;</span><br><span class="line">    height: 2.8rem;</span><br><span class="line">    display: -webkit-box;</span><br></pre></td></tr></table></figure>
+<p>设置高度和overflow:hidden是为了兼容<br>#calc<br>需要注意的是，运算符前后都需要保留一个空格，例如：width: calc(100% - 10px)；<br>任何长度值都可以使用calc()函数进行计算；<br>calc()函数支持 “+”, “-“, “*”, “/“ 运算；<br>calc()函数使用标准的数学运算优先级规则；<br>###checkbox的美化样式<br>实现思路，真实的input不可见，利用伪类来模拟复选框，before模拟边框，after模拟√，实现效果如图<br><img src="https://upload-images.jianshu.io/upload_images/7339286-0d779d5902d314f5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="2018-06-19_154909.png"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">html</span><br><span class="line">&lt;div class&#x3D;&quot;checkbox&quot;&gt;</span><br><span class="line">   &lt;input type&#x3D;&quot;checkbox&quot; id&#x3D;&quot;checkbox&quot;&gt; </span><br><span class="line">   &lt;label for&#x3D;&quot;checkbox&quot;&gt;&lt;span&gt;Remember the password&lt;&#x2F;span&gt;&lt;&#x2F;label&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line">css</span><br><span class="line">.checkbox&#123;</span><br><span class="line">	position: relative;</span><br><span class="line">	height: 20px;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;真实的input不可见</span><br><span class="line">.checkbox input[type&#x3D;&#39;checkbox&#39;]&#123;</span><br><span class="line">	position: absolute;</span><br><span class="line">	left: 0;</span><br><span class="line">	top: 0;</span><br><span class="line">	width: 20px;</span><br><span class="line">	height: 20px;</span><br><span class="line">	opacity: 0;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;模拟checkbox的边框</span><br><span class="line">.checkbox label:before&#123;</span><br><span class="line">	content:&#39;&#39;;</span><br><span class="line">	left: 0;</span><br><span class="line">	top: 0;</span><br><span class="line">	width: 20px;</span><br><span class="line">	height: 20px;</span><br><span class="line">	border: 1px solid #ddd;</span><br><span class="line">	display: inline-block;</span><br><span class="line">	box-sizing: border-box;</span><br><span class="line">	position: absolute;</span><br><span class="line">	border-radius: 2px;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;模拟√</span><br><span class="line">.checkbox label:after&#123;</span><br><span class="line">	content:&#39;&#39;;</span><br><span class="line">	width: 6px;</span><br><span class="line">	height: 12px;</span><br><span class="line">	border: 0;</span><br><span class="line">	position: absolute;</span><br><span class="line">	top: 3px;</span><br><span class="line">	left: 7px;</span><br><span class="line">	border-right: 1px solid #fff;</span><br><span class="line">	border-bottom: 1px solid #fff;</span><br><span class="line">	background: #fff;</span><br><span class="line">	transform: rotate(45deg);</span><br><span class="line">	-webkit-transform: rotate(45deg);</span><br><span class="line">	-moz-transform: rotate(45deg);</span><br><span class="line">	 -ms-transform: rotate(45deg);</span><br><span class="line">	&#x2F;*transition: all 0.3s ease;</span><br><span class="line">	-webkit-transition: all 0.3s ease;</span><br><span class="line">	-moz-transition: all 0.3s ease;*&#x2F;</span><br><span class="line">	position: absolute;</span><br><span class="line">&#125;</span><br><span class="line">.checkbox label span&#123;</span><br><span class="line">	margin-left: 25px;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;选中时的边框和背景</span><br><span class="line">.checkbox input[type&#x3D;&#39;checkbox&#39;]:checked+label:before&#123;</span><br><span class="line">	background: #396af3;</span><br><span class="line">	border-color: #396af3;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;选中时的√</span><br><span class="line">.checkbox input[type&#x3D;&#39;checkbox&#39;]:checked+label:after&#123;</span><br><span class="line">	background: #396af3;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>###多个背景图</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">background:url(https:&#x2F;&#x2F;cdn.it120.cc&#x2F;images&#x2F;weappshop&#x2F;arrow-right.png) no-repeat 705rpx center , url(https:&#x2F;&#x2F;cdn.it120.cc&#x2F;images&#x2F;weappshop&#x2F;addr-line.png) no-repeat center bottom;</span><br></pre></td></tr></table></figure>
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
+    
+    <a class="pull-left" href="/2020/11/17/%E5%85%B3%E4%BA%8Ecss%E5%92%8Chtml%EF%BC%88%E4%B8%80%EF%BC%89/" style="float: left;">
+        ← 关于css和html（一）
+    </a>
+    
+    
+    <a class="pull-right" href="/2020/11/17/%E7%94%A8react%E5%AE%9E%E7%8E%B0%E7%9A%84%E4%B8%80%E4%B8%AA%E8%BD%AE%E6%92%AD%E5%9B%BE/">
+        用react实现的一个轮播图 →
+    </a>
+    
+</nav>
+
+        <div class="col-md-8 col-md-offset-2 col-sm-24"><script type="text/javascript">
+  /**
+   * 搜狐畅言
+   */
+
+  /*
+  document.write('<div id="SOHUCS" sid="' + window.location.pathname.slice(1) + '" ></div>');
+
+  window.onload = function () {
+    (function () {
+      var appid = 'cytXXXX';
+      var conf = 'prod_xxxxxxxxxxxxxxxxx';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      var loadJs = function (d, a, id) {
+        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+        var b = document.createElement("script");
+        b.setAttribute("type", "text/javascript");
+        b.setAttribute("charset", "UTF-8");
+        b.setAttribute("src", d);
+        if (id) {
+          b.setAttribute("id", id);
+        }
+        if (typeof a === "function") {
+          if (window.attachEvent) {
+            b.onreadystatechange = function () {
+              var e = b.readyState;
+              if (e === "loaded" || e === "complete") {
+                b.onreadystatechange = null;
+                a()
+              }
+            }
+          } else {
+            b.onload = a
+          }
+        }
+        c.appendChild(b)
+      };
+
+      loadJs("https://changyan.sohu.com/upload/changyan.js", function () {
+        window.changyan.api.config({
+          appid: appid,
+          conf: conf
+        })
+      });
+    })();
+  }
+  */
+
+</script>
+</div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By grace. All Rights Reserved.
+                </p>
+                <p>Theme By <a target="_blank" rel="noopener" href="//go.kieran.top" style="color: #767D84">Kieran</a></p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    
+                    
+                    
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+
+    resizeHero();
+
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$('#intro').find('img').each(function(){
+  var alt = this.alt;
+
+  if (alt){
+    $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
+  }
+
+  $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
+});
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+      
+</body>
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+***************  *      *     *
+      8          *    *       *
+      8          *  *         *
+      8          **           *
+      8          *  *         *
+      8          *    *       *
+      8          *      *     *
+      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<!--<![endif]-->
+
+<head>
+  <title>vue中element table单元格合并 | GRACE&#39;S BLOG</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="GRACE'S BLOG">
+    <meta name="author" content="grace">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/img/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="GRACE&#39;S BLOG" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+    
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+  
+  
+  
+
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+<div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+    <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+        <img src="/img/close.png" alt="Close" />
+    </div>
+    <!-- Lists in Slidebars -->
+    <ul class="sb-menu">
+        <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+        <li><a href="/archives" class="animsition-link" title="archive">archives</a>
+        </li>
+        <!-- Dropdown Menu -->
+        
+        
+        
+    </ul>
+    <!-- Lists in Slidebars -->
+    <ul class="sb-menu secondary">
+        
+        <li><a href="/about.html" class="animsition-link" title="about">About</a></li>
+        <!-- <li><a href="/atom.xml" class="animsition-link" title="rss">RSS</a></li> -->
+    </ul>
+</div>
+
+<!-- ============================ END Off-canvas navigation =========================== -->
+
+<!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+<div id="sb-site">
+    <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+    <!-- ============================ Header & Logo bar =========================== -->
+
+    <div id="navigation" class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <!-- Nav logo -->
+                <div class="logo">
+                    <a href="/" title="Logo" class="animsition-link">
+                        
+                    </a>
+                </div>
+                <!-- // Nav logo -->
+                <!-- Info-bar -->
+                <nav>
+                    <ul class="nav">
+                        <li><a href="/" class="animsition-link">GRACE'S BLOG</a></li>
+                        <li class="nolink"><span>Always </span>Creative.</li>
+                        
+                        
+                        
+                        
+                        
+                        <li class="nolink"><span>Welcome!</span></li>
+                    </ul>
+                </nav>
+                <!--// Info-bar -->
+            </div>
+            <!-- // .container -->
+            <!-- <div class="learnmore sb-toggle-right">More</div> -->
+            <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+            </button>
+        </div>
+        <!-- // .navbar-inner -->
+    </div>
+
+    <!-- ============================ Header & Logo bar =========================== -->
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2020-11-17T06:58:51.033Z" itemprop="datePublished">
+          2020-11-17
+      </time>
+    
+</span>
+                <h1>vue中element table单元格合并</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<p>主要是合并行的处理<br>emmm 写完这个的感受就是应该静下来多花一点时间去看看可以参考的代码，可以自己先写个demo试试，再放到项目中去<br>说一下思路吧，element table 有一个属性:span-method 可以设置单元格合并，通过给table传入span-method方法可以实现合并行或列。<br>方法的参数是一个对象，里面包含当前行row、当前列column、当前行号rowIndex、当前列号columnIndex四个属性。<br>该函数可以返回一个包含两个元素的数组，第一个元素代表rowspan，第二个元素代表colspan。 也可以返回一个键名为rowspan和colspan的对象。</p>
+<p>因为:span-method的函数会自动遍历每一个单元格的数据，<br>这里可以打印一下函数的参数<br>我们需要对一维数组进行相同项处理，把每一行需要合并的数据放在一个数组里形式例如[3,0,0,2,0]，这个数据形式代表第一行合并3行，第二行被合并，第三行被合并，第四行合并2行…<br>有段代码参考了资料，发现有不太好的地方，因为在span-method回调函数里有频繁调用一个处理函数，其实只要调用一次，处理成需要的数据就可以了，所以改了一下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br></pre></td><td class="code"><pre><span class="line"> &#x2F;&#x2F;现在要处理的就是获取到的格式</span><br><span class="line">&#x2F;&#x2F; 假如有这样一组数据</span><br><span class="line"></span><br><span class="line"> data()&#123;</span><br><span class="line">   return &#123;</span><br><span class="line">     data:[</span><br><span class="line">        &#123;               adCost: 0,</span><br><span class="line">				channelName: &quot;fb_campagin_1&quot;,</span><br><span class="line">				chargeRevenue: null,</span><br><span class="line">				country: &quot;美国&quot;,</span><br><span class="line">				createRoleNum: 0,</span><br><span class="line">				time: &quot;2019-04-26&quot;</span><br><span class="line">		    &#125;,</span><br><span class="line">		    &#123;   adCost: 1,</span><br><span class="line">				channelName: &quot;fb_campagin_1&quot;,</span><br><span class="line">				chargeRevenue: null,</span><br><span class="line">				country: &quot;美国&quot;,</span><br><span class="line">				createRoleNum: 1,</span><br><span class="line">				time: &quot;2019-04-26&quot;</span><br><span class="line">		    &#125;,</span><br><span class="line">		    &#123;   adCost: 3,</span><br><span class="line">				channelName: &quot;fb_campagin_1&quot;,</span><br><span class="line">				chargeRevenue: null,</span><br><span class="line">				country: &quot;美国&quot;,</span><br><span class="line">				createRoleNum: 3,</span><br><span class="line">				time: &quot;2019-04-26&quot;</span><br><span class="line">		    &#125;,</span><br><span class="line">		    &#123;</span><br><span class="line">		    	adCost: 3,</span><br><span class="line">				channelName: &quot;fb_campagin_1&quot;,</span><br><span class="line">				chargeRevenue: null,</span><br><span class="line">				country: &quot;韩国&quot;,</span><br><span class="line">				createRoleNum: 3,</span><br><span class="line">				time: &quot;2019-04-26&quot;</span><br><span class="line">		    &#125;,</span><br><span class="line">		     &#123;  country: &quot;韩国&quot;,</span><br><span class="line">		    	adCost: 3,</span><br><span class="line">				channelName: &quot;fb_campagin_1&quot;,</span><br><span class="line">				chargeRevenue: null,	</span><br><span class="line">				createRoleNum: 3,</span><br><span class="line">				time: &quot;2019-04-26&quot;</span><br><span class="line">		    &#125;</span><br><span class="line">     ]</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"> method()&#123;</span><br><span class="line">    init()&#123;</span><br><span class="line">      &#x2F;&#x2F;在某一个函数里初始化，</span><br><span class="line">      this.setTable(this.data,&#39;country&#39;)  &#x2F;&#x2F;这里会return一个对象 &#123;&#39;country&#39;: [3,0,0,2,0]&#125;   之所以是对像是因为可能有多列需要合并行，便于区分</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;**</span><br><span class="line">    *data 一维数组的数据</span><br><span class="line">    *c 列名</span><br><span class="line">    *&#x2F;</span><br><span class="line">    setTable(data, c) &#123;</span><br><span class="line">      let spanOneArr &#x3D; []</span><br><span class="line">      let concatOne &#x3D; 0</span><br><span class="line">      data.forEach((item, index) &#x3D;&gt; &#123;</span><br><span class="line">        if (index &#x3D;&#x3D;&#x3D; 0) &#123;</span><br><span class="line">          spanOneArr.push(1)</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">          if (item[c] &amp;&amp; item[c] &#x3D;&#x3D;&#x3D; data[index - 1][c]) &#123; &#x2F;&#x2F;当前项和前一项比较 </span><br><span class="line">            spanOneArr[concatOne] +&#x3D; 1 &#x2F;&#x2F;相同值第一个出现的位置，统计需要合并多少行</span><br><span class="line">            spanOneArr.push(0)&#x2F;&#x2F;新增一个被合并行</span><br><span class="line">          &#125; else &#123;</span><br><span class="line">            spanOneArr.push(1) &#x2F;&#x2F;否则不合并</span><br><span class="line">            concatOne &#x3D; index&#x2F;&#x2F;指向位移</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">      var obj &#x3D; &#123;&#125;</span><br><span class="line">      obj[c] &#x3D; spanOneArr</span><br><span class="line">      this.arr.push(obj)</span><br><span class="line">    &#125;</span><br><span class="line">    objectSpanMethod(&#123; row, column, rowIndex, columnIndex &#125;) &#123;</span><br><span class="line">        if (columnIndex &#x3D;&#x3D;&#x3D; 0) &#123;</span><br><span class="line">          const _row &#x3D; this.arr[0].country[rowIndex] &#x2F;&#x2F;因为rowIndex出现会从1到结尾</span><br><span class="line">          const _col &#x3D; _row &gt; 0 ? 1 : 0</span><br><span class="line">          return &#123;</span><br><span class="line">            rowspan: _row,</span><br><span class="line">            colspan: _col</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>如果获取到的数据是一个嵌套的数据，则需要把嵌套的数据整理成一维数组形式的，这样会符合table的数据格式要求，如果后端能直接返回一维数组就更好啦，但是前端也可以自己整理<br>例如 我项目中的数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">美国: &#123;</span><br><span class="line">  &#39;2019-04-2&#39;:[</span><br><span class="line">    &#123;</span><br><span class="line">      adCost: 0</span><br><span class="line">      channelName: &quot;fb_campagin_3&quot;</span><br><span class="line">      chargeRevenue: null</span><br><span class="line">      createRoleNum: 0</span><br><span class="line">    &#125;,</span><br><span class="line">     &#123;</span><br><span class="line">      adCost: 0</span><br><span class="line">      channelName: &quot;fb_campagin_3&quot;</span><br><span class="line">      chargeRevenue: null</span><br><span class="line">      createRoleNum: 0</span><br><span class="line">     &#125;</span><br><span class="line">  ],</span><br><span class="line">  &#39;2019-04-3&#39;:[</span><br><span class="line">    &#123;</span><br><span class="line">      adCost: 0</span><br><span class="line">      channelName: &quot;fb_campagin_3&quot;</span><br><span class="line">      chargeRevenue: null</span><br><span class="line">      createRoleNum: 0</span><br><span class="line">    &#125;,</span><br><span class="line">     &#123;</span><br><span class="line">      adCost: 0</span><br><span class="line">      channelName: &quot;fb_campagin_3&quot;</span><br><span class="line">      chargeRevenue: null</span><br><span class="line">      createRoleNum: 0</span><br><span class="line">     &#125;</span><br><span class="line">  ],</span><br><span class="line">  &#125;,</span><br><span class="line"> 中国: &#123;</span><br><span class="line">  &#39;2019-04-2&#39;:[</span><br><span class="line">    &#123;</span><br><span class="line">      adCost: 0</span><br><span class="line">      channelName: &quot;fb_campagin_3&quot;</span><br><span class="line">      chargeRevenue: null</span><br><span class="line">      createRoleNum: 0</span><br><span class="line">    &#125;,</span><br><span class="line">     &#123;</span><br><span class="line">      adCost: 0</span><br><span class="line">      channelName: &quot;fb_campagin_3&quot;</span><br><span class="line">      chargeRevenue: null</span><br><span class="line">      createRoleNum: 0</span><br><span class="line">     &#125;</span><br><span class="line">  ],</span><br><span class="line">  &#39;2019-04-3&#39;:[</span><br><span class="line">    &#123;</span><br><span class="line">      adCost: 0</span><br><span class="line">      channelName: &quot;fb_campagin_3&quot;</span><br><span class="line">      chargeRevenue: null</span><br><span class="line">      createRoleNum: 0</span><br><span class="line">    &#125;,</span><br><span class="line">     &#123;</span><br><span class="line">      adCost: 0</span><br><span class="line">      channelName: &quot;fb_campagin_3&quot;</span><br><span class="line">      chargeRevenue: null</span><br><span class="line">      createRoleNum: 0</span><br><span class="line">     &#125;</span><br><span class="line">  ],</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;下面有对null判断是因为我的数据中有可能会出现null</span><br><span class="line">function transfData(data) &#123;</span><br><span class="line">  var result &#x3D; []</span><br><span class="line">  for (let key in data) &#123;</span><br><span class="line">    var tmp &#x3D; &#123;&#125;</span><br><span class="line">    if (key !&#x3D;&#x3D; &#39;null&#39;) &#123;</span><br><span class="line">      tmp &#x3D; Object.assign(tmp, &#123;</span><br><span class="line">        country: key</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    for (let key2 in data[key]) &#123;</span><br><span class="line">      if (key2 !&#x3D;&#x3D; &#39;null&#39;) &#123;</span><br><span class="line">        tmp &#x3D; Object.assign(tmp, &#123;</span><br><span class="line">          time: key2</span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">      &#125;</span><br><span class="line">      for (let key3 in data[key][key2]) &#123;</span><br><span class="line">        let tmpN &#x3D; &#123;&#125;</span><br><span class="line">        tmpN &#x3D; Object.assign(tmpN, data[key][key2][key3], tmp)</span><br><span class="line">        result.push(tmpN)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  return result</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最后的效果<br><img src="https://upload-images.jianshu.io/upload_images/7339286-481431c9d3b8aaec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="2019-04-25_182902.png"></p>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
+    
+    <a class="pull-left" href="/2020/11/17/%E5%8D%87%E7%BA%A7%E9%A1%B9%E7%9B%AE%E5%88%B0vue-cli3/" style="float: left;">
+        ← 升级项目到vue-cli3
+    </a>
+    
+    
+    <a class="pull-right" href="/2020/11/17/mongodb%E5%AE%9E%E7%8E%B0%E7%9A%84jwt%E7%99%BB%E5%BD%95%E6%B3%A8%E5%86%8C/">
+        使用node/koa/mongodb实现的jwt登录注册 →
+    </a>
+    
+</nav>
+
+        <div class="col-md-8 col-md-offset-2 col-sm-24"><script type="text/javascript">
+  /**
+   * 搜狐畅言
+   */
+
+  /*
+  document.write('<div id="SOHUCS" sid="' + window.location.pathname.slice(1) + '" ></div>');
+
+  window.onload = function () {
+    (function () {
+      var appid = 'cytXXXX';
+      var conf = 'prod_xxxxxxxxxxxxxxxxx';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      var loadJs = function (d, a, id) {
+        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+        var b = document.createElement("script");
+        b.setAttribute("type", "text/javascript");
+        b.setAttribute("charset", "UTF-8");
+        b.setAttribute("src", d);
+        if (id) {
+          b.setAttribute("id", id);
+        }
+        if (typeof a === "function") {
+          if (window.attachEvent) {
+            b.onreadystatechange = function () {
+              var e = b.readyState;
+              if (e === "loaded" || e === "complete") {
+                b.onreadystatechange = null;
+                a()
+              }
+            }
+          } else {
+            b.onload = a
+          }
+        }
+        c.appendChild(b)
+      };
+
+      loadJs("https://changyan.sohu.com/upload/changyan.js", function () {
+        window.changyan.api.config({
+          appid: appid,
+          conf: conf
+        })
+      });
+    })();
+  }
+  */
+
+</script>
+</div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By grace. All Rights Reserved.
+                </p>
+                <p>Theme By <a target="_blank" rel="noopener" href="//go.kieran.top" style="color: #767D84">Kieran</a></p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    
+                    
+                    
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+
+    resizeHero();
+
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$('#intro').find('img').each(function(){
+  var alt = this.alt;
+
+  if (alt){
+    $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
+  }
+
+  $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
+});
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+      
+</body>
+</html>

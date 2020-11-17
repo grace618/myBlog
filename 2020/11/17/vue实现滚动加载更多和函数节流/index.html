@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+***************  *      *     *
+      8          *    *       *
+      8          *  *         *
+      8          **           *
+      8          *  *         *
+      8          *    *       *
+      8          *      *     *
+      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<!--<![endif]-->
+
+<head>
+  <title>vue实现滚动加载更多和函数节流 | GRACE&#39;S BLOG</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="GRACE'S BLOG">
+    <meta name="author" content="grace">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/img/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="GRACE&#39;S BLOG" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+    
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+  
+  
+  
+
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+<div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+    <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+        <img src="/img/close.png" alt="Close" />
+    </div>
+    <!-- Lists in Slidebars -->
+    <ul class="sb-menu">
+        <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+        <li><a href="/archives" class="animsition-link" title="archive">archives</a>
+        </li>
+        <!-- Dropdown Menu -->
+        
+        
+        
+    </ul>
+    <!-- Lists in Slidebars -->
+    <ul class="sb-menu secondary">
+        
+        <li><a href="/about.html" class="animsition-link" title="about">About</a></li>
+        <!-- <li><a href="/atom.xml" class="animsition-link" title="rss">RSS</a></li> -->
+    </ul>
+</div>
+
+<!-- ============================ END Off-canvas navigation =========================== -->
+
+<!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+<div id="sb-site">
+    <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+    <!-- ============================ Header & Logo bar =========================== -->
+
+    <div id="navigation" class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <!-- Nav logo -->
+                <div class="logo">
+                    <a href="/" title="Logo" class="animsition-link">
+                        
+                    </a>
+                </div>
+                <!-- // Nav logo -->
+                <!-- Info-bar -->
+                <nav>
+                    <ul class="nav">
+                        <li><a href="/" class="animsition-link">GRACE'S BLOG</a></li>
+                        <li class="nolink"><span>Always </span>Creative.</li>
+                        
+                        
+                        
+                        
+                        
+                        <li class="nolink"><span>Welcome!</span></li>
+                    </ul>
+                </nav>
+                <!--// Info-bar -->
+            </div>
+            <!-- // .container -->
+            <!-- <div class="learnmore sb-toggle-right">More</div> -->
+            <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+            </button>
+        </div>
+        <!-- // .navbar-inner -->
+    </div>
+
+    <!-- ============================ Header & Logo bar =========================== -->
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2020-11-17T07:05:17.037Z" itemprop="datePublished">
+          2020-11-17
+      </time>
+    
+</span>
+                <h1>vue实现滚动加载更多和函数节流</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<p>用vue来实现一个pc端滚动加载更多，没有使用UI框架，纯手工<br>###实现思路：<br>1.判断浏览器滚动条是否到达底部，如果到达底部，则使用axios拉取数据<br>2.拉取成功后，更新数据<br>###布局方式<br>这里采用了头尾固定和中间高度自适应的布局方式,中间内容块高度没有设置，所以滚动条是在div的内容区域的，并不是在页面上，然而中间内容区域出现一个滚动条不是很好看，所以可以调整一下滚动条样式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*html代码*&#x2F;</span><br><span class="line">&lt;div id&#x3D;&quot;dHead&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">&lt;div id&#x3D;&quot;dBody&quot;&gt;</span><br><span class="line">  &lt;div class&#x3D;&quot;mycontent&quot;&gt;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line">&lt;div id&#x3D;&quot;dFoot&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">&#x2F;*css代码*&#x2F;</span><br><span class="line">#dHead &#123;</span><br><span class="line">    height:100px;</span><br><span class="line">    width:100%;</span><br><span class="line">    position:absolute;</span><br><span class="line">    z-index:5;</span><br><span class="line">    top:0;</span><br><span class="line">&#125;</span><br><span class="line">#dBody &#123;</span><br><span class="line">    width:100%;</span><br><span class="line">    overflow:auto;</span><br><span class="line">    top:100px; &#x2F;&#x2F;top</span><br><span class="line">    position:absolute;</span><br><span class="line">    z-index:10;</span><br><span class="line">    bottom:100px; &#x2F;&#x2F;bottom</span><br><span class="line">&#125;</span><br><span class="line">#dFoot &#123;</span><br><span class="line">    height:100px;</span><br><span class="line">    width:100%;</span><br><span class="line">    position:absolute;</span><br><span class="line">    z-index:200;</span><br><span class="line">    bottom:0;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;*滚动条样式*&#x2F;</span><br><span class="line">&#x2F;*定义滚动条高度及背景 宽高分别对应横竖滚动条的尺寸*&#x2F;</span><br><span class="line">::webkit-scrollbar&#123;</span><br><span class="line">width:1px;  &#x2F;*宽高可调节，如果为0，则消失*&#x2F;</span><br><span class="line">height:1px;</span><br><span class="line">background-color:#eaeaea;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;*定义滚动条轨道，内阴影+圆角*&#x2F;</span><br><span class="line">::webkit-scrollbar-track&#123;</span><br><span class="line">-webkit-box-shaow:inset 0 0 6px rgba(0,0,0,0.3)</span><br><span class="line">border-radius:10px;</span><br><span class="line">background-color:#f5f5f5;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;*定义滑块 内阴影+圆角*&#x2F;</span><br><span class="line">::webkit-scrollbar-thumb&#123;</span><br><span class="line">border-radius:10px;</span><br><span class="line">-webkit-box-shadow:inset 0 0 6px rgba(0,0,0,.3)</span><br><span class="line">background-color:#555;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>###滚动条判断<br>是对元素的滚动监听，项目中是中间内容的最外层元素，这里碰到一个坑就是对中间滚动元素监听都无效，必须对中部内容块的最外层元素监听。需要获取到元素的dom节点,在vue组件里面使用的是原生js的监听事件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*html*&#x2F;</span><br><span class="line">&lt;div id&#x3D;&quot;dBody&quot; ref&#x3D;&#39;viewbox&#39;&gt;</span><br><span class="line">  &lt;div class&#x3D;&quot;mycontent&quot;&gt;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">&#x2F;*vue*&#x2F;</span><br><span class="line">methods:&#123;</span><br><span class="line"> setpage()&#123;</span><br><span class="line">       if (this.nomore &amp;&amp;!this.loaded) return;&#x2F;&#x2F;到达底部不再执行</span><br><span class="line">	   if(this.$refs.viewBox.scrollTop+ this.$refs.viewBox.offsetHeight+20 &gt;&#x3D; </span><br><span class="line">this.$refs.viewBox.scrollHeight)&#123;</span><br><span class="line">		this.loadingTip&#x3D;true  &#x2F;&#x2F;loading提示语</span><br><span class="line"> axios.get(&#39;&#x2F;api&#x2F;v1&#x2F;topics?tab&#x3D;&#39;+this.tabName+&#39;&amp;page&#x3D;&#39;(++this.page)+&#39;&amp;limit&#x3D;10&#39;)</span><br><span class="line">					.then(</span><br><span class="line">						res&#x3D;&gt;&#123;</span><br><span class="line">							let arr&#x3D;res.data.data;</span><br><span class="line">							if(arr.length&#x3D;&#x3D;&#x3D;0)&#123;</span><br><span class="line">									&#x2F;&#x2F;some tips</span><br><span class="line">									this.loaded&#x3D;false</span><br><span class="line">									this.nomore&#x3D;true&#x2F;&#x2F;没有更多</span><br><span class="line">									return</span><br><span class="line">								&#125;</span><br><span class="line">								&#x2F;&#x2F; ES5的合并数组</span><br><span class="line">								&#x2F;&#x2F; arr1.concat(arr2, arr3);</span><br><span class="line">								&#x2F;&#x2F; ES6的合并数组</span><br><span class="line">								&#x2F;&#x2F;[...arr1, ...arr2, ...arr3]</span><br><span class="line">								this.site&#x3D;[...this.site,...arr]</span><br><span class="line">								this.loadingTip&#x3D;false</span><br><span class="line">							&#125;</span><br><span class="line">							)</span><br><span class="line">					.catch(err&#x3D;&gt;&#123;</span><br><span class="line">						console.log(err)</span><br><span class="line">					&#125;)</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>###函数节流<br>发现一个问题就是当浏览器到达底部时，会多次触发函数，为了解决这个问题，进行函数节流。<br>浏览器中某些计算和处理要比其他的昂贵很多。例如，DOM 操作比起非 DOM 交互需要更多的内存和 CPU 时间。连续尝试进行过多的 DOM相关操作可能会导致浏览器挂起，有时候甚至会崩溃。尤其在 IE 中使用 onresize 事件处理程序的时候容易发生，当调整浏览器大小的时候，该事件会连续触发。<br>在 onresize 事件处理程序内部如果尝试进行 DOM 操作，其高频率的更改可能会让浏览器崩溃。为了绕开这个问题，你可以使用定时器对该函数进行节流。<br>函数节流背后的基本思想是指，某些代码不可以在没有间断的情况连续重复执行。第一次调用函数，创建一个定时器，在指定的时间间隔之后运行代码。当第二次调用该函数时，它会清除前一次的定时器并设置另一个。如果前一个定时器已经执行过了，这个操作就没有任何意义。然而，如果前一个定时器<br>尚未执行，其实就是将其替换为一个新的定时器<br>在这个项目中，是这样的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">mounted()&#123;</span><br><span class="line">	this.$refs.viewBox.addEventListener(&#39;scroll&#39;,</span><br><span class="line">this.throttle(this.setpage,200),false)</span><br><span class="line">		&#125;,</span><br><span class="line">methods:&#123;</span><br><span class="line">throttle(fn,delay,atleast)&#123;</span><br><span class="line">				&#x2F;**函数节流方法</span><br><span class="line">				@param Function fn 延时调用函数</span><br><span class="line">				@param Number dalay 延迟多长时间</span><br><span class="line">				@param Number atleast 至少多长时间触发一次</span><br><span class="line">				@return Function 延迟执行的方法</span><br><span class="line">				*&#x2F;</span><br><span class="line">				let timer &#x3D; null;</span><br><span class="line">				let previous &#x3D; null;</span><br><span class="line">				return function () &#123;</span><br><span class="line">					var now &#x3D; +new Date();</span><br><span class="line">					if ( !previous ) previous &#x3D; now;</span><br><span class="line">					if ( atleast &amp;&amp; now - previous &gt; atleast ) &#123;</span><br><span class="line">						fn();</span><br><span class="line">		                &#x2F;&#x2F; 重置上一次开始时间为本次结束时间</span><br><span class="line">		                previous &#x3D; now;</span><br><span class="line">		                clearTimeout(timer);</span><br><span class="line">		            &#125; else &#123;</span><br><span class="line">		            	clearTimeout(timer);</span><br><span class="line">		            	timer &#x3D; setTimeout(function() &#123;</span><br><span class="line">		            		fn();</span><br><span class="line">		            		previous &#x3D; null;</span><br><span class="line">		            	&#125;, delay);</span><br><span class="line">		            &#125;</span><br><span class="line">		        &#125;</span><br><span class="line">		    &#125;,</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>###拉取数据，加载loading<br>在拉取数据时，可能会有时间缓存，在等待时间里使用了一个loading图，转圈的圆环，css3写的简单转圈效果,一个画了270°的圆。使用了axios拉取数据，在回调函数中隐藏loading缓冲，因为已经拉取完成了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">.loadingTip&#123;</span><br><span class="line">	height:50px;</span><br><span class="line">	line-height:50px;</span><br><span class="line">	text-align:center;</span><br><span class="line">	color:#666666;</span><br><span class="line">&#125;</span><br><span class="line">.loadingTip::before&#123;</span><br><span class="line">	content:&#39;&#39;;</span><br><span class="line">	width: 20px;</span><br><span class="line">	height:20px;</span><br><span class="line">	border-radius:100% 100% 100% 0;</span><br><span class="line">	border: 1px solid red;</span><br><span class="line">	display: inline-block;</span><br><span class="line">	border-bottom: none;</span><br><span class="line">	border-left:none;</span><br><span class="line">	box-sizing: border-box;</span><br><span class="line">	vertical-align:sub;</span><br><span class="line">	-webkit-animation:loading 1s linear infinite;</span><br><span class="line">&#125;</span><br><span class="line">@keyframes loading&#123;</span><br><span class="line">	0%&#123;</span><br><span class="line">		transform:rotate(0deg)</span><br><span class="line">	&#125;</span><br><span class="line">	100%&#123;</span><br><span class="line">		transform:rotate(360deg)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>###总结记录<br>唉，真的想哭，或许以后可以优化成更优雅的写法</p>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
+    
+    <a class="pull-left" href="/2020/11/17/vue2.0%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BF%87%E6%BB%A4%E5%99%A8/" style="float: left;">
+        ← vue2.0自定义过滤器
+    </a>
+    
+    
+    <a class="pull-right" href="/2020/11/17/vue%E9%87%8D%E5%86%99CNodejs%E7%A4%BE%E5%8C%BA/">
+        vue重写CNodejs社区 →
+    </a>
+    
+</nav>
+
+        <div class="col-md-8 col-md-offset-2 col-sm-24"><script type="text/javascript">
+  /**
+   * 搜狐畅言
+   */
+
+  /*
+  document.write('<div id="SOHUCS" sid="' + window.location.pathname.slice(1) + '" ></div>');
+
+  window.onload = function () {
+    (function () {
+      var appid = 'cytXXXX';
+      var conf = 'prod_xxxxxxxxxxxxxxxxx';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      var loadJs = function (d, a, id) {
+        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+        var b = document.createElement("script");
+        b.setAttribute("type", "text/javascript");
+        b.setAttribute("charset", "UTF-8");
+        b.setAttribute("src", d);
+        if (id) {
+          b.setAttribute("id", id);
+        }
+        if (typeof a === "function") {
+          if (window.attachEvent) {
+            b.onreadystatechange = function () {
+              var e = b.readyState;
+              if (e === "loaded" || e === "complete") {
+                b.onreadystatechange = null;
+                a()
+              }
+            }
+          } else {
+            b.onload = a
+          }
+        }
+        c.appendChild(b)
+      };
+
+      loadJs("https://changyan.sohu.com/upload/changyan.js", function () {
+        window.changyan.api.config({
+          appid: appid,
+          conf: conf
+        })
+      });
+    })();
+  }
+  */
+
+</script>
+</div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By grace. All Rights Reserved.
+                </p>
+                <p>Theme By <a target="_blank" rel="noopener" href="//go.kieran.top" style="color: #767D84">Kieran</a></p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    
+                    
+                    
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+
+    resizeHero();
+
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$('#intro').find('img').each(function(){
+  var alt = this.alt;
+
+  if (alt){
+    $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
+  }
+
+  $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
+});
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+      
+</body>
+</html>

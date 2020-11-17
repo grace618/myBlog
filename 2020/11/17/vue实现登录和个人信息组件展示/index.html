@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+***************  *      *     *
+      8          *    *       *
+      8          *  *         *
+      8          **           *
+      8          *  *         *
+      8          *    *       *
+      8          *      *     *
+      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<!--<![endif]-->
+
+<head>
+  <title>vue实现登录和个人信息组件展示 | GRACE&#39;S BLOG</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="GRACE'S BLOG">
+    <meta name="author" content="grace">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/img/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="GRACE&#39;S BLOG" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+    
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+  
+  
+  
+
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+<div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+    <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+        <img src="/img/close.png" alt="Close" />
+    </div>
+    <!-- Lists in Slidebars -->
+    <ul class="sb-menu">
+        <li><a href="/" class="animsition-link" title="Home">Home</a></li>
+        <li><a href="/archives" class="animsition-link" title="archive">archives</a>
+        </li>
+        <!-- Dropdown Menu -->
+        
+        
+        
+    </ul>
+    <!-- Lists in Slidebars -->
+    <ul class="sb-menu secondary">
+        
+        <li><a href="/about.html" class="animsition-link" title="about">About</a></li>
+        <!-- <li><a href="/atom.xml" class="animsition-link" title="rss">RSS</a></li> -->
+    </ul>
+</div>
+
+<!-- ============================ END Off-canvas navigation =========================== -->
+
+<!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+<div id="sb-site">
+    <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+    <!-- ============================ Header & Logo bar =========================== -->
+
+    <div id="navigation" class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <!-- Nav logo -->
+                <div class="logo">
+                    <a href="/" title="Logo" class="animsition-link">
+                        
+                    </a>
+                </div>
+                <!-- // Nav logo -->
+                <!-- Info-bar -->
+                <nav>
+                    <ul class="nav">
+                        <li><a href="/" class="animsition-link">GRACE'S BLOG</a></li>
+                        <li class="nolink"><span>Always </span>Creative.</li>
+                        
+                        
+                        
+                        
+                        
+                        <li class="nolink"><span>Welcome!</span></li>
+                    </ul>
+                </nav>
+                <!--// Info-bar -->
+            </div>
+            <!-- // .container -->
+            <!-- <div class="learnmore sb-toggle-right">More</div> -->
+            <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+            </button>
+        </div>
+        <!-- // .navbar-inner -->
+    </div>
+
+    <!-- ============================ Header & Logo bar =========================== -->
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2020-11-17T07:09:15.740Z" itemprop="datePublished">
+          2020-11-17
+      </time>
+    
+</span>
+                <h1>vue实现登录和个人信息组件展示</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<p>最近在写一个重构node社区的小项目，碰到了登录的问题，实现思路如下：<br>1.获取用户表单信息，使用axios提交，提交成功后，把数据存在cookie,以便后续操作。<br>2.其中有个人信息的页面展示，获取cookie信息，判断用户是否登录，如果登录则显示内容，未登录则跳转到登录页面，所以个人信息的页面可以使用路由守卫<br>搜索资料时有看到这种写法，就是经过判断后去改变<router-link>的动态路由来决定跳转到哪个组件，感觉稍显麻烦。<br>3.退出操作，清除cookie<br>可以把操作cookie的代码放到一个单独的src/utils/cookie.js文件，utils这个文件夹可以放一些工具类的文件<br>cookie.js</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;获取cookie</span><br><span class="line">export function getCookie(name)&#123;</span><br><span class="line">	var cookieName &#x3D; encodeURIComponent(name) + &quot;&#x3D;&quot;,</span><br><span class="line">	cookieStart &#x3D; document.cookie.indexOf(cookieName),</span><br><span class="line">	cookieValue &#x3D; null;</span><br><span class="line">	if (cookieStart &gt; -1)&#123;</span><br><span class="line">		var cookieEnd &#x3D; document.cookie.indexOf(&quot;;&quot;, cookieStart);</span><br><span class="line">		if (cookieEnd &#x3D;&#x3D; -1)&#123;</span><br><span class="line">			cookieEnd &#x3D; document.cookie.length;</span><br><span class="line">		&#125;</span><br><span class="line">		cookieValue &#x3D; decodeURIComponent(document.cookie.substring(cookieStart</span><br><span class="line">			+ cookieName.length, cookieEnd));</span><br><span class="line">	&#125;</span><br><span class="line">	return cookieValue;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;设置cookie</span><br><span class="line">export function setCookie(name, value, expires, path, domain, secure) &#123;</span><br><span class="line">	var cookieText &#x3D; encodeURIComponent(name) + &quot;&#x3D;&quot; +</span><br><span class="line">	encodeURIComponent(value);</span><br><span class="line">	if (expires instanceof Date) &#123;</span><br><span class="line">	cookieText +&#x3D; &quot;; expires&#x3D;&quot; + expires.toGMTString();</span><br><span class="line">	&#125;</span><br><span class="line">	if (path) &#123;</span><br><span class="line">	cookieText +&#x3D; &quot;; path&#x3D;&quot; + path;</span><br><span class="line">	&#125;</span><br><span class="line">	if (domain) &#123;</span><br><span class="line">	cookieText +&#x3D; &quot;; domain&#x3D;&quot; + domain;</span><br><span class="line">	&#125;</span><br><span class="line">	if (secure) &#123;</span><br><span class="line">	cookieText +&#x3D; &quot;; secure&quot;;</span><br><span class="line">	&#125;</span><br><span class="line">	document.cookie &#x3D; cookieText;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;删除cookie</span><br><span class="line">export function delCookie(name, path, domain, secure)&#123;</span><br><span class="line">    setCookie(name, &quot;&quot;, new Date(0), path, domain, secure);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>后面发现vue有一个关于操作cookie的插件js-cookie,安装一下就可以使用了<br>例如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">import Cookie from &#39;js-cookie&#39;</span><br><span class="line"></span><br><span class="line">const TokenKey&#x3D;&#39;Admin-Token&#39;</span><br><span class="line"></span><br><span class="line">export function getToken()&#123;</span><br><span class="line">	return Cookie.get(TokenKey)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export function setToken(token)&#123;</span><br><span class="line">	return Cookie.set(TokenKey,token)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">export function removeToken()&#123;</span><br><span class="line">	return Cookie.remove(TokenKey)</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>登录组件的login方法</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">methods:&#123;</span><br><span class="line">			login()&#123;</span><br><span class="line">				axios.post(&#39;api&#x2F;v1&#x2F;accesstoken&#39;,&#123;</span><br><span class="line">					accesstoken:this.info</span><br><span class="line">				&#125;)</span><br><span class="line">				.then(</span><br><span class="line">					res&#x3D;&gt;&#123;</span><br><span class="line">                        const info&#x3D;this.info;</span><br><span class="line">                        setCookie(&#39;accesstoken&#39;,this.info)</span><br><span class="line">                        setCookie(&#39;username&#39;,res.data.loginname)</span><br><span class="line">                        setCookie(&#39;userid&#39;,res.data.id)</span><br><span class="line">                        this.$router.push( &#123;name:&#39;myinfo&#39;,params:&#123;user:res.data.loginname&#125; &#125; )</span><br><span class="line">                    &#125;</span><br><span class="line">                    )</span><br><span class="line">                .catch(</span><br><span class="line">                    err&#x3D;&gt;&#123;</span><br><span class="line">                        alert(err)</span><br><span class="line">                    &#125;</span><br><span class="line">                    )</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<p><strong>个人信息组件显示与否的判断</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">beforeRouteEnter(to,from,next)&#123;</span><br><span class="line">				if(to.meta.requireAuth)&#123;   &#x2F;&#x2F;此组件需要登录</span><br><span class="line">					if(getCookie(&#39;accesstoken&#39;)&#x3D;&#x3D;null)&#123;</span><br><span class="line">						next(&#123;</span><br><span class="line">							path:&#39;&#x2F;login&#39;</span><br><span class="line">						&#125;)</span><br><span class="line">					&#125;else&#123;</span><br><span class="line">						next()</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;else &#123;</span><br><span class="line">       			   next(); &#x2F;&#x2F;否则不需要登录，直接进入路由</span><br><span class="line">    			&#125;</span><br><span class="line">      	&#125;,</span><br></pre></td></tr></table></figure>
+<p><strong>退出操作</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;退出登录</span><br><span class="line">			logout()&#123;</span><br><span class="line">				delCookie(&#39;userid&#39;) &#x2F;&#x2F;名字要对应getCookie的值</span><br><span class="line">				delCookie(&#39;accesstoken&#39;)</span><br><span class="line">				delCookie(&#39;username&#39;)</span><br><span class="line">		        this.$router.push(&#123;</span><br><span class="line">		          path: &quot;&#x2F;login&quot;</span><br><span class="line">		        &#125;)</span><br><span class="line">			&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>其他操作</strong><br>例如点赞和评论等功能，也要判断用户是否登录</p>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
+    
+    <a class="pull-left" href="/2020/11/17/%E9%A1%B5%E9%9D%A2%E8%BF%9B%E5%BA%A6%E6%9D%A1nprogress%E7%BB%93%E5%90%88vue%E4%BD%BF%E7%94%A8/" style="float: left;">
+        ← 页面进度条nprogress结合vue使用
+    </a>
+    
+    
+    <a class="pull-right" href="/2020/11/17/sublime%20text3%E8%BF%9E%E6%8E%A5sftp/ftp%E4%B8%8A%E4%BC%A0%E6%9C%8D%E5%8A%A1%E5%99%A8/">
+        sublime text3连接sftp/ftp上传服务器 →
+    </a>
+    
+</nav>
+
+        <div class="col-md-8 col-md-offset-2 col-sm-24"><script type="text/javascript">
+  /**
+   * 搜狐畅言
+   */
+
+  /*
+  document.write('<div id="SOHUCS" sid="' + window.location.pathname.slice(1) + '" ></div>');
+
+  window.onload = function () {
+    (function () {
+      var appid = 'cytXXXX';
+      var conf = 'prod_xxxxxxxxxxxxxxxxx';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      var loadJs = function (d, a, id) {
+        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+        var b = document.createElement("script");
+        b.setAttribute("type", "text/javascript");
+        b.setAttribute("charset", "UTF-8");
+        b.setAttribute("src", d);
+        if (id) {
+          b.setAttribute("id", id);
+        }
+        if (typeof a === "function") {
+          if (window.attachEvent) {
+            b.onreadystatechange = function () {
+              var e = b.readyState;
+              if (e === "loaded" || e === "complete") {
+                b.onreadystatechange = null;
+                a()
+              }
+            }
+          } else {
+            b.onload = a
+          }
+        }
+        c.appendChild(b)
+      };
+
+      loadJs("https://changyan.sohu.com/upload/changyan.js", function () {
+        window.changyan.api.config({
+          appid: appid,
+          conf: conf
+        })
+      });
+    })();
+  }
+  */
+
+</script>
+</div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By grace. All Rights Reserved.
+                </p>
+                <p>Theme By <a target="_blank" rel="noopener" href="//go.kieran.top" style="color: #767D84">Kieran</a></p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    
+                    
+                    
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+
+    resizeHero();
+
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$('#intro').find('img').each(function(){
+  var alt = this.alt;
+
+  if (alt){
+    $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
+  }
+
+  $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
+});
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+      
+</body>
+</html>
