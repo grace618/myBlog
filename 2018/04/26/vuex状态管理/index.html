@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+***************  *      *     *
+      8          *    *       *
+      8          *  *         *
+      8          **           *
+      8          *  *         *
+      8          *    *       *
+      8          *      *     *
+      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<!--<![endif]-->
+
+<head>
+  <title>vuex状态管理 | GRACE&#39;S BLOG</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="GRACE'S BLOG">
+    <meta name="author" content="grace">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/myBlog/img/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/myBlog/atom.xml" title="GRACE&#39;S BLOG" type="application/atom+xml">
+    <link rel="stylesheet" href="/myBlog/css/all.css" media="screen" type="text/css">
+    
+    <link rel="stylesheet" href="/myBlog/highlightjs/vs.css" type="text/css">
+    
+
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/myBlog/css/ie8.css" />
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/myBlog/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/myBlog/js/html5shiv.min.js"></script>
+    <script src="/myBlog/js/respond.min.js"></script>
+    <![endif]-->
+
+  
+  
+  
+
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+<div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+    <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+        <img src="/myBlog/img/close.png" alt="Close" />
+    </div>
+    <!-- Lists in Slidebars -->
+    <ul class="sb-menu">
+        <li><a href="/myBlog/" class="animsition-link" title="Home">Home</a></li>
+        <li><a href="/myBlog/archives" class="animsition-link" title="archive">archives</a>
+        </li>
+        <!-- Dropdown Menu -->
+        
+        
+        <li>
+            <a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
+            <ul class="sb-submenu">
+                
+                <li><a href="/myBlog/categories/js/"
+                        class="animsition-link">js<small>(2)</small></a></li>
+                
+                <li><a href="/myBlog/categories/mock/"
+                        class="animsition-link">mock<small>(1)</small></a></li>
+                
+                <li><a href="/myBlog/categories/mpvue/"
+                        class="animsition-link">mpvue<small>(2)</small></a></li>
+                
+                <li><a href="/myBlog/categories/next/"
+                        class="animsition-link">next<small>(1)</small></a></li>
+                
+                <li><a href="/myBlog/categories/node/"
+                        class="animsition-link">node<small>(1)</small></a></li>
+                
+                <li><a href="/myBlog/categories/react/"
+                        class="animsition-link">react<small>(1)</small></a></li>
+                
+                <li><a href="/myBlog/categories/vue/"
+                        class="animsition-link">vue<small>(15)</small></a></li>
+                
+            </ul>
+        </li>
+        
+        
+    </ul>
+    <!-- Lists in Slidebars -->
+    <ul class="sb-menu secondary">
+        
+        <li><a href="/myBlog/about.html" class="animsition-link" title="about">About</a></li>
+        <!-- <li><a href="/myBlog/atom.xml" class="animsition-link" title="rss">RSS</a></li> -->
+    </ul>
+</div>
+
+<!-- ============================ END Off-canvas navigation =========================== -->
+
+<!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+<div id="sb-site">
+    <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+    <!-- ============================ Header & Logo bar =========================== -->
+
+    <div id="navigation" class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <!-- Nav logo -->
+                <div class="logo">
+                    <a href="/" title="Logo" class="animsition-link">
+                        
+                    </a>
+                </div>
+                <!-- // Nav logo -->
+                <!-- Info-bar -->
+                <nav>
+                    <ul class="nav">
+                        <li><a href="/" class="animsition-link">GRACE'S BLOG</a></li>
+                        <li class="nolink"><span>Always </span>Creative.</li>
+                        
+                        
+                        
+                        
+                        
+                        <li class="nolink"><span>Welcome!</span></li>
+                    </ul>
+                </nav>
+                <!--// Info-bar -->
+            </div>
+            <!-- // .container -->
+            <!-- <div class="learnmore sb-toggle-right">More</div> -->
+            <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+            </button>
+        </div>
+        <!-- // .navbar-inner -->
+    </div>
+
+    <!-- ============================ Header & Logo bar =========================== -->
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+                <h1>vuex状态管理</h1>
+                <span class="post-meta">
+      <time datetime="2018-04-25T16:00:00.000Z" itemprop="datePublished">
+          2018-04-26
+      </time>
+    
+    
+    | 
+    <a href='/myBlog/tags/vuex/'>vuex</a>
+    
+    
+</span>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+            <p>Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式，全局数据，兄弟组件共用的数据一般可以放在state中，主要有以下核心<br>1.State<br>2.Getter<br>3.Mutation<br>4.Action<br>5.Module</p>
+<p><strong><em>state</em></strong><br>state是数据源，有人把state比喻为数据库，用来管理数据的地方</p>
+<p><strong><em>Getter</em></strong><br>Getter比喻为API，是用来过滤数据，或者说一般不直接操作state(当然也是可以的)，而是去通过getter函数获得数据</p>
+<p><strong><em>Mutaion</em></strong><br>Mutation 提交状态修改。也就是set、get中的set，这是vuex中唯一修改state的方式，但不支持异步操作。第一个参数默认是state。<br>外部调用方式：store.commit(‘SET_AGE’, arg)。和vue中的methods类似。</p>
+<p><strong><em>actions</em></strong><br>actions：和mutations类似。不过actions支持异步操作。第一个参数默认是和store具有相同参数属性的对象。<br>外部调用方式：store.dispatch(‘nameAsyn’)。</p>
+<p><strong><em>modules</em></strong><br>modules：store的子模块，内容就相当于是store的一个实例。调用方式和前面介绍的相似，只是要加上当前子模块名，如：store.a.getters.xxx()。</p>
+<p>项目组织结构<br><img src="./tree.webp"><br>我的index.js文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">import Vue from &#39;vue&#39;</span><br><span class="line">import Vuex from &#39;vuex&#39;</span><br><span class="line">Vue.use(Vuex)</span><br><span class="line">import actions from &#39;.&#x2F;actions.js&#39;</span><br><span class="line">import mutations from &#39;.&#x2F;mutations.js&#39;</span><br><span class="line">const state&#x3D;&#123;</span><br><span class="line">	notes:[],      &#x2F;&#x2F;notes列表</span><br><span class="line">	activeNote:&#123;&#125;  &#x2F;&#x2F;一个当前note对象</span><br><span class="line">&#125;</span><br><span class="line">const getters&#x3D;&#123;</span><br><span class="line">	&#x2F;*</span><br><span class="line">	Getters接收state作为其第一个参数</span><br><span class="line">	 *&#x2F;</span><br><span class="line">	notes:state&#x3D;&gt;state.notes,</span><br><span class="line">	&#x2F;&#x2F;相当于notes:function(state)&#123;return state.notes&#125;</span><br><span class="line">	activeNote:state&#x3D;&gt;state.activeNote</span><br><span class="line">&#125;</span><br><span class="line">export default new Vuex.Store(&#123;</span><br><span class="line">	state,</span><br><span class="line">	mutations,</span><br><span class="line">	actions,</span><br><span class="line">	getters</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>action.js文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">const actions&#x3D;&#123;</span><br><span class="line">	addNote(&#123;commit&#125;)&#123;</span><br><span class="line">		commit(&#39;ADD_NOTE&#39;)</span><br><span class="line">	&#125;,</span><br><span class="line">	editNote(&#123;commit&#125;,text)&#123;</span><br><span class="line">		commit(&#39;EDIT_NOTE&#39;,text)</span><br><span class="line">	&#125;,</span><br><span class="line">	deleteNote(&#123;commit&#125;)&#123;</span><br><span class="line">		commit(&#39;DELETE_NOTE&#39;)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">export default actions</span><br></pre></td></tr></table></figure>
+<p>mutataion.js文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">const mutations&#x3D;&#123;</span><br><span class="line">	&#x2F;&#x2F;添加笔记</span><br><span class="line">	ADD_NOTE(state)&#123;</span><br><span class="line">       const newNote &#x3D; &#123;</span><br><span class="line">            &#x2F;*</span><br><span class="line">                text:默认文字内容</span><br><span class="line">                favorite:收藏</span><br><span class="line">            *&#x2F;</span><br><span class="line">            text:&quot;new Note&quot;,</span><br><span class="line">            favorite:false</span><br><span class="line">        &#125;</span><br><span class="line">        state.notes.push(newNote)</span><br><span class="line">        state.activeNote &#x3D; newNote</span><br><span class="line">	&#125;,</span><br><span class="line">	  &#x2F;&#x2F;编辑笔记</span><br><span class="line">	EDIT_NOTE(state,text)&#123;  &#x2F;&#x2F;编辑笔记</span><br><span class="line">		state.activeNote.text&#x3D;text</span><br><span class="line">	&#125;,</span><br><span class="line">	&#x2F;&#x2F;删除笔记</span><br><span class="line">	DELETE_NOTE(state)&#123;</span><br><span class="line">		for (var i&#x3D;0; i&lt;state.notes.length; i++)&#123;</span><br><span class="line">            if (state.notes[i] &#x3D;&#x3D; state.activeNote)&#123;</span><br><span class="line">                state.notes.splice(i, 1)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        state.activeNote &#x3D; state.notes[0]</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">export default mutations</span><br></pre></td></tr></table></figure>
+<p>main.js文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">import Vue from &#39;vue&#39;</span><br><span class="line">import App from &#39;.&#x2F;App&#39;</span><br><span class="line">import router from &#39;.&#x2F;router&#39;</span><br><span class="line">import store from &#39;.&#x2F;store&#x2F;index.js&#39;</span><br><span class="line">Vue.config.productionTip &#x3D; false</span><br><span class="line">&#x2F;* eslint-disable no-new *&#x2F;</span><br><span class="line">new Vue(&#123;</span><br><span class="line">  el: &#39;#app&#39;,</span><br><span class="line">  router,</span><br><span class="line">  store,&#x2F;&#x2F;使用store</span><br><span class="line">  components: &#123; App &#125;,</span><br><span class="line">  template: &#39;&lt;App&#x2F;&gt;&#39;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>vuex的文件中类似这样书写，mutation是同步的，提交数据，store.commit(‘add’, arg),action是操作mutation的,store.dispatch(‘add’)</p>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
+    
+    <a class="pull-left" href="/myBlog/2018/05/20/vue%E9%87%8D%E5%86%99CNodejs%E7%A4%BE%E5%8C%BA/" style="float: left;">
+        ← 初学vue重写CNodejs社区
+    </a>
+    
+    
+    <a class="pull-right" href="/myBlog/2018/04/14/vue%E4%BD%BF%E7%94%A8%E6%A8%A1%E6%8B%9F%E6%95%B0%E6%8D%AE%E6%8E%A5%E5%8F%A3mock.js%E5%92%8Cjson-server/">
+        项目中使用模拟数据接口mock.js和json-server →
+    </a>
+    
+</nav>
+
+        <div class="col-md-8 col-md-offset-2 col-sm-24"><script type="text/javascript">
+  /**
+   * 搜狐畅言
+   */
+
+  /*
+  document.write('<div id="SOHUCS" sid="' + window.location.pathname.slice(1) + '" ></div>');
+
+  window.onload = function () {
+    (function () {
+      var appid = 'cytXXXX';
+      var conf = 'prod_xxxxxxxxxxxxxxxxx';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      var loadJs = function (d, a, id) {
+        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+        var b = document.createElement("script");
+        b.setAttribute("type", "text/javascript");
+        b.setAttribute("charset", "UTF-8");
+        b.setAttribute("src", d);
+        if (id) {
+          b.setAttribute("id", id);
+        }
+        if (typeof a === "function") {
+          if (window.attachEvent) {
+            b.onreadystatechange = function () {
+              var e = b.readyState;
+              if (e === "loaded" || e === "complete") {
+                b.onreadystatechange = null;
+                a()
+              }
+            }
+          } else {
+            b.onload = a
+          }
+        }
+        c.appendChild(b)
+      };
+
+      loadJs("https://changyan.sohu.com/upload/changyan.js", function () {
+        window.changyan.api.config({
+          appid: appid,
+          conf: conf
+        })
+      });
+    })();
+  }
+  */
+
+</script>
+</div>
+    </div>
+</section>
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By grace. All Rights Reserved.
+                </p>
+                <p>Theme By <a target="_blank" rel="noopener" href="//go.kieran.top" style="color: #767D84">Kieran</a></p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    
+                    
+                    
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+
+    resizeHero();
+
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/myBlog/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/myBlog/js/scripts.js"></script><!-- Theme scripts -->
+
+
+<link rel="stylesheet" href="/myBlog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/myBlog/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$('#intro').find('img').each(function(){
+  var alt = this.alt;
+
+  if (alt){
+    $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
+  }
+
+  $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
+});
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+      
+</body>
+</html>

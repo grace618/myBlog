@@ -77,6 +77,34 @@
         <!-- Dropdown Menu -->
         
         
+        <li>
+            <a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
+            <ul class="sb-submenu">
+                
+                <li><a href="/myBlog/categories/js/"
+                        class="animsition-link">js<small>(2)</small></a></li>
+                
+                <li><a href="/myBlog/categories/mock/"
+                        class="animsition-link">mock<small>(1)</small></a></li>
+                
+                <li><a href="/myBlog/categories/mpvue/"
+                        class="animsition-link">mpvue<small>(2)</small></a></li>
+                
+                <li><a href="/myBlog/categories/next/"
+                        class="animsition-link">next<small>(1)</small></a></li>
+                
+                <li><a href="/myBlog/categories/node/"
+                        class="animsition-link">node<small>(1)</small></a></li>
+                
+                <li><a href="/myBlog/categories/react/"
+                        class="animsition-link">react<small>(1)</small></a></li>
+                
+                <li><a href="/myBlog/categories/vue/"
+                        class="animsition-link">vue<small>(15)</small></a></li>
+                
+            </ul>
+        </li>
+        
         
     </ul>
     <!-- Lists in Slidebars -->
@@ -138,7 +166,7 @@
 
 <section id="hero" class="scrollme">
     <div class="container-fluid element-img"
-        style="background: url(./img/bg_img.jpg) no-repeat top left fixed;background-size: cover">
+        style="background: url(/myBlog/img/bg_img.jpg) no-repeat top center fixed;background-size: cover">
         <div class="row">
             <div
                 class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
@@ -175,203 +203,23 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-12">
-                    <h3><a href="/myBlog/2020/11/17/axios封装和使用/">axios封装和使用</a></h3>
-                    <span>
+                    <h3><a href="/myBlog/2018/02/05/vue递归组件/">vue递归组件</a></h3>
+                    <div>
                         <span class="post-meta">
-      <time datetime="2020-11-17T07:02:42.326Z" itemprop="datePublished">
-          2020-11-17
+      <time datetime="2018-02-05T04:02:26.000Z" itemprop="datePublished">
+          2018-02-05
       </time>
     
-</span>
-                    </span>
-                </div>
-                <div class="col-md-12">
-                    <p>
-                        
-                        Axios 是一个基于 promise 的 HTTP 库我会把axios的封装写在工具类的文件里面以下是初始的axios封装，以后应该会根据情况来改变
-123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767
-                        
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/myBlog/2020/11/17/axios封装和使用/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-12">
-                    <h3><a href="/myBlog/2020/11/17/vue路由懒加载/">vue路由懒加载</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2020-11-17T07:02:14.988Z" itemprop="datePublished">
-          2020-11-17
-      </time>
+    
+    | 
+    <a href='/myBlog/tags/vue/'>vue</a>
+    
     
 </span>
-                    </span>
+                    </div>
                 </div>
                 <div class="col-md-12">
-                    <p>
-                        
-                        ###实现vue路由懒加载的几种方式[1]const home = r =&gt; require.ensure([], () =&gt; r(require(&#39;../home&#39;)), &#39;home&#39;) webpack 1.X 用的多[2]. const Hello = ()=&gt; import(&#39;./hello&#39;)  webpack&gt;2.4注意当调用 ES6 模块的 import
-                        
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/myBlog/2020/11/17/vue路由懒加载/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-12">
-                    <h3><a href="/myBlog/2020/11/17/vue权限验证/">vue权限验证</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2020-11-17T07:01:49.512Z" itemprop="datePublished">
-          2020-11-17
-      </time>
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-12">
-                    <p>
-                        
-                        在写后台管理系统时涉及到了权限验证，根据登录角色来设置用户权限实现思路1用户登录返回token,根据token去查询用户信息和用户角色2在router.js中，区分需要权限的路由和不需要权限的路由，先挂载不需要权限的路由，例如登录页/首页这种3 在store里面过滤和动态添加路由，生成最后的路由表 state.routers=constantRouterMap.concat(asyncRouterMap)4 当页面刷新时
-1234567
-                        
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/myBlog/2020/11/17/vue权限验证/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-12">
-                    <h3><a href="/myBlog/2020/11/17/vue项目中使用vue-i18n国际化/">vue项目中使用vue-i18n国际化</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2020-11-17T07:01:26.193Z" itemprop="datePublished">
-          2020-11-17
-      </time>
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-12">
-                    <p>
-                        
-                        ###vue-i18n在src/目录下新建lang文件夹lang/文件中有en.js,index.js,zh.js例如en.js
-123456789101112131415export default&#123;    route:&#123;        &#39;home&#39;:&#39;home&#39;,        &#39;component&#39;:&#39;component&#39;,        &#39
-                        
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/myBlog/2020/11/17/vue项目中使用vue-i18n国际化/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-12">
-                    <h3><a href="/myBlog/2020/11/17/vue项目中vuedraggable的使用/">vue项目中vuedraggable的使用</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2020-11-17T07:01:04.241Z" itemprop="datePublished">
-          2020-11-17
-      </time>
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-12">
-                    <p>
-                        
-                        后面可能会写一个可视化装修的项目，拖动这种功能是免不了的，于是使用了一下这个插件vuedraggable基于并提供Sortable.js的所有功能首先安装npm i  vuedraggable -Dtemplate部分
-123&lt;draggable  :options&#x3D;&quot;&#123;group:&#39;people&#39;&#125;&quot; @start&#x3D;&#39;drag&#x3D;true
-                        
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/myBlog/2020/11/17/vue项目中vuedraggable的使用/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-12">
-                    <h3><a href="/myBlog/2020/11/17/小程序mpvue/">小程序mpvue</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2020-11-17T07:00:38.331Z" itemprop="datePublished">
-          2020-11-17
-      </time>
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-12">
-                    <p>
-                        
-                        ###小程序原生一.页面传值的三种方式1.利用url传值url?params=data&amp;params1=data1 取值onLoad: function(option)&#123;option.params&#125;2.本地储存3.全局的app对象二.跳转到tabbar页的时候
-12345&lt;navigator url&#x3D;&quot;&#x2F;page&#x2F;index&#x2F;index&quot; op
-                        
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/myBlog/2020/11/17/小程序mpvue/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-12">
-                    <h3><a href="/myBlog/2020/11/17/vue递归组件/">vue递归组件</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2020-11-17T07:00:13.757Z" itemprop="datePublished">
-          2020-11-17
-      </time>
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-12">
-                    <p>
+                    <p style="overflow: hidden;">
                         
                         用vue写后台管理系统侧边栏时,用到了递归组件的问题，有的侧边栏导航可能有多个下级分类，结合element来写的一个递归组件小例子父组件 index.vue
 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475
@@ -379,9 +227,10 @@
                     </p>
                     
                     <p class="pull-right readMore">
-                        <a href="/myBlog/2020/11/17/vue递归组件/">Read More...</a>
+                        <a href="/myBlog/2018/02/05/vue递归组件/">Read More...</a>
                     </p>
                     
+
                 </div>
                 <div class="clearfix"></div>
                 <hr class="nogutter">
@@ -391,28 +240,35 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-12">
-                    <h3><a href="/myBlog/2020/11/17/vue 自定义指令--滚动到容器底部/">vue 自定义指令--滚动到容器底部</a></h3>
-                    <span>
+                    <h3><a href="/myBlog/2018/01/13/vue预渲染/">vue预渲染</a></h3>
+                    <div>
                         <span class="post-meta">
-      <time datetime="2020-11-17T06:59:41.553Z" itemprop="datePublished">
-          2020-11-17
+      <time datetime="2018-01-12T16:00:00.000Z" itemprop="datePublished">
+          2018-01-13
       </time>
     
+    
+    | 
+    <a href='/myBlog/tags/vue/'>vue</a>
+    
+    
 </span>
-                    </span>
+                    </div>
                 </div>
                 <div class="col-md-12">
-                    <p>
+                    <p style="overflow: hidden;">
                         
-                        最近碰到了一个使用场景是使用 element-ui ，对于table展示数据，但是有个需求是滚动加载分页和使用页码表分页两个结合起来，滚动加载的话使table表格无限加载，封装了一个滚动指令对滚动条的监听，其实是监听父容器（能产生滚动条的），而不是滚动的内容
-123456789101112131415161718192021222324&#x2F;&#x2F; directive&#x2F;loadmore.js&#39;const l
+                        npm install prerender-spa-plugin --save
+1 vue-config.js中增加
+123456789101112131415161718192021222324252627282930const PrerenderSPAPlugin &#x3D; require(&#39;prerender-spa-plugin&#39;);const Renderer &#x3D; PrerenderSPAPlug
                         
                     </p>
                     
                     <p class="pull-right readMore">
-                        <a href="/myBlog/2020/11/17/vue 自定义指令--滚动到容器底部/">Read More...</a>
+                        <a href="/myBlog/2018/01/13/vue预渲染/">Read More...</a>
                     </p>
                     
+
                 </div>
                 <div class="clearfix"></div>
                 <hr class="nogutter">
@@ -422,57 +278,35 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-12">
-                    <h3><a href="/myBlog/2020/11/17/升级项目到vue-cli3/">升级项目到vue-cli3</a></h3>
-                    <span>
+                    <h3><a href="/myBlog/2018/01/06/实现移动端布局的几种方式/">实现移动端布局的几种方式</a></h3>
+                    <div>
                         <span class="post-meta">
-      <time datetime="2020-11-17T06:59:16.268Z" itemprop="datePublished">
-          2020-11-17
+      <time datetime="2018-01-06T04:02:26.000Z" itemprop="datePublished">
+          2018-01-06
       </time>
     
+    
+    | 
+    <a href='/myBlog/tags/mobile/'>mobile</a>
+    
+    
 </span>
-                    </span>
+                    </div>
                 </div>
                 <div class="col-md-12">
-                    <p>
+                    <p style="overflow: hidden;">
                         
-                        我们原先的项目是webpack21.用vue-cli3构建好项目后，把原项目的src复制过去，static里的文件放到public里面2.安装package.json里的依赖，我是一个一个插件安装的，没有整个复制package.json，因为有的vue-cli3构建的可能并不需要了，而且有的依赖也有新的版本了，不指定版本的话，默认是最新的3.升级element ui 2.6需要vue2.5配合， scope改成 slot-scope4.
+                        方案一 rem
+&lt;meta name=&quot;viewport&quot; content=&quot;initial-scale=1,maximum-scale=1, minimum-scale=1&quot;&gt;
+dpr=1时没有任何问题，但是在dpr=2或者更高的手机屏幕上，因为物理像素的增加，存在小于1px的显示空间。如果采用第一种方法，因为它统一对scale设置为1，那么我们假如想要实现0.5px, 就只能通过t
                         
                     </p>
                     
                     <p class="pull-right readMore">
-                        <a href="/myBlog/2020/11/17/升级项目到vue-cli3/">Read More...</a>
+                        <a href="/myBlog/2018/01/06/实现移动端布局的几种方式/">Read More...</a>
                     </p>
                     
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-12">
-                    <h3><a href="/myBlog/2020/11/17/vue中element table单元格合并/">vue中element table单元格合并</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2020-11-17T06:58:51.033Z" itemprop="datePublished">
-          2020-11-17
-      </time>
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-12">
-                    <p>
-                        
-                        主要是合并行的处理emmm 写完这个的感受就是应该静下来多花一点时间去看看可以参考的代码，可以自己先写个demo试试，再放到项目中去说一下思路吧，element table 有一个属性:span-method 可以设置单元格合并，通过给table传入span-method方法可以实现合并行或列。方法的参数是一个对象，里面包含当前行row、当前列column、当前行号rowIndex、当前列号columnIndex四个属性。该函数可以返回
-                        
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/myBlog/2020/11/17/vue中element table单元格合并/">Read More...</a>
-                    </p>
-                    
+
                 </div>
                 <div class="clearfix"></div>
                 <hr class="nogutter">
@@ -481,7 +315,7 @@
         
         <nav class="pagination" role="pagination">
             <a class="pull-left" href="/myBlog/page/2/">← Newer Posts</a>
-            <a class="pull-right" href="/myBlog/page/4/">Older Posts →</a>
+            
         </nav>
     </div>
 </section>

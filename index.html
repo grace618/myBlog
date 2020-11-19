@@ -77,6 +77,34 @@
         <!-- Dropdown Menu -->
         
         
+        <li>
+            <a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
+            <ul class="sb-submenu">
+                
+                <li><a href="/myBlog/categories/js/"
+                        class="animsition-link">js<small>(2)</small></a></li>
+                
+                <li><a href="/myBlog/categories/mock/"
+                        class="animsition-link">mock<small>(1)</small></a></li>
+                
+                <li><a href="/myBlog/categories/mpvue/"
+                        class="animsition-link">mpvue<small>(2)</small></a></li>
+                
+                <li><a href="/myBlog/categories/next/"
+                        class="animsition-link">next<small>(1)</small></a></li>
+                
+                <li><a href="/myBlog/categories/node/"
+                        class="animsition-link">node<small>(1)</small></a></li>
+                
+                <li><a href="/myBlog/categories/react/"
+                        class="animsition-link">react<small>(1)</small></a></li>
+                
+                <li><a href="/myBlog/categories/vue/"
+                        class="animsition-link">vue<small>(15)</small></a></li>
+                
+            </ul>
+        </li>
+        
         
     </ul>
     <!-- Lists in Slidebars -->
@@ -138,7 +166,7 @@
 
 <section id="hero" class="scrollme">
     <div class="container-fluid element-img"
-        style="background: url(./img/bg_img.jpg) no-repeat top left fixed;background-size: cover">
+        style="background: url(/myBlog/img/bg_img.jpg) no-repeat top center fixed;background-size: cover">
         <div class="row">
             <div
                 class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
@@ -175,30 +203,37 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-12">
-                    <h3><a href="/myBlog/2020/11/17/关于css和html（一）/">关于css和html（一）</a></h3>
-                    <span>
+                    <h3><a href="/myBlog/2020/06/08/next.js学习笔记/">next.js学习笔记</a></h3>
+                    <div>
                         <span class="post-meta">
-      <time datetime="2020-11-17T07:12:35.218Z" itemprop="datePublished">
-          2020-11-17
+      <time datetime="2020-06-08T04:02:26.000Z" itemprop="datePublished">
+          2020-06-08
       </time>
     
+    
+    | 
+    <a href='/myBlog/tags/next-js-react/'>next.js react</a>
+    
+    
 </span>
-                    </span>
+                    </div>
                 </div>
                 <div class="col-md-12">
-                    <p>
+                    <p style="overflow: hidden;">
                         
-                        ###小提示
+                        其实有用next.js写了一个公司官网
+1 安装 npx create-next-app
+2 _app.js _document.js server.js
+3 css 这使用了一个名为styled-jsx的库。这是一个“ CSS-in-JS”库-它使您可以在React组件中编写CSS，并且CSS样式将受到限制（其他组件不会受到影响）。
+==Next.js内置了对styled-jsx的支持，但是您也可以使用其他流行的CSS-in-JS库，
+                        
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/myBlog/2020/06/08/next.js学习笔记/">Read More...</a>
+                    </p>
+                    
 
-$(‘ele’).eq()index 值从 0 开始，所有第一个元素的 index 值是 0（不是 1）。###居中12345position：absolute;left:50%;top&quot;50%;margin-left:宽度的一半margin-top:高度的一半
-可以兼容ie7，但是以下不兼容123456position：absolute;left:0;top:0;right:0;buttom：0；margin
-                        
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/myBlog/2020/11/17/关于css和html（一）/">Read More...</a>
-                    </p>
-                    
                 </div>
                 <div class="clearfix"></div>
                 <hr class="nogutter">
@@ -208,123 +243,35 @@ $(‘ele’).eq()index 值从 0 开始，所有第一个元素的 index 值是 0
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-12">
-                    <h3><a href="/myBlog/2020/11/17/关于css和html(二)/">关于css和html(二)</a></h3>
-                    <span>
+                    <h3><a href="/myBlog/2020/05/01/如何在vue中使用icon-font/">如何在vue中使用Iconfont网站的图标？</a></h3>
+                    <div>
                         <span class="post-meta">
-      <time datetime="2020-11-17T07:12:06.203Z" itemprop="datePublished">
-          2020-11-17
+      <time datetime="2020-04-30T16:00:00.000Z" itemprop="datePublished">
+          2020-05-01
       </time>
     
+    
+    | 
+    <a href='/myBlog/tags/vue-iconfont/'>vue iconfont</a>
+    
+    
 </span>
-                    </span>
+                    </div>
                 </div>
                 <div class="col-md-12">
-                    <p>
+                    <p style="overflow: hidden;">
                         
-                        ###背景图在浏览器窗口缩小时，可以设置body，html的最小宽度###动画
-12345div&#123;animation:mymove 5s infinite;-webkit-animation:mymove 5s infinite; &#x2F;* Safari 和 Chrome *&#x2F;&#125;
-123456animation-name	规定需要绑定到选择器的 keyframe 名称。。animation-durat
+                        1.新建components/SvgIcon.vue组件
+使用的是阿里巴巴的iconfont图标库，有三种方式可以引用，我使用的是symbol方式
+12345678910111213141516171819202122232425262728293031323334353637383940414243&lt;template&gt;  &lt;svg :class&#x3D;&quot;svgClass&quot; aria-hidde
                         
                     </p>
                     
                     <p class="pull-right readMore">
-                        <a href="/myBlog/2020/11/17/关于css和html(二)/">Read More...</a>
+                        <a href="/myBlog/2020/05/01/如何在vue中使用icon-font/">Read More...</a>
                     </p>
                     
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-12">
-                    <h3><a href="/myBlog/2020/11/17/用react实现的一个轮播图/">用react实现的一个轮播图</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2020-11-17T07:11:41.746Z" itemprop="datePublished">
-          2020-11-17
-      </time>
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-12">
-                    <p>
-                        
-                        最近在写react，实现了一个轮播图功能，才对react组件和状态更多一点的了解。实现的功能是图片自动轮播，当鼠标移入图片时停止轮播，点击左右箭头进行平滑移动，底部小圆点进行标识,轮播图随屏幕大小变化。具体是这样一个结构。
-123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585
-                        
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/myBlog/2020/11/17/用react实现的一个轮播图/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-12">
-                    <h3><a href="/myBlog/2020/11/17/sublime离线安装pyv8和emmet/">sublime离线安装pyv8和emmet</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2020-11-17T07:11:17.781Z" itemprop="datePublished">
-          2020-11-17
-      </time>
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-12">
-                    <p>
-                        
-                        我们公司内网是不能连接网络的，所以基本都要离线安装首先安装PyV8访问https://github.com/emmetio/pyv8-binaries选择适合自己的包下载，解压，我解压的文件是没有目录的，是零散的三个文件，其实要给这几个文件放到一个文件夹下面。例如我下载是pyv8-win64-p3.zip这个，sublime text3 win64的，然后给文件命名为win64-p3，最后在Preferences-&gt;Browse 
-                        
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/myBlog/2020/11/17/sublime离线安装pyv8和emmet/">Read More...</a>
-                    </p>
-                    
-                </div>
-                <div class="clearfix"></div>
-                <hr class="nogutter">
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 opening-statement">
-                <div class="col-md-12">
-                    <h3><a href="/myBlog/2020/11/17/实现移动端布局的几种方式/">用vuex实现的两个小应用</a></h3>
-                    <span>
-                        <span class="post-meta">
-      <time datetime="2020-11-17T07:10:58.173Z" itemprop="datePublished">
-          2020-11-17
-      </time>
-    
-</span>
-                    </span>
-                </div>
-                <div class="col-md-12">
-                    <p>
-                        
-                        #方案一 rem
 
-dpr=1时没有任何问题，但是在dpr=2或者更高的手机屏幕上，因为物理像素的增加，存在小于1px的显示空间。如果采用第一种方法，因为它统一对scale设置为1，那么我们假如想要实现0.5px, 就只能通过transform的方式
-12345678910111213;(function(win, doc) &#123;	function change() &#123;		if (document.documentEl
-                        
-                    </p>
-                    
-                    <p class="pull-right readMore">
-                        <a href="/myBlog/2020/11/17/实现移动端布局的几种方式/">Read More...</a>
-                    </p>
-                    
                 </div>
                 <div class="clearfix"></div>
                 <hr class="nogutter">
@@ -334,27 +281,34 @@ dpr=1时没有任何问题，但是在dpr=2或者更高的手机屏幕上，因�
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-12">
-                    <h3><a href="/myBlog/2020/11/17/设置swiper滑动距离/">设置swiper滑动距离</a></h3>
-                    <span>
+                    <h3><a href="/myBlog/2020/04/19/vue 关于facebooke和google的一些操作/">使用facebook sdk 和google sdk中的社交功能(点赞、分享和第三方登录)——vue</a></h3>
+                    <div>
                         <span class="post-meta">
-      <time datetime="2020-11-17T07:10:31.560Z" itemprop="datePublished">
-          2020-11-17
+      <time datetime="2020-04-18T16:00:00.000Z" itemprop="datePublished">
+          2020-04-19
       </time>
     
+    
+    | 
+    <a href='/myBlog/tags/vue-facebook-google-Social/'>vue facebook google Social</a>
+    
+    
 </span>
-                    </span>
+                    </div>
                 </div>
                 <div class="col-md-12">
-                    <p>
+                    <p style="overflow: hidden;">
                         
-                        今天遇到一个需求就是去修改使用swiper的一个页面，原来的功能是在移动端要滑动很长一段距离才会翻页，现在要去修改这个滑动距离，让滑动看起来更灵敏。因为是去看别人写的代码，还真是有点费时间。开始是先去找的初始化swiper参数，看有没有相关的设置，touchRatio触摸距离与slide滑动距离的比率。threshold拖动的临界值（单位为px），如果触摸距离小于该值滑块不会被拖动。但是发现初始化的参数中并没有相关设置，于是在一个上拉刷
+                        facebook 点赞❶ 使用sdk引入sdk有两种方式① 在main.js里面引入sdk
+123456789(function (d, s, id) &#123;var js,fjs &#x3D; d.getElementsByTagName(s)[0];if (d.getElementById(id)) return;js &#x3D; d.createElement(s);js.id &#x3D; id;js.src &#x3D;
                         
                     </p>
                     
                     <p class="pull-right readMore">
-                        <a href="/myBlog/2020/11/17/设置swiper滑动距离/">Read More...</a>
+                        <a href="/myBlog/2020/04/19/vue 关于facebooke和google的一些操作/">Read More...</a>
                     </p>
                     
+
                 </div>
                 <div class="clearfix"></div>
                 <hr class="nogutter">
@@ -364,27 +318,36 @@ dpr=1时没有任何问题，但是在dpr=2或者更高的手机屏幕上，因�
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-12">
-                    <h3><a href="/myBlog/2020/11/17/关于vuex状态管理/">关于vuex状态管理</a></h3>
-                    <span>
+                    <h3><a href="/myBlog/2020/01/09/mongodb实现的jwt登录注册/">使用node/koa/mongodb实现的jwt登录注册</a></h3>
+                    <div>
                         <span class="post-meta">
-      <time datetime="2020-11-17T07:10:04.480Z" itemprop="datePublished">
-          2020-11-17
+      <time datetime="2020-01-08T16:00:00.000Z" itemprop="datePublished">
+          2020-01-09
       </time>
     
+    
+    | 
+    <a href='/myBlog/tags/jwt-node/'>jwt node</a>
+    
+    
 </span>
-                    </span>
+                    </div>
                 </div>
                 <div class="col-md-12">
-                    <p>
+                    <p style="overflow: hidden;">
                         
-                        Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式，全局数据，兄弟组件共用的数据一般可以放在state中，主要有以下核心1.State2.Getter3.Mutation4.Action5.Module#statestate是数据源，有人把state比喻为数据库，用来管理数据的地方#GetterGetter比喻为API，是用来过滤数据，或者说一般不直接操作state(当然也是可以的)，而是去通过getter函数获得数据#Mu
+                        node.js+koa+mongodb实现登录注册① 思路 : 实现登录注册有三种方式 session和jwt 和oAuth（第三方登录） 我这里选用jwt
+② 需要 ： 中间件 koa-jwt 权限路由验证 jsonwebtoken 生成token
+③ 密码加密：uuid —唯一识别码sha1 —安全哈希算法bcrypt  —加密算法crypto —加密算法md5 –加密算法
+④  json web token  传输方式用md5/s
                         
                     </p>
                     
                     <p class="pull-right readMore">
-                        <a href="/myBlog/2020/11/17/关于vuex状态管理/">Read More...</a>
+                        <a href="/myBlog/2020/01/09/mongodb实现的jwt登录注册/">Read More...</a>
                     </p>
                     
+
                 </div>
                 <div class="clearfix"></div>
                 <hr class="nogutter">
@@ -394,28 +357,34 @@ dpr=1时没有任何问题，但是在dpr=2或者更高的手机屏幕上，因�
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-12">
-                    <h3><a href="/myBlog/2020/11/17/页面进度条nprogress结合vue使用/">页面进度条nprogress结合vue使用</a></h3>
-                    <span>
+                    <h3><a href="/myBlog/2019/11/26/vue运行机制笔记/">vue内部运行机制浅析</a></h3>
+                    <div>
                         <span class="post-meta">
-      <time datetime="2020-11-17T07:09:39.956Z" itemprop="datePublished">
-          2020-11-17
+      <time datetime="2019-11-25T16:00:00.000Z" itemprop="datePublished">
+          2019-11-26
       </time>
     
+    
+    | 
+    <a href='/myBlog/tags/js/'>js</a>
+    
+    
 </span>
-                    </span>
+                    </div>
                 </div>
                 <div class="col-md-12">
-                    <p>
+                    <p style="overflow: hidden;">
                         
-                        在需要使用的地方引入，我的是在有router.beforeEach的地方使用的
-123456789import NProgress from &#39;nprogress&#39;import &#39;nprogress&#x2F;nprogress.css&#39;NProgress.configure(&#123;showSpinner:false&#125;)router.beforeEach(()&#x3D;&gt;&#123
+                        vue组件的三个API:prop,event,slot
+12345678&lt;template&gt;    &lt;button :class&#x3D;&quot;&#39;i-button-size&#39;+size&quot; :disabled&#x3D;&#39;disabled&#39; @click&#x3D;&quot;handleClick&quot;&gt;        &lt;slot&gt;&lt;&#x
                         
                     </p>
                     
                     <p class="pull-right readMore">
-                        <a href="/myBlog/2020/11/17/页面进度条nprogress结合vue使用/">Read More...</a>
+                        <a href="/myBlog/2019/11/26/vue运行机制笔记/">Read More...</a>
                     </p>
                     
+
                 </div>
                 <div class="clearfix"></div>
                 <hr class="nogutter">
@@ -425,27 +394,37 @@ dpr=1时没有任何问题，但是在dpr=2或者更高的手机屏幕上，因�
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-12">
-                    <h3><a href="/myBlog/2020/11/17/vue实现登录和个人信息组件展示/">vue实现登录和个人信息组件展示</a></h3>
-                    <span>
+                    <h3><a href="/myBlog/2019/11/25/阅读vue文档学习笔记之需要注意的几个地方/">阅读vue文档学习笔记之需要注意的几个地方</a></h3>
+                    <div>
                         <span class="post-meta">
-      <time datetime="2020-11-17T07:09:15.740Z" itemprop="datePublished">
-          2020-11-17
+      <time datetime="2019-11-25T04:02:26.000Z" itemprop="datePublished">
+          2019-11-25
       </time>
     
+    
+    | 
+    <a href='/myBlog/tags/mpvue/'>mpvue</a>
+    
+    
 </span>
-                    </span>
+                    </div>
                 </div>
                 <div class="col-md-12">
-                    <p>
+                    <p style="overflow: hidden;">
                         
-                        最近在写一个重构node社区的小项目，碰到了登录的问题，实现思路如下：1.获取用户表单信息，使用axios提交，提交成功后，把数据存在cookie,以便后续操作。2.其中有个人信息的页面展示，获取cookie信息，判断用户是否登录，如果登录则显示内容，未登录则跳转到登录页面，所以个人信息的页面可以使用路由守卫搜索资料时有看到这种写法，就是经过判断后去改变的动态路由来决定跳转到哪个组件，感觉稍显麻烦。3.退出操作，清除cookie可以把操
+                        v2.6
+模板语法可以用方括号括起来的 JavaScript 表达式作为一个指令的参数：&lt;a v-bind:[attributeName]=&quot;url&quot;&gt; ... &lt;/a&gt;
+同样地，你可以使用动态参数为一个动态的事件名绑定处理函数：&lt;a v-on:[eventName]=&quot;doSomething&quot;&gt; ... &lt;/a&gt;
+对动态参数的值的约束
+动态参数预期
                         
                     </p>
                     
                     <p class="pull-right readMore">
-                        <a href="/myBlog/2020/11/17/vue实现登录和个人信息组件展示/">Read More...</a>
+                        <a href="/myBlog/2019/11/25/阅读vue文档学习笔记之需要注意的几个地方/">Read More...</a>
                     </p>
                     
+
                 </div>
                 <div class="clearfix"></div>
                 <hr class="nogutter">
@@ -455,29 +434,157 @@ dpr=1时没有任何问题，但是在dpr=2或者更高的手机屏幕上，因�
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-12">
-                    <h3><a href="/myBlog/2020/11/17/ftp上传服务器/">sublime text3连接sftp/ftp上传服务器</a></h3>
-                    <span>
+                    <h3><a href="/myBlog/2019/11/22/后台管理系统的项目小结/">后台管理系统的项目小结</a></h3>
+                    <div>
                         <span class="post-meta">
-      <time datetime="2020-11-17T07:08:46.590Z" itemprop="datePublished">
-          2020-11-17
+      <time datetime="2019-11-22T04:02:26.000Z" itemprop="datePublished">
+          2019-11-22
       </time>
     
+    
+    | 
+    <a href='/myBlog/tags/vue-admin/'>vue admin</a>
+    
+    
 </span>
-                    </span>
+                    </div>
                 </div>
                 <div class="col-md-12">
-                    <p>
+                    <p style="overflow: hidden;">
                         
-                        ctrl+shift+p-&gt;pci(package control install package)-&gt;sftp(下载sftp插件)看到网络上有的教程是如下图设置，但是无法保存。
-于是进行第二种方法，根目录右键，打开之后
-主要设置host,user,password,port,remote_path例如 host:40.125.208.172user:gracepassword:adminport sftp默认22要确保能连
+                        后台管理系统的项目小结写起来却触及到不少知识点，关于vue全家桶什么的都用到了实现功能或者一些想记录的点
+
+登录（axios实例和拦截器）
+动态侧边栏和面包屑(this.$router.options.routes,meta路由元的使用)
+iconfont的使用
+页面布局和可复用组件
+element-ui,js-cookie,一些工具方法的使用
+vuex模块化和抽离api接口
+es6/7和webpack的一些语法
+
+实现思路
+登录:获取
                         
                     </p>
                     
                     <p class="pull-right readMore">
-                        <a href="/myBlog/2020/11/17/ftp上传服务器/">Read More...</a>
+                        <a href="/myBlog/2019/11/22/后台管理系统的项目小结/">Read More...</a>
                     </p>
                     
+
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-12">
+                    <h3><a href="/myBlog/2019/11/02/vue权限验证/">vue后台管理系统权限验证的思路分析</a></h3>
+                    <div>
+                        <span class="post-meta">
+      <time datetime="2019-11-02T04:02:26.000Z" itemprop="datePublished">
+          2019-11-02
+      </time>
+    
+    
+    | 
+    <a href='/myBlog/tags/vue-admin/'>vue admin</a>
+    
+    
+</span>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <p style="overflow: hidden;">
+                        
+                        在写后台管理系统时涉及到了权限验证，根据登录角色来设置用户权限
+实现思路1用户登录返回token,根据token去查询用户信息和用户角色2在router.js中，区分需要权限的路由和不需要权限的路由，先挂载不需要权限的路由，例如登录页/首页这种3 在store里面过滤和动态添加路由，生成最后的路由表state.routers=constantRouterMap.concat(asyncRouterMap)4 当页面刷新时
+1234567
+                        
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/myBlog/2019/11/02/vue权限验证/">Read More...</a>
+                    </p>
+                    
+
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-12">
+                    <h3><a href="/myBlog/2019/09/16/vue实现登录和个人信息组件展示/">vue实现登录和个人信息组件展示</a></h3>
+                    <div>
+                        <span class="post-meta">
+      <time datetime="2019-09-15T16:00:00.000Z" itemprop="datePublished">
+          2019-09-16
+      </time>
+    
+    
+    | 
+    <a href='/myBlog/tags/vue/'>vue</a>
+    
+    
+</span>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <p style="overflow: hidden;">
+                        
+                        最近在写一个重构node社区的小项目，碰到了登录的问题，实现思路如下：① 获取用户表单信息，使用axios提交，提交成功后，把数据存在cookie,以便后续操作。
+② 其中有个人信息的页面展示，获取cookie信息，判断用户是否登录，如果登录则显示内容，未登录则跳转到登录页面，所以个人信息的页面可以使用路由守卫搜索资料时有看到这种写法，就是经过判断后去改变的动态路由来决定跳转到哪个组件，感觉稍显麻烦。
+③ 退出操作，清除cookie可以
+                        
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/myBlog/2019/09/16/vue实现登录和个人信息组件展示/">Read More...</a>
+                    </p>
+                    
+
+                </div>
+                <div class="clearfix"></div>
+                <hr class="nogutter">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 opening-statement">
+                <div class="col-md-12">
+                    <h3><a href="/myBlog/2019/08/19/vue项目中使用vue-i18n国际化/">vue项目中使用vue-i18n实现国际化</a></h3>
+                    <div>
+                        <span class="post-meta">
+      <time datetime="2019-08-19T04:02:26.000Z" itemprop="datePublished">
+          2019-08-19
+      </time>
+    
+    
+    | 
+    <a href='/myBlog/tags/vue-vue-i18n/'>vue vue-i18n</a>
+    
+    
+</span>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <p style="overflow: hidden;">
+                        
+                        vue-i18n在src/目录下新建lang文件夹lang/文件中有en.js,index.js,zh.js例如en.js
+123456789101112131415export default&#123;    route:&#123;        &#39;home&#39;:&#39;home&#39;,        &#39;component&#39;:&#39;component&#39;,        &#39;pe
+                        
+                    </p>
+                    
+                    <p class="pull-right readMore">
+                        <a href="/myBlog/2019/08/19/vue项目中使用vue-i18n国际化/">Read More...</a>
+                    </p>
+                    
+
                 </div>
                 <div class="clearfix"></div>
                 <hr class="nogutter">

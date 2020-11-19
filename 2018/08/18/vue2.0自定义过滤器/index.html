@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+***************  *      *     *
+      8          *    *       *
+      8          *  *         *
+      8          **           *
+      8          *  *         *
+      8          *    *       *
+      8          *      *     *
+      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<!--<![endif]-->
+
+<head>
+  <title>vue2.0自定义过滤器 | GRACE&#39;S BLOG</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="GRACE'S BLOG">
+    <meta name="author" content="grace">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/myBlog/img/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/myBlog/atom.xml" title="GRACE&#39;S BLOG" type="application/atom+xml">
+    <link rel="stylesheet" href="/myBlog/css/all.css" media="screen" type="text/css">
+    
+    <link rel="stylesheet" href="/myBlog/highlightjs/vs.css" type="text/css">
+    
+
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/myBlog/css/ie8.css" />
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/myBlog/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/myBlog/js/html5shiv.min.js"></script>
+    <script src="/myBlog/js/respond.min.js"></script>
+    <![endif]-->
+
+  
+  
+  
+
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+<div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+    <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+        <img src="/myBlog/img/close.png" alt="Close" />
+    </div>
+    <!-- Lists in Slidebars -->
+    <ul class="sb-menu">
+        <li><a href="/myBlog/" class="animsition-link" title="Home">Home</a></li>
+        <li><a href="/myBlog/archives" class="animsition-link" title="archive">archives</a>
+        </li>
+        <!-- Dropdown Menu -->
+        
+        
+        <li>
+            <a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
+            <ul class="sb-submenu">
+                
+                <li><a href="/myBlog/categories/js/"
+                        class="animsition-link">js<small>(2)</small></a></li>
+                
+                <li><a href="/myBlog/categories/mock/"
+                        class="animsition-link">mock<small>(1)</small></a></li>
+                
+                <li><a href="/myBlog/categories/mpvue/"
+                        class="animsition-link">mpvue<small>(2)</small></a></li>
+                
+                <li><a href="/myBlog/categories/next/"
+                        class="animsition-link">next<small>(1)</small></a></li>
+                
+                <li><a href="/myBlog/categories/node/"
+                        class="animsition-link">node<small>(1)</small></a></li>
+                
+                <li><a href="/myBlog/categories/react/"
+                        class="animsition-link">react<small>(1)</small></a></li>
+                
+                <li><a href="/myBlog/categories/vue/"
+                        class="animsition-link">vue<small>(15)</small></a></li>
+                
+            </ul>
+        </li>
+        
+        
+    </ul>
+    <!-- Lists in Slidebars -->
+    <ul class="sb-menu secondary">
+        
+        <li><a href="/myBlog/about.html" class="animsition-link" title="about">About</a></li>
+        <!-- <li><a href="/myBlog/atom.xml" class="animsition-link" title="rss">RSS</a></li> -->
+    </ul>
+</div>
+
+<!-- ============================ END Off-canvas navigation =========================== -->
+
+<!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+<div id="sb-site">
+    <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+    <!-- ============================ Header & Logo bar =========================== -->
+
+    <div id="navigation" class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <!-- Nav logo -->
+                <div class="logo">
+                    <a href="/" title="Logo" class="animsition-link">
+                        
+                    </a>
+                </div>
+                <!-- // Nav logo -->
+                <!-- Info-bar -->
+                <nav>
+                    <ul class="nav">
+                        <li><a href="/" class="animsition-link">GRACE'S BLOG</a></li>
+                        <li class="nolink"><span>Always </span>Creative.</li>
+                        
+                        
+                        
+                        
+                        
+                        <li class="nolink"><span>Welcome!</span></li>
+                    </ul>
+                </nav>
+                <!--// Info-bar -->
+            </div>
+            <!-- // .container -->
+            <!-- <div class="learnmore sb-toggle-right">More</div> -->
+            <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+            </button>
+        </div>
+        <!-- // .navbar-inner -->
+    </div>
+
+    <!-- ============================ Header & Logo bar =========================== -->
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+                <h1>vue2.0自定义过滤器</h1>
+                <span class="post-meta">
+      <time datetime="2018-08-18T04:02:26.000Z" itemprop="datePublished">
+          2018-08-18
+      </time>
+    
+    
+    | 
+    <a href='/myBlog/tags/vue/'>vue</a>
+    
+    
+</span>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+            <p>为了不让自己日后有这样的疑问，这段时间到底在干嘛？？所以来记录一下。今天是周末，还在公司，唉。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Vue.filter(id,[definition])</span><br><span class="line">参数</span><br><span class="line">&#123;string&#125; id</span><br><span class="line">&#123;Function&#125; [definition]</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 注册</span><br><span class="line">Vue.filter(&#39;my-filter&#39;, function (value) &#123;</span><br><span class="line">  &#x2F;&#x2F; 返回处理后的值</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; getter，返回已注册的过滤器</span><br><span class="line">var myFilter &#x3D; Vue.filter(&#39;my-filter&#39;)</span><br></pre></td></tr></table></figure>
+
+<p>过滤器串联</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; message | filterA | filterB &#125;&#125;</span><br><span class="line">&#123;&#123; message | filterA(&#39;arg1&#39;, arg2) &#125;&#125;  </span><br><span class="line">&#x2F;&#x2F;filterA 被定义为接收三个参数的过滤器函数,其中 message 的值作为第一个参数，</span><br><span class="line">普通字符串 &#39;arg1&#39; 作为第二个参数，表达式 arg2 的值作为第三个参数</span><br></pre></td></tr></table></figure>
+<p>在组件内部定义</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">methods:&#123;</span><br><span class="line"> filters:&#123;</span><br><span class="line">  capitalize:function()&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>全局定义过滤器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Vue.filter(&#39;capitalize&#39;, function (value) &#123;</span><br><span class="line">  if (!value) return &#39;&#39;</span><br><span class="line">  value &#x3D; value.toString()</span><br><span class="line">  return value.charAt(0).toUpperCase() + value.slice(1)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>举例<br>在模块化的vue开发中，可以把过滤器写在一个单独的js文件里面，在js里面书写各类过滤器<br>时间过滤器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">export default&#123;</span><br><span class="line">	dateformatter:(str)&#x3D;&gt;&#123;</span><br><span class="line">		 if (!str) return &#39;&#39;</span><br><span class="line">	    var date &#x3D; new Date(str)</span><br><span class="line">	    var time &#x3D; new Date().getTime() - date.getTime()&#x2F;&#x2F;单位毫秒</span><br><span class="line">	    if (time &lt; 0) &#123;</span><br><span class="line">	        return &#39;&#39;</span><br><span class="line">	    &#125; else if ((time &#x2F; 1000 &lt; 30)) &#123;</span><br><span class="line">	        return &#39;刚刚&#39;</span><br><span class="line">	    &#125; else if (time &#x2F; 1000 &lt; 60) &#123;</span><br><span class="line">	        return parseInt((time &#x2F; 1000)) + &#39;秒前&#39;</span><br><span class="line">	    &#125; else if ((time &#x2F; 60000) &lt; 60) &#123;</span><br><span class="line">	        return parseInt((time &#x2F; 60000)) + &#39;分钟前&#39;</span><br><span class="line">	    &#125; else if ((time &#x2F; 3600000) &lt; 24) &#123;</span><br><span class="line">	        return parseInt(time &#x2F; 3600000) + &#39;小时前&#39;</span><br><span class="line">	    &#125; else if ((time &#x2F; 86400000) &lt; 31) &#123;</span><br><span class="line">	        return parseInt(time &#x2F; 86400000) + &#39;天前&#39;</span><br><span class="line">	    &#125; else if ((time &#x2F; 2592000000) &lt; 12) &#123;</span><br><span class="line">	        return parseInt(time &#x2F; 2592000000) + &#39;月前&#39;</span><br><span class="line">	    &#125; else &#123;</span><br><span class="line">	        return parseInt(time &#x2F; 31536000000) + &#39;年前&#39;</span><br><span class="line">	    &#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>在main.js中import进去，注册</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import dateformatter from &#39;.&#x2F;uitls&#x2F;xxx.js&#39;</span><br><span class="line">&#x2F;&#x2F;全局注册组件，也许过虑器有很多</span><br><span class="line">Object.keys(filters).forEach(function(k)&#123;</span><br><span class="line">	return Vue.filter(k,filters[k])</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
+    
+    <a class="pull-left" href="/myBlog/2018/11/26/promise/" style="float: left;">
+        ← promise和async/await
+    </a>
+    
+    
+    <a class="pull-right" href="/myBlog/2018/05/20/vue%E9%87%8D%E5%86%99CNodejs%E7%A4%BE%E5%8C%BA/">
+        初学vue重写CNodejs社区 →
+    </a>
+    
+</nav>
+
+        <div class="col-md-8 col-md-offset-2 col-sm-24"><script type="text/javascript">
+  /**
+   * 搜狐畅言
+   */
+
+  /*
+  document.write('<div id="SOHUCS" sid="' + window.location.pathname.slice(1) + '" ></div>');
+
+  window.onload = function () {
+    (function () {
+      var appid = 'cytXXXX';
+      var conf = 'prod_xxxxxxxxxxxxxxxxx';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      var loadJs = function (d, a, id) {
+        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+        var b = document.createElement("script");
+        b.setAttribute("type", "text/javascript");
+        b.setAttribute("charset", "UTF-8");
+        b.setAttribute("src", d);
+        if (id) {
+          b.setAttribute("id", id);
+        }
+        if (typeof a === "function") {
+          if (window.attachEvent) {
+            b.onreadystatechange = function () {
+              var e = b.readyState;
+              if (e === "loaded" || e === "complete") {
+                b.onreadystatechange = null;
+                a()
+              }
+            }
+          } else {
+            b.onload = a
+          }
+        }
+        c.appendChild(b)
+      };
+
+      loadJs("https://changyan.sohu.com/upload/changyan.js", function () {
+        window.changyan.api.config({
+          appid: appid,
+          conf: conf
+        })
+      });
+    })();
+  }
+  */
+
+</script>
+</div>
+    </div>
+</section>
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By grace. All Rights Reserved.
+                </p>
+                <p>Theme By <a target="_blank" rel="noopener" href="//go.kieran.top" style="color: #767D84">Kieran</a></p>
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    
+                    
+                    
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+
+    resizeHero();
+
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/myBlog/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/myBlog/js/scripts.js"></script><!-- Theme scripts -->
+
+
+<link rel="stylesheet" href="/myBlog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/myBlog/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$('#intro').find('img').each(function(){
+  var alt = this.alt;
+
+  if (alt){
+    $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
+  }
+
+  $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
+});
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+      
+</body>
+</html>
