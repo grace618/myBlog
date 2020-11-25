@@ -82,13 +82,16 @@
             <ul class="sb-submenu">
                 
                 <li><a href="/myBlog/categories/js/"
-                        class="animsition-link">js<small>(2)</small></a></li>
+                        class="animsition-link">js<small>(1)</small></a></li>
+                
+                <li><a href="/myBlog/categories/mobile/"
+                        class="animsition-link">mobile<small>(1)</small></a></li>
                 
                 <li><a href="/myBlog/categories/mock/"
                         class="animsition-link">mock<small>(1)</small></a></li>
                 
                 <li><a href="/myBlog/categories/mpvue/"
-                        class="animsition-link">mpvue<small>(2)</small></a></li>
+                        class="animsition-link">mpvue<small>(1)</small></a></li>
                 
                 <li><a href="/myBlog/categories/next/"
                         class="animsition-link">next<small>(1)</small></a></li>
@@ -100,17 +103,26 @@
                         class="animsition-link">react<small>(1)</small></a></li>
                 
                 <li><a href="/myBlog/categories/vue/"
-                        class="animsition-link">vue<small>(15)</small></a></li>
+                        class="animsition-link">vue<small>(16)</small></a></li>
                 
             </ul>
         </li>
         
         
+        <li>
+            <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
+            <ul class="sb-submenu">
+                
+                <li><a target="_blank" rel="noopener" href="https://www.laoqiange.club/" class="animsition-link">老千哥</a></li>
+                
+            </ul>
+        </li>
+        
     </ul>
     <!-- Lists in Slidebars -->
     <ul class="sb-menu secondary">
         
-        <li><a href="/myBlog/about.html" class="animsition-link" title="about">About</a></li>
+        <!-- <li><a href="/myBlog/about.html" class="animsition-link" title="about">About</a></li> -->
         <!-- <li><a href="/myBlog/atom.xml" class="animsition-link" title="rss">RSS</a></li> -->
     </ul>
 </div>
@@ -138,13 +150,29 @@
                 <nav>
                     <ul class="nav">
                         <li><a href="/" class="animsition-link">GRACE'S BLOG</a></li>
-                        <li class="nolink"><span>Always </span>Creative.</li>
+                        <!-- <li class="nolink"><span>Always </span>Creative.</li> -->
+                        <li>
+                            <a href="/myBlog/about.html" title="about" target="_blank"
+                                class="animsition-link">about</a></li>
+                        <li>
+                            <a href="/myBlog/archives" class="animsition-link"
+                                target="_blank" title="archive">archives</a>
+                        </li>
+                        
+                        <li><a href="https://github.com/grace618/myBlog" title="Github" target="_blank"><i class="icon-github"></i></a>
+                        </li>
+                        
+                        
+                        <li><a href="https://twitter.com/SGVOshdkbJJjwj3" title="Twitter" target="_blank"><i
+                                    class="icon-twitter"></i></a></li>
+                        
+                        
+                        <li><a href="https://www.facebook.com/" title="Facebook" target="_blank"><i
+                                    class="icon-facebook"></i></a></li>
                         
                         
                         
-                        
-                        
-                        <li class="nolink"><span>Welcome!</span></li>
+
                     </ul>
                 </nav>
                 <!--// Info-bar -->
@@ -174,11 +202,11 @@
                     data-translatey="100">
                     <div>
                         
-                        <h2>自由的味道很硬，带着柏油和轮胎的气味，让人很想远行</h2>
+                        <h2></h2>
                         <p></p>
                         
                         <h2></h2>
-                        <p></p>
+                        <p>自由的味道很硬，带着柏油和轮胎的气味，让人很想远行</p>
                         
 
                     </div>
@@ -203,16 +231,19 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-12">
-                    <h3><a href="/myBlog/2020/06/08/next.js学习笔记/">next.js学习笔记</a></h3>
+                    <h3 style="line-height: 17px;"><a href="/myBlog/2020/06/08/next.js学习笔记/">next.js学习笔记</a>
+                    </h3>
                     <div>
                         <span class="post-meta">
-      <time datetime="2020-06-08T04:02:26.000Z" itemprop="datePublished">
-          2020-06-08
-      </time>
+    <time datetime="2020-06-08T04:02:26.000Z" itemprop="datePublished">
+        2020-06-08
+    </time>
     
     
     | 
-    <a href='/myBlog/tags/next-js-react/'>next.js react</a>
+    <a href='/myBlog/tags/next-js/'> <code>next.js</code> </a> ,
+    
+    <a href='/myBlog/tags/ssr/'> <code>ssr</code> </a> 
     
     
 </span>
@@ -221,11 +252,7 @@
                 <div class="col-md-12">
                     <p style="overflow: hidden;">
                         
-                        其实有用next.js写了一个公司官网
-1 安装 npx create-next-app
-2 _app.js _document.js server.js
-3 css 这使用了一个名为styled-jsx的库。这是一个“ CSS-in-JS”库-它使您可以在React组件中编写CSS，并且CSS样式将受到限制（其他组件不会受到影响）。
-==Next.js内置了对styled-jsx的支持，但是您也可以使用其他流行的CSS-in-JS库，
+                        <p>其实有用next.js+react+Material-UI写了一个公司官网,这里总结一下next.js能会碰到的问题。<br>1 安装 <code>npx create-next-app</code><br>2 _app.js _document.js server.js<br>3 css 这使用了一个名为styled-jsx的库。这是一个“ CSS-in-JS”库-它使您可以在React组件中编写CSS，并且CSS样式将受到限制（其他组件不会受到影响）。Next.js内置了对styled-jsx的支持，但是您也可以使用其他流行的CSS-in-JS库，例如styled-components或情感。</p>
                         
                     </p>
                     
@@ -243,16 +270,19 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-12">
-                    <h3><a href="/myBlog/2020/05/01/如何在vue中使用icon-font/">如何在vue中使用Iconfont网站的图标？</a></h3>
+                    <h3 style="line-height: 17px;"><a href="/myBlog/2020/05/01/如何在vue中使用icon-font/">如何在vue中使用Iconfont网站的图标？</a>
+                    </h3>
                     <div>
                         <span class="post-meta">
-      <time datetime="2020-04-30T16:00:00.000Z" itemprop="datePublished">
-          2020-05-01
-      </time>
+    <time datetime="2020-04-30T16:00:00.000Z" itemprop="datePublished">
+        2020-05-01
+    </time>
     
     
     | 
-    <a href='/myBlog/tags/vue-iconfont/'>vue iconfont</a>
+    <a href='/myBlog/tags/vue/'> <code>vue</code> </a> ,
+    
+    <a href='/myBlog/tags/iconfont/'> <code>iconfont</code> </a> 
     
     
 </span>
@@ -261,9 +291,7 @@
                 <div class="col-md-12">
                     <p style="overflow: hidden;">
                         
-                        1.新建components/SvgIcon.vue组件
-使用的是阿里巴巴的iconfont图标库，有三种方式可以引用，我使用的是symbol方式
-12345678910111213141516171819202122232425262728293031323334353637383940414243&lt;template&gt;  &lt;svg :class&#x3D;&quot;svgClass&quot; aria-hidde
+                        <p>开发一个项目时总会碰到使用图标的问题，如果小图片太多，就要请求多个资源，使用雪碧图的话，更新图标和制作都挺麻烦的，并且使用时要各种定位找到相应位置。那么svg的优点是什么呢？<br>SVG 是一种基于 XML 语法的图像格式，全称是可缩放矢量图（Scalable Vector Graphics）。其他图像格式都是基于像素处理的，SVG 则是属于对图像的形状描述，所以它本质上是文本文件，体积较小，且不管放大多少倍都不会失真。而Iconfont中有大量图标可以使用，下面是我对使用Iconfont图标的经验总结。</p>
                         
                     </p>
                     
@@ -281,16 +309,21 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-12">
-                    <h3><a href="/myBlog/2020/04/19/vue 关于facebooke和google的一些操作/">使用facebook sdk 和google sdk中的社交功能(点赞、分享和第三方登录)——vue</a></h3>
+                    <h3 style="line-height: 17px;"><a href="/myBlog/2020/04/19/vue 关于facebooke和google的一些操作/">使用facebook sdk 和google sdk中的社交功能(点赞、分享和第三方登录)——vue</a>
+                    </h3>
                     <div>
                         <span class="post-meta">
-      <time datetime="2020-04-18T16:00:00.000Z" itemprop="datePublished">
-          2020-04-19
-      </time>
+    <time datetime="2020-04-18T16:00:00.000Z" itemprop="datePublished">
+        2020-04-19
+    </time>
     
     
     | 
-    <a href='/myBlog/tags/vue-facebook-google-Social/'>vue facebook google Social</a>
+    <a href='/myBlog/tags/facebook/'> <code>facebook</code> </a> ,
+    
+    <a href='/myBlog/tags/google/'> <code>google</code> </a> ,
+    
+    <a href='/myBlog/tags/Social/'> <code>Social</code> </a> 
     
     
 </span>
@@ -299,8 +332,7 @@
                 <div class="col-md-12">
                     <p style="overflow: hidden;">
                         
-                        facebook 点赞❶ 使用sdk引入sdk有两种方式① 在main.js里面引入sdk
-123456789(function (d, s, id) &#123;var js,fjs &#x3D; d.getElementsByTagName(s)[0];if (d.getElementById(id)) return;js &#x3D; d.createElement(s);js.id &#x3D; id;js.src &#x3D;
+                        <p>海外发行的网页，可能要用到第三方登录和facebook点赞分享，首先是要找到官方SDK文档，然后是vue和第三方的交互。之前公司的活动页都是面向海外发行的，所以使用到这些。</p>
                         
                     </p>
                     
@@ -318,16 +350,19 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-12">
-                    <h3><a href="/myBlog/2020/01/09/mongodb实现的jwt登录注册/">使用node/koa/mongodb实现的jwt登录注册</a></h3>
+                    <h3 style="line-height: 17px;"><a href="/myBlog/2020/01/09/mongodb实现的jwt登录注册/">使用node/koa/mongodb实现的jwt登录注册</a>
+                    </h3>
                     <div>
                         <span class="post-meta">
-      <time datetime="2020-01-08T16:00:00.000Z" itemprop="datePublished">
-          2020-01-09
-      </time>
+    <time datetime="2020-01-08T16:00:00.000Z" itemprop="datePublished">
+        2020-01-09
+    </time>
     
     
     | 
-    <a href='/myBlog/tags/jwt-node/'>jwt node</a>
+    <a href='/myBlog/tags/jwt/'> <code>jwt</code> </a> ,
+    
+    <a href='/myBlog/tags/node/'> <code>node</code> </a> 
     
     
 </span>
@@ -357,16 +392,17 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-12">
-                    <h3><a href="/myBlog/2019/11/26/vue运行机制笔记/">vue内部运行机制浅析</a></h3>
+                    <h3 style="line-height: 17px;"><a href="/myBlog/2019/11/26/vue运行机制笔记/">vue内部运行机制浅析</a>
+                    </h3>
                     <div>
                         <span class="post-meta">
-      <time datetime="2019-11-25T16:00:00.000Z" itemprop="datePublished">
-          2019-11-26
-      </time>
+    <time datetime="2019-11-25T16:00:00.000Z" itemprop="datePublished">
+        2019-11-26
+    </time>
     
     
     | 
-    <a href='/myBlog/tags/js/'>js</a>
+    <a href='/myBlog/tags/js/'> <code>js</code> </a> 
     
     
 </span>
@@ -375,8 +411,8 @@
                 <div class="col-md-12">
                     <p style="overflow: hidden;">
                         
-                        vue组件的三个API:prop,event,slot
-12345678&lt;template&gt;    &lt;button :class&#x3D;&quot;&#39;i-button-size&#39;+size&quot; :disabled&#x3D;&#39;disabled&#39; @click&#x3D;&quot;handleClick&quot;&gt;        &lt;slot&gt;&lt;&#x
+                        <p>当你把一个普通的 JavaScript 对象传入 Vue 实例作为 data 选项，Vue 将遍历此对象所有的 property，并使用 Object.defineProperty 把这些 property 全部转为 getter/setter。Object.defineProperty 是 ES5 中一个无法 shim 的特性，这也就是 Vue 不支持 IE8 以及更低版本浏览器的原因。</p>
+<p>这些 getter/setter 对用户来说是不可见的，但是在内部它们让 Vue 能够追踪依赖，在 property 被访问和修改时通知变更。这里需要注意的是不同浏览器在控制台打印数据对象时对 getter/setter 的格式化并不同，所以建议安装 vue-devtools 来获取对检查数据更加友好的用户界面。</p>
                         
                     </p>
                     
@@ -394,16 +430,17 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-12">
-                    <h3><a href="/myBlog/2019/11/25/阅读vue文档学习笔记之需要注意的几个地方/">阅读vue文档学习笔记之需要注意的几个地方</a></h3>
+                    <h3 style="line-height: 17px;"><a href="/myBlog/2019/11/25/阅读vue文档学习笔记之需要注意的几个地方/">阅读vue文档学习笔记之需要注意的几个地方</a>
+                    </h3>
                     <div>
                         <span class="post-meta">
-      <time datetime="2019-11-25T04:02:26.000Z" itemprop="datePublished">
-          2019-11-25
-      </time>
+    <time datetime="2019-11-25T04:02:26.000Z" itemprop="datePublished">
+        2019-11-25
+    </time>
     
     
     | 
-    <a href='/myBlog/tags/mpvue/'>mpvue</a>
+    <a href='/myBlog/tags/vue/'> <code>vue</code> </a> 
     
     
 </span>
@@ -412,11 +449,9 @@
                 <div class="col-md-12">
                     <p style="overflow: hidden;">
                         
-                        v2.6
-模板语法可以用方括号括起来的 JavaScript 表达式作为一个指令的参数：&lt;a v-bind:[attributeName]=&quot;url&quot;&gt; ... &lt;/a&gt;
-同样地，你可以使用动态参数为一个动态的事件名绑定处理函数：&lt;a v-on:[eventName]=&quot;doSomething&quot;&gt; ... &lt;/a&gt;
-对动态参数的值的约束
-动态参数预期
+                        <p>v2.6</p>
+<h4 id="模板语法"><a href="#模板语法" class="headerlink" title="模板语法"></a>模板语法</h4><p>可以用方括号括起来的 JavaScript 表达式作为一个指令的参数：<br><code>&lt;a v-bind:[attributeName]=&quot;url&quot;&gt; ... &lt;/a&gt;</code></p>
+<p>同样地，你可以使用动态参数为一个动态的事件名绑定处理函数：<br><code>&lt;a v-on:[eventName]=&quot;doSomething&quot;&gt; ... &lt;/a&gt;</code></p>
                         
                     </p>
                     
@@ -434,16 +469,19 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-12">
-                    <h3><a href="/myBlog/2019/11/22/后台管理系统的项目小结/">后台管理系统的项目小结</a></h3>
+                    <h3 style="line-height: 17px;"><a href="/myBlog/2019/11/22/后台管理系统的项目小结/">后台管理系统的项目小结</a>
+                    </h3>
                     <div>
                         <span class="post-meta">
-      <time datetime="2019-11-22T04:02:26.000Z" itemprop="datePublished">
-          2019-11-22
-      </time>
+    <time datetime="2019-11-22T04:02:26.000Z" itemprop="datePublished">
+        2019-11-22
+    </time>
     
     
     | 
-    <a href='/myBlog/tags/vue-admin/'>vue admin</a>
+    <a href='/myBlog/tags/vue/'> <code>vue</code> </a> ,
+    
+    <a href='/myBlog/tags/admin/'> <code>admin</code> </a> 
     
     
 </span>
@@ -452,18 +490,15 @@
                 <div class="col-md-12">
                     <p style="overflow: hidden;">
                         
-                        后台管理系统的项目小结写起来却触及到不少知识点，关于vue全家桶什么的都用到了实现功能或者一些想记录的点
-
-登录（axios实例和拦截器）
-动态侧边栏和面包屑(this.$router.options.routes,meta路由元的使用)
-iconfont的使用
-页面布局和可复用组件
-element-ui,js-cookie,一些工具方法的使用
-vuex模块化和抽离api接口
-es6/7和webpack的一些语法
-
-实现思路
-登录:获取
+                        <p>后台管理系统的项目小结<br>写起来却触及到不少知识点，关于vue全家桶什么的都用到了<br>实现功能或者一些想记录的点</p>
+<ol>
+<li>登录（axios实例和拦截器）</li>
+<li>动态侧边栏和面包屑(this.$router.options.routes,meta路由元的使用)</li>
+<li>iconfont的使用</li>
+<li>页面布局和可复用组件</li>
+<li>element-ui,js-cookie,一些工具方法的使用</li>
+<li>vuex模块化和抽离api接口</li>
+<li>es6/7和webpack的一些语法
                         
                     </p>
                     
@@ -481,16 +516,19 @@ es6/7和webpack的一些语法
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-12">
-                    <h3><a href="/myBlog/2019/11/02/vue权限验证/">vue后台管理系统权限验证的思路分析</a></h3>
+                    <h3 style="line-height: 17px;"><a href="/myBlog/2019/11/02/vue权限验证/">vue后台管理系统权限验证的思路分析</a>
+                    </h3>
                     <div>
                         <span class="post-meta">
-      <time datetime="2019-11-02T04:02:26.000Z" itemprop="datePublished">
-          2019-11-02
-      </time>
+    <time datetime="2019-11-02T04:02:26.000Z" itemprop="datePublished">
+        2019-11-02
+    </time>
     
     
     | 
-    <a href='/myBlog/tags/vue-admin/'>vue admin</a>
+    <a href='/myBlog/tags/vue/'> <code>vue</code> </a> ,
+    
+    <a href='/myBlog/tags/admin/'> <code>admin</code> </a> 
     
     
 </span>
@@ -499,9 +537,8 @@ es6/7和webpack的一些语法
                 <div class="col-md-12">
                     <p style="overflow: hidden;">
                         
-                        在写后台管理系统时涉及到了权限验证，根据登录角色来设置用户权限
-实现思路1用户登录返回token,根据token去查询用户信息和用户角色2在router.js中，区分需要权限的路由和不需要权限的路由，先挂载不需要权限的路由，例如登录页/首页这种3 在store里面过滤和动态添加路由，生成最后的路由表state.routers=constantRouterMap.concat(asyncRouterMap)4 当页面刷新时
-1234567
+                        <p>在写后台管理系统时涉及到了权限验证，根据登录角色来设置用户权限.</p>
+<p><strong><em>实现思路</em></strong><br>1用户登录返回token,根据token去查询用户信息和用户角色;<br>2在router.js中，区分需要权限的路由和不需要权限的路由，先挂载不需要权限的路由，例如登录页/首页这种;<br>3 在store里面过滤和动态添加路由，生成最后的路由表<code>state.routers=constantRouterMap.concat(asyncRouterMap)</code>;<br>4 当页面刷新时;</p>
                         
                     </p>
                     
@@ -519,16 +556,17 @@ es6/7和webpack的一些语法
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-12">
-                    <h3><a href="/myBlog/2019/09/16/vue实现登录和个人信息组件展示/">vue实现登录和个人信息组件展示</a></h3>
+                    <h3 style="line-height: 17px;"><a href="/myBlog/2019/09/16/vue实现登录和个人信息组件展示/">vue实现登录和个人信息组件展示</a>
+                    </h3>
                     <div>
                         <span class="post-meta">
-      <time datetime="2019-09-15T16:00:00.000Z" itemprop="datePublished">
-          2019-09-16
-      </time>
+    <time datetime="2019-09-15T16:00:00.000Z" itemprop="datePublished">
+        2019-09-16
+    </time>
     
     
     | 
-    <a href='/myBlog/tags/vue/'>vue</a>
+    <a href='/myBlog/tags/vue/'> <code>vue</code> </a> 
     
     
 </span>
@@ -537,9 +575,9 @@ es6/7和webpack的一些语法
                 <div class="col-md-12">
                     <p style="overflow: hidden;">
                         
-                        最近在写一个重构node社区的小项目，碰到了登录的问题，实现思路如下：① 获取用户表单信息，使用axios提交，提交成功后，把数据存在cookie,以便后续操作。
-② 其中有个人信息的页面展示，获取cookie信息，判断用户是否登录，如果登录则显示内容，未登录则跳转到登录页面，所以个人信息的页面可以使用路由守卫搜索资料时有看到这种写法，就是经过判断后去改变的动态路由来决定跳转到哪个组件，感觉稍显麻烦。
-③ 退出操作，清除cookie可以
+                        <p>最近在写一个重构node社区的小项目，碰到了登录的问题，实现思路如下：<br>① 获取用户表单信息，使用axios提交，提交成功后，把数据存在cookie,以便后续操作。</p>
+<p>② 其中有个人信息的页面展示，获取cookie信息，判断用户是否登录，如果登录则显示内容，未登录则跳转到登录页面，所以个人信息的页面可以使用路由守卫<br>搜索资料时有看到这种写法，就是经过判断后去改变<router-link>的动态路由来决定跳转到哪个组件，感觉稍显麻烦。</p>
+<p>③ 退出操作，清除cookie<br>可以把操作cookie的代码放到一个单独的src/utils/cookie.js文件，utils这个文件夹可以放一些工具类的文件</p>
                         
                     </p>
                     
@@ -557,16 +595,17 @@ es6/7和webpack的一些语法
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-12">
-                    <h3><a href="/myBlog/2019/08/19/vue项目中使用vue-i18n国际化/">vue项目中使用vue-i18n实现国际化</a></h3>
+                    <h3 style="line-height: 17px;"><a href="/myBlog/2019/08/19/vue项目中使用vue-i18n国际化/">vue项目中使用vue-i18n实现国际化</a>
+                    </h3>
                     <div>
                         <span class="post-meta">
-      <time datetime="2019-08-19T04:02:26.000Z" itemprop="datePublished">
-          2019-08-19
-      </time>
+    <time datetime="2019-08-19T04:02:26.000Z" itemprop="datePublished">
+        2019-08-19
+    </time>
     
     
     | 
-    <a href='/myBlog/tags/vue-vue-i18n/'>vue vue-i18n</a>
+    <a href='/myBlog/tags/vue-i18n/'> <code>vue-i18n</code> </a> 
     
     
 </span>
@@ -606,28 +645,38 @@ es6/7和webpack的一些语法
 </section>
 <!-- ============================ END Content =========================== -->
 
-      
-<!-- ============================ Footer =========================== -->
+      <!-- ============================ Footer =========================== -->
 
 <footer>
     <div class="container">
-            <div class="copy">
-                <p>
-                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By grace. All Rights Reserved.
-                </p>
-                <p>Theme By <a target="_blank" rel="noopener" href="//go.kieran.top" style="color: #767D84">Kieran</a></p>
-            </div>
-            <div class="social">
-                <ul>
-                    
-                    
-                    
-                    
-                    
-                </ul>
-            </div>
-            <div class="clearfix"> </div>
+        <div class="copy">
+            <p>
+                &copy; 2014<script>
+                    new Date().getFullYear() > 2010 && document.write("-" + new Date().getFullYear());
+                </script>, Content By grace. All Rights Reserved.
+            </p>
+            <p>Theme By <a target="_blank" rel="noopener" href="//go.kieran.top" style="color: #767D84">Kieran</a></p>
         </div>
+        <div class="social">
+            <ul>
+                
+                <li><a href="https://github.com/grace618/myBlog" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;
+                </li>
+                
+                
+                <li><a href="https://twitter.com/SGVOshdkbJJjwj3" title="Twitter" target="_blank"><i
+                            class="icon-twitter"></i></a>&nbsp;</li>
+                
+                
+                <li><a href="https://www.facebook.com/" title="Facebook" target="_blank"><i
+                            class="icon-facebook"></i></a>&nbsp;</li>
+                
+                
+                
+            </ul>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
 </footer>
 
 <!-- ============================ END Footer =========================== -->
@@ -648,28 +697,28 @@ es6/7和webpack的一些语法
         resizeHero();
     });
 </script>
-<script src="/myBlog/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/myBlog/js/plugins.min.js"></script>
+<!-- Bootstrap core and concatenated plugins always load here -->
 <script src="/myBlog/js/scripts.js"></script><!-- Theme scripts -->
 
 
 <link rel="stylesheet" href="/myBlog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
 <script src="/myBlog/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
-$('#intro').find('img').each(function(){
-  var alt = this.alt;
+    $('#intro').find('img').each(function () {
+        var alt = this.alt;
 
-  if (alt){
-    $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
-  }
+        if (alt) {
+            $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
+        }
 
-  $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
-});
-(function($){
-  $('.fancybox').fancybox();
-})(jQuery);
+        $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
+    });
+
+    (function ($) {
+        $('.fancybox').fancybox();
+    })(jQuery);
 </script>
-
-
 
       
 </body>

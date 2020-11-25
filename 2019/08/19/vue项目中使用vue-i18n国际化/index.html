@@ -82,13 +82,16 @@
             <ul class="sb-submenu">
                 
                 <li><a href="/myBlog/categories/js/"
-                        class="animsition-link">js<small>(2)</small></a></li>
+                        class="animsition-link">js<small>(1)</small></a></li>
+                
+                <li><a href="/myBlog/categories/mobile/"
+                        class="animsition-link">mobile<small>(1)</small></a></li>
                 
                 <li><a href="/myBlog/categories/mock/"
                         class="animsition-link">mock<small>(1)</small></a></li>
                 
                 <li><a href="/myBlog/categories/mpvue/"
-                        class="animsition-link">mpvue<small>(2)</small></a></li>
+                        class="animsition-link">mpvue<small>(1)</small></a></li>
                 
                 <li><a href="/myBlog/categories/next/"
                         class="animsition-link">next<small>(1)</small></a></li>
@@ -100,17 +103,26 @@
                         class="animsition-link">react<small>(1)</small></a></li>
                 
                 <li><a href="/myBlog/categories/vue/"
-                        class="animsition-link">vue<small>(15)</small></a></li>
+                        class="animsition-link">vue<small>(16)</small></a></li>
                 
             </ul>
         </li>
         
         
+        <li>
+            <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
+            <ul class="sb-submenu">
+                
+                <li><a target="_blank" rel="noopener" href="https://www.laoqiange.club/" class="animsition-link">老千哥</a></li>
+                
+            </ul>
+        </li>
+        
     </ul>
     <!-- Lists in Slidebars -->
     <ul class="sb-menu secondary">
         
-        <li><a href="/myBlog/about.html" class="animsition-link" title="about">About</a></li>
+        <!-- <li><a href="/myBlog/about.html" class="animsition-link" title="about">About</a></li> -->
         <!-- <li><a href="/myBlog/atom.xml" class="animsition-link" title="rss">RSS</a></li> -->
     </ul>
 </div>
@@ -138,13 +150,29 @@
                 <nav>
                     <ul class="nav">
                         <li><a href="/" class="animsition-link">GRACE'S BLOG</a></li>
-                        <li class="nolink"><span>Always </span>Creative.</li>
+                        <!-- <li class="nolink"><span>Always </span>Creative.</li> -->
+                        <li>
+                            <a href="/myBlog/about.html" title="about" target="_blank"
+                                class="animsition-link">about</a></li>
+                        <li>
+                            <a href="/myBlog/archives" class="animsition-link"
+                                target="_blank" title="archive">archives</a>
+                        </li>
+                        
+                        <li><a href="https://github.com/grace618/myBlog" title="Github" target="_blank"><i class="icon-github"></i></a>
+                        </li>
+                        
+                        
+                        <li><a href="https://twitter.com/SGVOshdkbJJjwj3" title="Twitter" target="_blank"><i
+                                    class="icon-twitter"></i></a></li>
+                        
+                        
+                        <li><a href="https://www.facebook.com/" title="Facebook" target="_blank"><i
+                                    class="icon-facebook"></i></a></li>
                         
                         
                         
-                        
-                        
-                        <li class="nolink"><span>Welcome!</span></li>
+
                     </ul>
                 </nav>
                 <!--// Info-bar -->
@@ -169,13 +197,13 @@
             <div class="col-md-8">
                 <h1>vue项目中使用vue-i18n实现国际化</h1>
                 <span class="post-meta">
-      <time datetime="2019-08-19T04:02:26.000Z" itemprop="datePublished">
-          2019-08-19
-      </time>
+    <time datetime="2019-08-19T04:02:26.000Z" itemprop="datePublished">
+        2019-08-19
+    </time>
     
     
     | 
-    <a href='/myBlog/tags/vue-vue-i18n/'>vue vue-i18n</a>
+    <a href='/myBlog/tags/vue-i18n/'> <code>vue-i18n</code> </a> 
     
     
 </span>
@@ -272,28 +300,38 @@
     </div>
 </section>
 
-      
-<!-- ============================ Footer =========================== -->
+      <!-- ============================ Footer =========================== -->
 
 <footer>
     <div class="container">
-            <div class="copy">
-                <p>
-                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By grace. All Rights Reserved.
-                </p>
-                <p>Theme By <a target="_blank" rel="noopener" href="//go.kieran.top" style="color: #767D84">Kieran</a></p>
-            </div>
-            <div class="social">
-                <ul>
-                    
-                    
-                    
-                    
-                    
-                </ul>
-            </div>
-            <div class="clearfix"> </div>
+        <div class="copy">
+            <p>
+                &copy; 2014<script>
+                    new Date().getFullYear() > 2010 && document.write("-" + new Date().getFullYear());
+                </script>, Content By grace. All Rights Reserved.
+            </p>
+            <p>Theme By <a target="_blank" rel="noopener" href="//go.kieran.top" style="color: #767D84">Kieran</a></p>
         </div>
+        <div class="social">
+            <ul>
+                
+                <li><a href="https://github.com/grace618/myBlog" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;
+                </li>
+                
+                
+                <li><a href="https://twitter.com/SGVOshdkbJJjwj3" title="Twitter" target="_blank"><i
+                            class="icon-twitter"></i></a>&nbsp;</li>
+                
+                
+                <li><a href="https://www.facebook.com/" title="Facebook" target="_blank"><i
+                            class="icon-facebook"></i></a>&nbsp;</li>
+                
+                
+                
+            </ul>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
 </footer>
 
 <!-- ============================ END Footer =========================== -->
@@ -314,28 +352,28 @@
         resizeHero();
     });
 </script>
-<script src="/myBlog/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/myBlog/js/plugins.min.js"></script>
+<!-- Bootstrap core and concatenated plugins always load here -->
 <script src="/myBlog/js/scripts.js"></script><!-- Theme scripts -->
 
 
 <link rel="stylesheet" href="/myBlog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
 <script src="/myBlog/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
-$('#intro').find('img').each(function(){
-  var alt = this.alt;
+    $('#intro').find('img').each(function () {
+        var alt = this.alt;
 
-  if (alt){
-    $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
-  }
+        if (alt) {
+            $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
+        }
 
-  $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
-});
-(function($){
-  $('.fancybox').fancybox();
-})(jQuery);
+        $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
+    });
+
+    (function ($) {
+        $('.fancybox').fancybox();
+    })(jQuery);
 </script>
-
-
 
       
 </body>

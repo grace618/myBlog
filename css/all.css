@@ -658,7 +658,7 @@ a.custom-button span {
     font-weight: 400;
     line-height: 14px;
     text-shadow: none;
-    border-right: 1px solid #aaa;
+    border-right: 1px solid #465232;
 }
 
 .navbar .nav li.nolink {
@@ -732,7 +732,7 @@ nav i.icon-basic-eye {
 .navbar .nav>li>a:focus,
 .navbar .nav>li>a:hover,
 .navbar .nav>li>a:active {
-    color: #777;
+    color: #ecdada;
 }
 
 @media only screen and (max-width: 1024px) {
@@ -2605,7 +2605,7 @@ ul.page-nav i {
 }
 
 #services .boxes {
-    padding-top: 50px;
+    padding-top: 0;
 }
 
 #services .boxes .col-md-3,
@@ -3647,7 +3647,7 @@ button.send {
 * Global footer, (all pages)
 ******************************************************* */
 footer {
-    padding: 5% 0 0;
+    padding: 2% 0;
     background: #151515;
     z-index: 9;
     position: relative;

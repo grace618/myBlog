@@ -82,13 +82,16 @@
             <ul class="sb-submenu">
                 
                 <li><a href="/myBlog/categories/js/"
-                        class="animsition-link">js<small>(2)</small></a></li>
+                        class="animsition-link">js<small>(1)</small></a></li>
+                
+                <li><a href="/myBlog/categories/mobile/"
+                        class="animsition-link">mobile<small>(1)</small></a></li>
                 
                 <li><a href="/myBlog/categories/mock/"
                         class="animsition-link">mock<small>(1)</small></a></li>
                 
                 <li><a href="/myBlog/categories/mpvue/"
-                        class="animsition-link">mpvue<small>(2)</small></a></li>
+                        class="animsition-link">mpvue<small>(1)</small></a></li>
                 
                 <li><a href="/myBlog/categories/next/"
                         class="animsition-link">next<small>(1)</small></a></li>
@@ -100,17 +103,26 @@
                         class="animsition-link">react<small>(1)</small></a></li>
                 
                 <li><a href="/myBlog/categories/vue/"
-                        class="animsition-link">vue<small>(15)</small></a></li>
+                        class="animsition-link">vue<small>(16)</small></a></li>
                 
             </ul>
         </li>
         
         
+        <li>
+            <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
+            <ul class="sb-submenu">
+                
+                <li><a target="_blank" rel="noopener" href="https://www.laoqiange.club/" class="animsition-link">老千哥</a></li>
+                
+            </ul>
+        </li>
+        
     </ul>
     <!-- Lists in Slidebars -->
     <ul class="sb-menu secondary">
         
-        <li><a href="/myBlog/about.html" class="animsition-link" title="about">About</a></li>
+        <!-- <li><a href="/myBlog/about.html" class="animsition-link" title="about">About</a></li> -->
         <!-- <li><a href="/myBlog/atom.xml" class="animsition-link" title="rss">RSS</a></li> -->
     </ul>
 </div>
@@ -138,13 +150,29 @@
                 <nav>
                     <ul class="nav">
                         <li><a href="/" class="animsition-link">GRACE'S BLOG</a></li>
-                        <li class="nolink"><span>Always </span>Creative.</li>
+                        <!-- <li class="nolink"><span>Always </span>Creative.</li> -->
+                        <li>
+                            <a href="/myBlog/about.html" title="about" target="_blank"
+                                class="animsition-link">about</a></li>
+                        <li>
+                            <a href="/myBlog/archives" class="animsition-link"
+                                target="_blank" title="archive">archives</a>
+                        </li>
+                        
+                        <li><a href="https://github.com/grace618/myBlog" title="Github" target="_blank"><i class="icon-github"></i></a>
+                        </li>
+                        
+                        
+                        <li><a href="https://twitter.com/SGVOshdkbJJjwj3" title="Twitter" target="_blank"><i
+                                    class="icon-twitter"></i></a></li>
+                        
+                        
+                        <li><a href="https://www.facebook.com/" title="Facebook" target="_blank"><i
+                                    class="icon-facebook"></i></a></li>
                         
                         
                         
-                        
-                        
-                        <li class="nolink"><span>Welcome!</span></li>
+
                     </ul>
                 </nav>
                 <!--// Info-bar -->
@@ -169,30 +197,31 @@
             <div class="col-md-8">
                 <h1>next.js学习笔记</h1>
                 <span class="post-meta">
-      <time datetime="2020-06-08T04:02:26.000Z" itemprop="datePublished">
-          2020-06-08
-      </time>
+    <time datetime="2020-06-08T04:02:26.000Z" itemprop="datePublished">
+        2020-06-08
+    </time>
     
     
     | 
-    <a href='/myBlog/tags/next-js-react/'>next.js react</a>
+    <a href='/myBlog/tags/next-js/'> <code>next.js</code> </a> ,
+    
+    <a href='/myBlog/tags/ssr/'> <code>ssr</code> </a> 
     
     
 </span>
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-            <p>其实有用next.js写了一个公司官网</p>
-<p>1 安装 npx create-next-app</p>
-<p>2 _app.js _document.js server.js</p>
-<p>3 css 这使用了一个名为styled-jsx的库。这是一个“ CSS-in-JS”库-它使您可以在React组件中编写CSS，并且CSS样式将受到限制（其他组件不会受到影响）。</p>
-<p>==Next.js内置了对styled-jsx的支持，但是您也可以使用其他流行的CSS-in-JS库，例如styled-components或情感。<br>==Next.js具有对CSS和Sass的内置支持，可让您导入.css和.scss文件。<br>==还支持使用流行的CSS库，例如Tailwind CSS。<br>==要使用CSS模块，CSS文件名必须以结尾.module.css<br>==要加载全局CSS文件，请创建一个名为_app.js under 的文件</p>
+            <p>其实有用next.js+react+Material-UI写了一个公司官网,这里总结一下next.js能会碰到的问题。<br>1 安装 <code>npx create-next-app</code><br>2 _app.js _document.js server.js<br>3 css 这使用了一个名为styled-jsx的库。这是一个“ CSS-in-JS”库-它使您可以在React组件中编写CSS，并且CSS样式将受到限制（其他组件不会受到影响）。Next.js内置了对styled-jsx的支持，但是您也可以使用其他流行的CSS-in-JS库，例如styled-components或情感。</p>
+<a id="more"></a>
+<p>Next.js具有对CSS和Sass的内置支持，可让您导入.css和.scss文件。<br>还支持使用流行的CSS库，例如Tailwind CSS。<br>要使用CSS模块，CSS文件名必须以结尾.module.css<br>要加载全局CSS文件，请创建一个名为_app.js under 的文件</p>
 <p>4 _app.js</p>
 <p>该App组件是顶级组件，将在所有不同页面上通用。App例如，在页面之间导航时，可以使用此组件来保持状态</p>
 <p>5 自定义PostCSS配置<br>开箱即用，无需配置，Next.js使用PostCSS编译CSS 。</p>
 <p>6 搭配material ui</p>
 <p>如果不配置，会对样式有影响<br>我们很清楚这个问题。我们最近引入了SSR API，它创建了更多的约束，更易于使用，并且应该减少出现此类问题的可能性。<br>虽然您必须在v3中配置_document.js和_app.js，但使用v4配置_document.js就足够了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">参考https:&#x2F;&#x2F;github.com&#x2F;mui-org&#x2F;material-ui&#x2F;blob&#x2F;v3.x&#x2F;examples&#x2F;nextjs&#x2F;pages&#x2F;_document.js</span><br><span class="line">https:&#x2F;&#x2F;itnext.io&#x2F;next-js-with-material-ui-7a7f6485f671</span><br><span class="line">__document.js</span><br><span class="line">&#x2F;* eslint-disable react&#x2F;jsx-filename-extension *&#x2F;</span><br><span class="line">import React from &#39;react&#39;;</span><br><span class="line">import Document, &#123;</span><br><span class="line">  Html, Main, NextScript,</span><br><span class="line">&#125; from &#39;next&#x2F;document&#39;;</span><br><span class="line">import &#123; ServerStyleSheets &#125; from &#39;@material-ui&#x2F;core&#x2F;styles&#39;;</span><br><span class="line"></span><br><span class="line">export default class MyDocument extends Document &#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    return (</span><br><span class="line">      &lt;Html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">        &lt;body&gt;</span><br><span class="line">          &lt;Main &#x2F;&gt;</span><br><span class="line">          &lt;NextScript &#x2F;&gt;</span><br><span class="line">        &lt;&#x2F;body&gt;</span><br><span class="line">      &lt;&#x2F;Html&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; &#96;getInitialProps&#96; belongs to &#96;_document&#96; (instead of &#96;_app&#96;),</span><br><span class="line">&#x2F;&#x2F; it&#39;s compatible with server-side generation (SSG).</span><br><span class="line">MyDocument.getInitialProps &#x3D; async (ctx) &#x3D;&gt; &#123;</span><br><span class="line"></span><br><span class="line">  &#x2F;&#x2F; Render app and page and get the context of the page with collected side effects.</span><br><span class="line">  const sheets &#x3D; new ServerStyleSheets();</span><br><span class="line">  const originalRenderPage &#x3D; ctx.renderPage;</span><br><span class="line"></span><br><span class="line">  ctx.renderPage &#x3D; () &#x3D;&gt; originalRenderPage(&#123;</span><br><span class="line">    enhanceApp: (App) &#x3D;&gt; (props) &#x3D;&gt; sheets.collect(&lt;App &#123;...props&#125; &#x2F;&gt;),</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  const initialProps &#x3D; await Document.getInitialProps(ctx);</span><br><span class="line"></span><br><span class="line">  return &#123;</span><br><span class="line">    ...initialProps,</span><br><span class="line">    &#x2F;&#x2F; Styles fragment is rendered after the app and page rendering finish.</span><br><span class="line">    styles: [...React.Children.toArray(initialProps.styles), sheets.getStyleElement()],</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://github.com/mui-org/material-ui/blob/v3.x/examples/nextjs/pages/_document.js">_document.js</a><br><a target="_blank" rel="noopener" href="https://itnext.io/next-js-with-material-ui-7a7f6485f671">next-js-with-material-ui</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">__document.js</span><br><span class="line">&#x2F;* eslint-disable react&#x2F;jsx-filename-extension *&#x2F;</span><br><span class="line">import React from &#39;react&#39;;</span><br><span class="line">import Document, &#123;</span><br><span class="line">  Html, Main, NextScript,</span><br><span class="line">&#125; from &#39;next&#x2F;document&#39;;</span><br><span class="line">import &#123; ServerStyleSheets &#125; from &#39;@material-ui&#x2F;core&#x2F;styles&#39;;</span><br><span class="line"></span><br><span class="line">export default class MyDocument extends Document &#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    return (</span><br><span class="line">      &lt;Html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">        &lt;body&gt;</span><br><span class="line">          &lt;Main &#x2F;&gt;</span><br><span class="line">          &lt;NextScript &#x2F;&gt;</span><br><span class="line">        &lt;&#x2F;body&gt;</span><br><span class="line">      &lt;&#x2F;Html&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; &#96;getInitialProps&#96; belongs to &#96;_document&#96; (instead of &#96;_app&#96;),</span><br><span class="line">&#x2F;&#x2F; it&#39;s compatible with server-side generation (SSG).</span><br><span class="line">MyDocument.getInitialProps &#x3D; async (ctx) &#x3D;&gt; &#123;</span><br><span class="line"></span><br><span class="line">  &#x2F;&#x2F; Render app and page and get the context of the page with collected side effects.</span><br><span class="line">  const sheets &#x3D; new ServerStyleSheets();</span><br><span class="line">  const originalRenderPage &#x3D; ctx.renderPage;</span><br><span class="line"></span><br><span class="line">  ctx.renderPage &#x3D; () &#x3D;&gt; originalRenderPage(&#123;</span><br><span class="line">    enhanceApp: (App) &#x3D;&gt; (props) &#x3D;&gt; sheets.collect(&lt;App &#123;...props&#125; &#x2F;&gt;),</span><br><span class="line">  &#125;);</span><br><span class="line"></span><br><span class="line">  const initialProps &#x3D; await Document.getInitialProps(ctx);</span><br><span class="line"></span><br><span class="line">  return &#123;</span><br><span class="line">    ...initialProps,</span><br><span class="line">    &#x2F;&#x2F; Styles fragment is rendered after the app and page rendering finish.</span><br><span class="line">    styles: [...React.Children.toArray(initialProps.styles), sheets.getStyleElement()],</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">_app.js</span><br><span class="line">React.useEffect(() &#x3D;&gt; &#123;</span><br><span class="line">  &#x2F;&#x2F; Remove the server-side injected CSS.</span><br><span class="line">  const jssStyles &#x3D; document.querySelector(&#39;#jss-server-side&#39;);</span><br><span class="line">  if (jssStyles) &#123;</span><br><span class="line">    jssStyles.parentElement.removeChild(jssStyles);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;, []);</span><br></pre></td></tr></table></figure>
 <p>要自定义PostCSS配置，您可以创建一个名为的顶级文件postcss.config.js。如果您正在使用Tailwind CSS之类的库，这将很有用。</p>
 <p>7 获取数据<br>node-fetch </p>
@@ -276,28 +305,38 @@
     </div>
 </section>
 
-      
-<!-- ============================ Footer =========================== -->
+      <!-- ============================ Footer =========================== -->
 
 <footer>
     <div class="container">
-            <div class="copy">
-                <p>
-                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By grace. All Rights Reserved.
-                </p>
-                <p>Theme By <a target="_blank" rel="noopener" href="//go.kieran.top" style="color: #767D84">Kieran</a></p>
-            </div>
-            <div class="social">
-                <ul>
-                    
-                    
-                    
-                    
-                    
-                </ul>
-            </div>
-            <div class="clearfix"> </div>
+        <div class="copy">
+            <p>
+                &copy; 2014<script>
+                    new Date().getFullYear() > 2010 && document.write("-" + new Date().getFullYear());
+                </script>, Content By grace. All Rights Reserved.
+            </p>
+            <p>Theme By <a target="_blank" rel="noopener" href="//go.kieran.top" style="color: #767D84">Kieran</a></p>
         </div>
+        <div class="social">
+            <ul>
+                
+                <li><a href="https://github.com/grace618/myBlog" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;
+                </li>
+                
+                
+                <li><a href="https://twitter.com/SGVOshdkbJJjwj3" title="Twitter" target="_blank"><i
+                            class="icon-twitter"></i></a>&nbsp;</li>
+                
+                
+                <li><a href="https://www.facebook.com/" title="Facebook" target="_blank"><i
+                            class="icon-facebook"></i></a>&nbsp;</li>
+                
+                
+                
+            </ul>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
 </footer>
 
 <!-- ============================ END Footer =========================== -->
@@ -318,28 +357,28 @@
         resizeHero();
     });
 </script>
-<script src="/myBlog/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/myBlog/js/plugins.min.js"></script>
+<!-- Bootstrap core and concatenated plugins always load here -->
 <script src="/myBlog/js/scripts.js"></script><!-- Theme scripts -->
 
 
 <link rel="stylesheet" href="/myBlog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
 <script src="/myBlog/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
-$('#intro').find('img').each(function(){
-  var alt = this.alt;
+    $('#intro').find('img').each(function () {
+        var alt = this.alt;
 
-  if (alt){
-    $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
-  }
+        if (alt) {
+            $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
+        }
 
-  $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
-});
-(function($){
-  $('.fancybox').fancybox();
-})(jQuery);
+        $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
+    });
+
+    (function ($) {
+        $('.fancybox').fancybox();
+    })(jQuery);
 </script>
-
-
 
       
 </body>

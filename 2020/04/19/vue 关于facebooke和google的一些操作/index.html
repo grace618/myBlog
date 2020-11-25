@@ -82,13 +82,16 @@
             <ul class="sb-submenu">
                 
                 <li><a href="/myBlog/categories/js/"
-                        class="animsition-link">js<small>(2)</small></a></li>
+                        class="animsition-link">js<small>(1)</small></a></li>
+                
+                <li><a href="/myBlog/categories/mobile/"
+                        class="animsition-link">mobile<small>(1)</small></a></li>
                 
                 <li><a href="/myBlog/categories/mock/"
                         class="animsition-link">mock<small>(1)</small></a></li>
                 
                 <li><a href="/myBlog/categories/mpvue/"
-                        class="animsition-link">mpvue<small>(2)</small></a></li>
+                        class="animsition-link">mpvue<small>(1)</small></a></li>
                 
                 <li><a href="/myBlog/categories/next/"
                         class="animsition-link">next<small>(1)</small></a></li>
@@ -100,17 +103,26 @@
                         class="animsition-link">react<small>(1)</small></a></li>
                 
                 <li><a href="/myBlog/categories/vue/"
-                        class="animsition-link">vue<small>(15)</small></a></li>
+                        class="animsition-link">vue<small>(16)</small></a></li>
                 
             </ul>
         </li>
         
         
+        <li>
+            <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
+            <ul class="sb-submenu">
+                
+                <li><a target="_blank" rel="noopener" href="https://www.laoqiange.club/" class="animsition-link">老千哥</a></li>
+                
+            </ul>
+        </li>
+        
     </ul>
     <!-- Lists in Slidebars -->
     <ul class="sb-menu secondary">
         
-        <li><a href="/myBlog/about.html" class="animsition-link" title="about">About</a></li>
+        <!-- <li><a href="/myBlog/about.html" class="animsition-link" title="about">About</a></li> -->
         <!-- <li><a href="/myBlog/atom.xml" class="animsition-link" title="rss">RSS</a></li> -->
     </ul>
 </div>
@@ -138,13 +150,29 @@
                 <nav>
                     <ul class="nav">
                         <li><a href="/" class="animsition-link">GRACE'S BLOG</a></li>
-                        <li class="nolink"><span>Always </span>Creative.</li>
+                        <!-- <li class="nolink"><span>Always </span>Creative.</li> -->
+                        <li>
+                            <a href="/myBlog/about.html" title="about" target="_blank"
+                                class="animsition-link">about</a></li>
+                        <li>
+                            <a href="/myBlog/archives" class="animsition-link"
+                                target="_blank" title="archive">archives</a>
+                        </li>
+                        
+                        <li><a href="https://github.com/grace618/myBlog" title="Github" target="_blank"><i class="icon-github"></i></a>
+                        </li>
+                        
+                        
+                        <li><a href="https://twitter.com/SGVOshdkbJJjwj3" title="Twitter" target="_blank"><i
+                                    class="icon-twitter"></i></a></li>
+                        
+                        
+                        <li><a href="https://www.facebook.com/" title="Facebook" target="_blank"><i
+                                    class="icon-facebook"></i></a></li>
                         
                         
                         
-                        
-                        
-                        <li class="nolink"><span>Welcome!</span></li>
+
                     </ul>
                 </nav>
                 <!--// Info-bar -->
@@ -169,20 +197,26 @@
             <div class="col-md-8">
                 <h1>使用facebook sdk 和google sdk中的社交功能(点赞、分享和第三方登录)——vue</h1>
                 <span class="post-meta">
-      <time datetime="2020-04-18T16:00:00.000Z" itemprop="datePublished">
-          2020-04-19
-      </time>
+    <time datetime="2020-04-18T16:00:00.000Z" itemprop="datePublished">
+        2020-04-19
+    </time>
     
     
     | 
-    <a href='/myBlog/tags/vue-facebook-google-Social/'>vue facebook google Social</a>
+    <a href='/myBlog/tags/facebook/'> <code>facebook</code> </a> ,
+    
+    <a href='/myBlog/tags/google/'> <code>google</code> </a> ,
+    
+    <a href='/myBlog/tags/Social/'> <code>Social</code> </a> 
     
     
 </span>
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-            <h3 id="facebook-点赞"><a href="#facebook-点赞" class="headerlink" title="facebook 点赞"></a>facebook 点赞</h3><p>❶ 使用sdk<br>引入sdk有两种方式<br>① 在main.js里面引入sdk</p>
+            <p>海外发行的网页，可能要用到第三方登录和facebook点赞分享，首先是要找到官方SDK文档，然后是vue和第三方的交互。之前公司的活动页都是面向海外发行的，所以使用到这些。</p>
+<a id="more"></a>
+<h3 id="facebook-点赞"><a href="#facebook-点赞" class="headerlink" title="facebook 点赞"></a>facebook 点赞</h3><p>❶ 使用sdk<br>引入sdk有两种方式<br>① 在main.js里面引入sdk</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">(function (d, s, id) &#123;</span><br><span class="line">var js,</span><br><span class="line">fjs &#x3D; d.getElementsByTagName(s)[0];</span><br><span class="line">if (d.getElementById(id)) return;</span><br><span class="line">js &#x3D; d.createElement(s);</span><br><span class="line">js.id &#x3D; id;</span><br><span class="line">js.src &#x3D; &quot;https:&#x2F;&#x2F;connect.facebook.net&#x2F;zh_CN&#x2F;sdk.js#xfbml&#x3D;1&amp;version&#x3D;v3.3&quot;;</span><br><span class="line">fjs.parentNode.insertBefore(js, fjs);</span><br><span class="line">&#125;)(document, &quot;script&quot;, &quot;facebook-jssdk&quot;);</span><br></pre></td></tr></table></figure>
 <p>② 在html里面直接引入</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;script async defer crossorigin&#x3D;&quot;anonymous&quot; src&#x3D;&quot;https:&#x2F;&#x2F;connect.facebook.net&#x2F;zh_CN&#x2F;sdk.js#xfbml&#x3D;1&amp;version&#x3D;v3.3&quot;&gt;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;template组件</span><br><span class="line">&lt;div class&#x3D;&quot;fb-like&quot; data-href&#x3D;&quot;https:&#x2F;&#x2F;developers.facebook.com&#x2F;docs&#x2F;plugins&#x2F;&quot; data-width&#x3D;&quot;&quot;</span><br><span class="line">data-layout&#x3D;&quot;standard&quot; data-action&#x3D;&quot;like&quot; data-size&#x3D;&quot;small&quot; data-show-faces&#x3D;&quot;true&quot; data-share&#x3D;&quot;true&quot;&gt;&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
@@ -275,28 +309,38 @@
     </div>
 </section>
 
-      
-<!-- ============================ Footer =========================== -->
+      <!-- ============================ Footer =========================== -->
 
 <footer>
     <div class="container">
-            <div class="copy">
-                <p>
-                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By grace. All Rights Reserved.
-                </p>
-                <p>Theme By <a target="_blank" rel="noopener" href="//go.kieran.top" style="color: #767D84">Kieran</a></p>
-            </div>
-            <div class="social">
-                <ul>
-                    
-                    
-                    
-                    
-                    
-                </ul>
-            </div>
-            <div class="clearfix"> </div>
+        <div class="copy">
+            <p>
+                &copy; 2014<script>
+                    new Date().getFullYear() > 2010 && document.write("-" + new Date().getFullYear());
+                </script>, Content By grace. All Rights Reserved.
+            </p>
+            <p>Theme By <a target="_blank" rel="noopener" href="//go.kieran.top" style="color: #767D84">Kieran</a></p>
         </div>
+        <div class="social">
+            <ul>
+                
+                <li><a href="https://github.com/grace618/myBlog" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;
+                </li>
+                
+                
+                <li><a href="https://twitter.com/SGVOshdkbJJjwj3" title="Twitter" target="_blank"><i
+                            class="icon-twitter"></i></a>&nbsp;</li>
+                
+                
+                <li><a href="https://www.facebook.com/" title="Facebook" target="_blank"><i
+                            class="icon-facebook"></i></a>&nbsp;</li>
+                
+                
+                
+            </ul>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
 </footer>
 
 <!-- ============================ END Footer =========================== -->
@@ -317,28 +361,28 @@
         resizeHero();
     });
 </script>
-<script src="/myBlog/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/myBlog/js/plugins.min.js"></script>
+<!-- Bootstrap core and concatenated plugins always load here -->
 <script src="/myBlog/js/scripts.js"></script><!-- Theme scripts -->
 
 
 <link rel="stylesheet" href="/myBlog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
 <script src="/myBlog/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
-$('#intro').find('img').each(function(){
-  var alt = this.alt;
+    $('#intro').find('img').each(function () {
+        var alt = this.alt;
 
-  if (alt){
-    $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
-  }
+        if (alt) {
+            $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
+        }
 
-  $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
-});
-(function($){
-  $('.fancybox').fancybox();
-})(jQuery);
+        $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
+    });
+
+    (function ($) {
+        $('.fancybox').fancybox();
+    })(jQuery);
 </script>
-
-
 
       
 </body>

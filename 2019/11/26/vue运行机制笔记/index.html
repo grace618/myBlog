@@ -82,13 +82,16 @@
             <ul class="sb-submenu">
                 
                 <li><a href="/myBlog/categories/js/"
-                        class="animsition-link">js<small>(2)</small></a></li>
+                        class="animsition-link">js<small>(1)</small></a></li>
+                
+                <li><a href="/myBlog/categories/mobile/"
+                        class="animsition-link">mobile<small>(1)</small></a></li>
                 
                 <li><a href="/myBlog/categories/mock/"
                         class="animsition-link">mock<small>(1)</small></a></li>
                 
                 <li><a href="/myBlog/categories/mpvue/"
-                        class="animsition-link">mpvue<small>(2)</small></a></li>
+                        class="animsition-link">mpvue<small>(1)</small></a></li>
                 
                 <li><a href="/myBlog/categories/next/"
                         class="animsition-link">next<small>(1)</small></a></li>
@@ -100,17 +103,26 @@
                         class="animsition-link">react<small>(1)</small></a></li>
                 
                 <li><a href="/myBlog/categories/vue/"
-                        class="animsition-link">vue<small>(15)</small></a></li>
+                        class="animsition-link">vue<small>(16)</small></a></li>
                 
             </ul>
         </li>
         
         
+        <li>
+            <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
+            <ul class="sb-submenu">
+                
+                <li><a target="_blank" rel="noopener" href="https://www.laoqiange.club/" class="animsition-link">老千哥</a></li>
+                
+            </ul>
+        </li>
+        
     </ul>
     <!-- Lists in Slidebars -->
     <ul class="sb-menu secondary">
         
-        <li><a href="/myBlog/about.html" class="animsition-link" title="about">About</a></li>
+        <!-- <li><a href="/myBlog/about.html" class="animsition-link" title="about">About</a></li> -->
         <!-- <li><a href="/myBlog/atom.xml" class="animsition-link" title="rss">RSS</a></li> -->
     </ul>
 </div>
@@ -138,13 +150,29 @@
                 <nav>
                     <ul class="nav">
                         <li><a href="/" class="animsition-link">GRACE'S BLOG</a></li>
-                        <li class="nolink"><span>Always </span>Creative.</li>
+                        <!-- <li class="nolink"><span>Always </span>Creative.</li> -->
+                        <li>
+                            <a href="/myBlog/about.html" title="about" target="_blank"
+                                class="animsition-link">about</a></li>
+                        <li>
+                            <a href="/myBlog/archives" class="animsition-link"
+                                target="_blank" title="archive">archives</a>
+                        </li>
+                        
+                        <li><a href="https://github.com/grace618/myBlog" title="Github" target="_blank"><i class="icon-github"></i></a>
+                        </li>
+                        
+                        
+                        <li><a href="https://twitter.com/SGVOshdkbJJjwj3" title="Twitter" target="_blank"><i
+                                    class="icon-twitter"></i></a></li>
+                        
+                        
+                        <li><a href="https://www.facebook.com/" title="Facebook" target="_blank"><i
+                                    class="icon-facebook"></i></a></li>
                         
                         
                         
-                        
-                        
-                        <li class="nolink"><span>Welcome!</span></li>
+
                     </ul>
                 </nav>
                 <!--// Info-bar -->
@@ -169,20 +197,24 @@
             <div class="col-md-8">
                 <h1>vue内部运行机制浅析</h1>
                 <span class="post-meta">
-      <time datetime="2019-11-25T16:00:00.000Z" itemprop="datePublished">
-          2019-11-26
-      </time>
+    <time datetime="2019-11-25T16:00:00.000Z" itemprop="datePublished">
+        2019-11-26
+    </time>
     
     
     | 
-    <a href='/myBlog/tags/js/'>js</a>
+    <a href='/myBlog/tags/js/'> <code>js</code> </a> 
     
     
 </span>
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-            <p>vue组件的三个API:prop,event,slot</p>
+            <p>当你把一个普通的 JavaScript 对象传入 Vue 实例作为 data 选项，Vue 将遍历此对象所有的 property，并使用 Object.defineProperty 把这些 property 全部转为 getter/setter。Object.defineProperty 是 ES5 中一个无法 shim 的特性，这也就是 Vue 不支持 IE8 以及更低版本浏览器的原因。</p>
+<p>这些 getter/setter 对用户来说是不可见的，但是在内部它们让 Vue 能够追踪依赖，在 property 被访问和修改时通知变更。这里需要注意的是不同浏览器在控制台打印数据对象时对 getter/setter 的格式化并不同，所以建议安装 vue-devtools 来获取对检查数据更加友好的用户界面。</p>
+<a id="more"></a>
+<p>每个组件实例都对应一个 watcher 实例，它会在组件渲染的过程中把“接触”过的数据 property 记录为依赖。之后当依赖项的 setter 触发时，会通知 watcher，从而使它关联的组件重新渲染。</p>
+<p>vue组件的三个API:prop,event,slot</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;button :class&#x3D;&quot;&#39;i-button-size&#39;+size&quot; :disabled&#x3D;&#39;disabled&#39; @click&#x3D;&quot;handleClick&quot;&gt;</span><br><span class="line">        &lt;slot&gt;&lt;&#x2F;slot&gt;    </span><br><span class="line">        &lt;!-- 具名插槽 --&gt;</span><br><span class="line">        &lt;slot name&#x3D;&quot;icon&quot;&gt;&lt;&#x2F;slot&gt;  </span><br><span class="line">    &lt;&#x2F;button&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line">&lt;script&gt;</span><br></pre></td></tr></table></figure>
 
 <p>判断参数是否是其中之一</p>
@@ -221,7 +253,7 @@
 
 <p>sameVnode的判断</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br></pre></td><td class="code"><pre><span class="line">function sameVnode()&#123;</span><br><span class="line">    return (</span><br><span class="line">        a.key&#x3D;&#x3D;&#x3D;b.key&amp;&amp;</span><br><span class="line">        a.tag&#x3D;&#x3D;&#x3D;b.tag&amp;&amp;</span><br><span class="line">        a.isComment&#x3D;&#x3D;&#x3D;b.isComment&amp;&amp;</span><br><span class="line">        (!!a.data)&#x3D;&#x3D;&#x3D;(!!b.data) &amp;&amp;</span><br><span class="line">        sameInputType(a,b)</span><br><span class="line">    )</span><br><span class="line">&#125;</span><br><span class="line">function sameInputType(a,b)&#123;</span><br><span class="line">    if(a.tag!&#x3D;&#x3D;&#39;input&#39;) return true</span><br><span class="line">    let i</span><br><span class="line">    const typeA&#x3D;(i&#x3D;a.data)&amp;&amp;(i&#x3D;i.attrs)&amp;&amp;i.type</span><br><span class="line">    const typeB&#x3D;(i&#x3D;b.data)&amp;&amp;(i&#x3D;i.attrs)&amp;&amp;i.type</span><br><span class="line">    return typeA&#x3D;&#x3D;&#x3D;typeB</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;**对比相同的节点有哪些变化**&#x2F;</span><br><span class="line"></span><br><span class="line">function patchVnode(oldVnode,vnode)&#123;</span><br><span class="line">    if(oldVNode&#x3D;&#x3D;&#x3D;vnode)&#123;</span><br><span class="line">        return</span><br><span class="line">    &#125;</span><br><span class="line">    if(vnode.isStatic&amp;&amp;oldVnode.isStatic&amp;&amp;vnode.key&#x3D;&#x3D;&#x3D;oldnode.key)&#123;</span><br><span class="line">        vnode.elm&#x3D;oldVnode.elm;</span><br><span class="line">        vnode.componentInstance&#x3D;oldVnode.componentInstance</span><br><span class="line">        return</span><br><span class="line">    &#125;</span><br><span class="line">    const elm&#x3D;vnode.elm&#x3D;oldVNode.elm</span><br><span class="line">    const oldCh&#x3D;oldVnode.children;</span><br><span class="line">    const ch&#x3D;vnode.children</span><br><span class="line"></span><br><span class="line">    if(vnode.text)&#123;</span><br><span class="line">        nodeOps.setTextContent(elm,vnode.text)</span><br><span class="line">    &#125;else </span><br><span class="line">    if(oldCh&amp;&amp;ch&amp;&amp;(oldCh!&#x3D;&#x3D;ch))&#123;</span><br><span class="line">        updateChildren(elm,oldCh,ch)</span><br><span class="line">    &#125;else if(ch)&#123;</span><br><span class="line">        if(oldVnode.text) nodeOps.setTextContent(elm,&#39;&#39;)</span><br><span class="line">        addVnodes(elm,null,ch,0,ch.length-1)</span><br><span class="line">    &#125;else if(oldCh)&#123;</span><br><span class="line">        removeVnodes(elm,oldCh,0,oldCh.length-1)</span><br><span class="line">    &#125;else if(oldVNode.text)&#123;</span><br><span class="line">        nodeOps.setTextContent(elm,&#39;&#39;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;updateChildren</span><br><span class="line">function updateChildren(parentElm,oldCh,newCh)&#123;</span><br><span class="line">    let oldStartIdx&#x3D;0;</span><br><span class="line">    let newStartIdx&#x3D;0;</span><br><span class="line">    let oldEndIdx&#x3D;oldCh.length-1</span><br><span class="line">    let oldStartVnode&#x3D;oldCh[0]</span><br><span class="line">    let oldEndVnode&#x3D;oldCh[oldEndIdx]</span><br><span class="line">    let newEndIdx&#x3D;newCh.length-1</span><br><span class="line">    let newStartVnode&#x3D;newCh[0]</span><br><span class="line">    let newEndVnode&#x3D;newCh[newEndIdx]</span><br><span class="line">    let oldKeyToIdx,idxInOld,elmToMove,refElm;</span><br><span class="line"></span><br><span class="line">    while(oldStartIdx&lt;&#x3D;oldEndIdx&amp;&amp;newStartIdx&lt;&#x3D;newEndIdx)&#123;</span><br><span class="line">        if(!oldStartVnode)&#123;</span><br><span class="line">            oldStartVnode&#x3D;oldCh[++oldStartIdx]</span><br><span class="line">        &#125;else if(!oldEndVnode)&#123;</span><br><span class="line">            oldEndVnode&#x3D;oldCh[--oldEndIdx]</span><br><span class="line">        &#125;else if ( sameVnode(oldStartVnode,newStartVnode) )&#123;</span><br><span class="line">            patchVnode(oldStartVnode,newStartVnode)</span><br><span class="line">            oldStartVnode&#x3D;oldCh[++oldStartIdx]</span><br><span class="line">            newStartVnode&#x3D;newCh[++newStartIdx]</span><br><span class="line">        &#125;else if(sameVnode(oldEndVnode,newEndVnode))&#123;</span><br><span class="line">            patchVnode(oldEndVnode,newEndVnode)</span><br><span class="line">            oldEndVnode&#x3D;oldCh[--oldEndIdx]</span><br><span class="line">            newEndVnode&#x3D;newCh[--newEndIdx]</span><br><span class="line">        &#125;else if(sameVnode(oldStartVnode,newEndVnode))&#123;</span><br><span class="line">            patchVnode(oldStartVnode,newEndVnode)</span><br><span class="line">            nodeOps.insertBefore(parentElm,oldStartVnode.elm,</span><br><span class="line">            nodeOps.nextSibling(oldEndVnode.oldStartVnode&#x3D;oldCh[++oldStartIdx]))</span><br><span class="line">            newEndVnode&#x3D;newCh[--newEndIdx]</span><br><span class="line">        &#125;else if(sameVnode(oldEndVnode,newStartVnode))&#123;</span><br><span class="line">            patchVnode(oldEndVnode,newStartVnode)</span><br><span class="line">            nodeOps.insertBefore(parentElm,oldEndVnode.elm,oldStartVnode.elm)</span><br><span class="line">            oldEndVnode&#x3D;oldCh[--oldEndIdx]</span><br><span class="line">            newStartVnode&#x3D;newCh[++newStartIdx]</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            let elmToMove&#x3D;oldCh[idxInOld]</span><br><span class="line">            if(!oldKeyToIdx) oldKeyToIdx&#x3D;createKeyToOldIdx(oldCh,oldStartIdx,oldEndIdx)</span><br><span class="line">            idxInOld&#x3D;newStartVnode.key?oldKeyToIdx[newStartVnode.key]:null</span><br><span class="line">            if(!idexInOld)&#123;</span><br><span class="line">                createElm(newStartVnode,parentElm);</span><br><span class="line">                newStartVnode&#x3D;newCh[++newStartIdx]</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                elmToMove&#x3D;oldCh[idxInOld]</span><br><span class="line">                if(sameVnode(elmToMove,newStartVnode))&#123;</span><br><span class="line">                    patchVnode(elmToMove,newStartVnode)</span><br><span class="line">                    oldCh[idxInOld]&#x3D;undefined</span><br><span class="line">                    nodeOps.insertBefore(parentElm,newStartVnode.elm,oldStartVnode.elm)</span><br><span class="line">                    newStartVnode&#x3D;newCh[++newStartIdx]</span><br><span class="line">                &#125;else&#123;</span><br><span class="line">                    createElm(newStartVnode,parentElm)</span><br><span class="line">                    newStartVnode&#x3D;newCh[++newStartIdx]</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    if(oldStartIdx&gt;oldEndIdx)&#123;</span><br><span class="line">        refElm&#x3D;(newCh[newEndIdx+1])?newCh[newEndIdx+1].elm:null;</span><br><span class="line">        addVnodes(parentElm,refElm,newCh,newStartIdx,newEndIdx)</span><br><span class="line">    &#125;else if(newStartIdx&gt;newEndIdx)&#123;</span><br><span class="line">        removeVnodes(parentElm,oldCh,oldStartIdx,oldEndIdx)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong><em>nexttick原理</em></strong></p>
+<p><strong><em>nextTick原理</em></strong></p>
 <p>Vue.js 实现了一个 nextTick 函数，传入一个 cb ，这个 cb 会被存储到一个队列中，在下一个 tick 时触发队列中的所有 cb 事件。</p>
 <p>因为目前浏览器平台并没有实现 nextTick 方法，所以 Vue.js 源码中分别用 Promise、setTimeout、setImmediate 等方式在 microtask（或是task）中创建一个事件，目的是在当前调用栈执行完毕以后（不一定立即）才会去执行这个事件。</p>
 <p>笔者用 setTimeout 来模拟这个方法，当然，真实的源码中会更加复杂，笔者在小册中只讲原理，有兴趣了解源码中 nextTick 的具体实现的同学可以参考next-tick。</p>
@@ -308,28 +340,38 @@
     </div>
 </section>
 
-      
-<!-- ============================ Footer =========================== -->
+      <!-- ============================ Footer =========================== -->
 
 <footer>
     <div class="container">
-            <div class="copy">
-                <p>
-                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By grace. All Rights Reserved.
-                </p>
-                <p>Theme By <a target="_blank" rel="noopener" href="//go.kieran.top" style="color: #767D84">Kieran</a></p>
-            </div>
-            <div class="social">
-                <ul>
-                    
-                    
-                    
-                    
-                    
-                </ul>
-            </div>
-            <div class="clearfix"> </div>
+        <div class="copy">
+            <p>
+                &copy; 2014<script>
+                    new Date().getFullYear() > 2010 && document.write("-" + new Date().getFullYear());
+                </script>, Content By grace. All Rights Reserved.
+            </p>
+            <p>Theme By <a target="_blank" rel="noopener" href="//go.kieran.top" style="color: #767D84">Kieran</a></p>
         </div>
+        <div class="social">
+            <ul>
+                
+                <li><a href="https://github.com/grace618/myBlog" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;
+                </li>
+                
+                
+                <li><a href="https://twitter.com/SGVOshdkbJJjwj3" title="Twitter" target="_blank"><i
+                            class="icon-twitter"></i></a>&nbsp;</li>
+                
+                
+                <li><a href="https://www.facebook.com/" title="Facebook" target="_blank"><i
+                            class="icon-facebook"></i></a>&nbsp;</li>
+                
+                
+                
+            </ul>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
 </footer>
 
 <!-- ============================ END Footer =========================== -->
@@ -350,28 +392,28 @@
         resizeHero();
     });
 </script>
-<script src="/myBlog/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/myBlog/js/plugins.min.js"></script>
+<!-- Bootstrap core and concatenated plugins always load here -->
 <script src="/myBlog/js/scripts.js"></script><!-- Theme scripts -->
 
 
 <link rel="stylesheet" href="/myBlog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
 <script src="/myBlog/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
-$('#intro').find('img').each(function(){
-  var alt = this.alt;
+    $('#intro').find('img').each(function () {
+        var alt = this.alt;
 
-  if (alt){
-    $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
-  }
+        if (alt) {
+            $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
+        }
 
-  $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
-});
-(function($){
-  $('.fancybox').fancybox();
-})(jQuery);
+        $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
+    });
+
+    (function ($) {
+        $('.fancybox').fancybox();
+    })(jQuery);
 </script>
-
-
 
       
 </body>

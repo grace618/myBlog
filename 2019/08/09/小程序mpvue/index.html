@@ -82,13 +82,16 @@
             <ul class="sb-submenu">
                 
                 <li><a href="/myBlog/categories/js/"
-                        class="animsition-link">js<small>(2)</small></a></li>
+                        class="animsition-link">js<small>(1)</small></a></li>
+                
+                <li><a href="/myBlog/categories/mobile/"
+                        class="animsition-link">mobile<small>(1)</small></a></li>
                 
                 <li><a href="/myBlog/categories/mock/"
                         class="animsition-link">mock<small>(1)</small></a></li>
                 
                 <li><a href="/myBlog/categories/mpvue/"
-                        class="animsition-link">mpvue<small>(2)</small></a></li>
+                        class="animsition-link">mpvue<small>(1)</small></a></li>
                 
                 <li><a href="/myBlog/categories/next/"
                         class="animsition-link">next<small>(1)</small></a></li>
@@ -100,17 +103,26 @@
                         class="animsition-link">react<small>(1)</small></a></li>
                 
                 <li><a href="/myBlog/categories/vue/"
-                        class="animsition-link">vue<small>(15)</small></a></li>
+                        class="animsition-link">vue<small>(16)</small></a></li>
                 
             </ul>
         </li>
         
         
+        <li>
+            <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
+            <ul class="sb-submenu">
+                
+                <li><a target="_blank" rel="noopener" href="https://www.laoqiange.club/" class="animsition-link">老千哥</a></li>
+                
+            </ul>
+        </li>
+        
     </ul>
     <!-- Lists in Slidebars -->
     <ul class="sb-menu secondary">
         
-        <li><a href="/myBlog/about.html" class="animsition-link" title="about">About</a></li>
+        <!-- <li><a href="/myBlog/about.html" class="animsition-link" title="about">About</a></li> -->
         <!-- <li><a href="/myBlog/atom.xml" class="animsition-link" title="rss">RSS</a></li> -->
     </ul>
 </div>
@@ -138,13 +150,29 @@
                 <nav>
                     <ul class="nav">
                         <li><a href="/" class="animsition-link">GRACE'S BLOG</a></li>
-                        <li class="nolink"><span>Always </span>Creative.</li>
+                        <!-- <li class="nolink"><span>Always </span>Creative.</li> -->
+                        <li>
+                            <a href="/myBlog/about.html" title="about" target="_blank"
+                                class="animsition-link">about</a></li>
+                        <li>
+                            <a href="/myBlog/archives" class="animsition-link"
+                                target="_blank" title="archive">archives</a>
+                        </li>
+                        
+                        <li><a href="https://github.com/grace618/myBlog" title="Github" target="_blank"><i class="icon-github"></i></a>
+                        </li>
+                        
+                        
+                        <li><a href="https://twitter.com/SGVOshdkbJJjwj3" title="Twitter" target="_blank"><i
+                                    class="icon-twitter"></i></a></li>
+                        
+                        
+                        <li><a href="https://www.facebook.com/" title="Facebook" target="_blank"><i
+                                    class="icon-facebook"></i></a></li>
                         
                         
                         
-                        
-                        
-                        <li class="nolink"><span>Welcome!</span></li>
+
                     </ul>
                 </nav>
                 <!--// Info-bar -->
@@ -169,13 +197,13 @@
             <div class="col-md-8">
                 <h1>小程序框架mpvue初步</h1>
                 <span class="post-meta">
-      <time datetime="2019-08-09T04:02:26.000Z" itemprop="datePublished">
-          2019-08-09
-      </time>
+    <time datetime="2019-08-09T04:02:26.000Z" itemprop="datePublished">
+        2019-08-09
+    </time>
     
     
     | 
-    <a href='/myBlog/tags/mpvue/'>mpvue</a>
+    <a href='/myBlog/tags/mpvue/'> <code>mpvue</code> </a> 
     
     
 </span>
@@ -183,9 +211,10 @@
         </div>
         <div class="col-md-8 col-md-offset-2">
             <h3 id="小程序原生"><a href="#小程序原生" class="headerlink" title="小程序原生"></a>小程序原生</h3><p><strong><em>页面传值的三种方式</em></strong> </p>
-<p>1.利用url传值<code>url?params=data&amp;params1=data1</code><br> 取值<code>onLoad: function(option)&#123;option.params&#125;</code></p>
+<p>1.利用url<br> 传值 <code>url?params=data&amp;params1=data1</code><br> 取值 <code>onLoad: function(option)&#123;option.params&#125;</code></p>
 <p>2.本地储存</p>
 <p>3.全局的app对象</p>
+<a id="more"></a>
 <p><strong><em>跳转到tabbar页的时候</em></strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;navigator url&#x3D;&quot;&#x2F;page&#x2F;index&#x2F;index&quot; open-type&#x3D;&quot;switchTab&quot; &gt;切换 Tab&lt;&#x2F;navigator&gt;</span><br><span class="line">&#x2F;&#x2F;js</span><br><span class="line">wx.switchTab(&#123;</span><br><span class="line">      url: &#39;..&#x2F;b&#x2F;b&#39;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
@@ -201,10 +230,10 @@
 <li><p>对于 POST 方法且 header[‘content-type’] 为 application/json 的数据，会对数据进行 JSON 序列化</p>
 </li>
 <li><p>对于 POST 方法且 header[‘content-type’] 为 application/x-www-form-urlencoded 的数据，会将数据转换成 query string </p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">（encodeURIComponent(k)&#x3D;encodeURIComponent(v)</span><br><span class="line">&amp;encodeURIComponent(k)&#x3D;encodeURIComponent(v)...）</span><br></pre></td></tr></table></figure>
+
 </li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">（encodeURIComponent(k)&#x3D;encodeURIComponent(v)</span><br><span class="line">&amp;encodeURIComponent(k)&#x3D;encodeURIComponent(v)...）</span><br></pre></td></tr></table></figure>
-
 <p><strong><em>页面刷新</em></strong></p>
 <p>当返回上一页面需要刷新数据时，可以请求写在onshow函数中</p>
 <h3 id="mpvue"><a href="#mpvue" class="headerlink" title="mpvue"></a>mpvue</h3><p><a target="_blank" rel="noopener" href="http://mpvue.com/">mpvue docs</a><br>由于vue-cli 已经升级到3.0 ，所以要更新一下,Vue CLI 的包名称由 vue-cli 改成了 @vue/cli。 如果你已经全局安装了旧版本的 vue-cli (1.x 或 2.x)，需要先卸载<br><code>npm uninstall vue-cli -g </code><br>安装<br><code>npm install -g @vue/cli</code><br>检查版本<br><code>vue --version</code><br>Vue CLI 3 和旧版使用了相同的 vue 命令，所以 Vue CLI 2 (vue-cli) 被覆盖了。如果你仍然需要使用旧版本的 vue init 功能，你可以全局安装一个桥接工具</p>
@@ -301,28 +330,38 @@
     </div>
 </section>
 
-      
-<!-- ============================ Footer =========================== -->
+      <!-- ============================ Footer =========================== -->
 
 <footer>
     <div class="container">
-            <div class="copy">
-                <p>
-                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By grace. All Rights Reserved.
-                </p>
-                <p>Theme By <a target="_blank" rel="noopener" href="//go.kieran.top" style="color: #767D84">Kieran</a></p>
-            </div>
-            <div class="social">
-                <ul>
-                    
-                    
-                    
-                    
-                    
-                </ul>
-            </div>
-            <div class="clearfix"> </div>
+        <div class="copy">
+            <p>
+                &copy; 2014<script>
+                    new Date().getFullYear() > 2010 && document.write("-" + new Date().getFullYear());
+                </script>, Content By grace. All Rights Reserved.
+            </p>
+            <p>Theme By <a target="_blank" rel="noopener" href="//go.kieran.top" style="color: #767D84">Kieran</a></p>
         </div>
+        <div class="social">
+            <ul>
+                
+                <li><a href="https://github.com/grace618/myBlog" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;
+                </li>
+                
+                
+                <li><a href="https://twitter.com/SGVOshdkbJJjwj3" title="Twitter" target="_blank"><i
+                            class="icon-twitter"></i></a>&nbsp;</li>
+                
+                
+                <li><a href="https://www.facebook.com/" title="Facebook" target="_blank"><i
+                            class="icon-facebook"></i></a>&nbsp;</li>
+                
+                
+                
+            </ul>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
 </footer>
 
 <!-- ============================ END Footer =========================== -->
@@ -343,28 +382,28 @@
         resizeHero();
     });
 </script>
-<script src="/myBlog/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/myBlog/js/plugins.min.js"></script>
+<!-- Bootstrap core and concatenated plugins always load here -->
 <script src="/myBlog/js/scripts.js"></script><!-- Theme scripts -->
 
 
 <link rel="stylesheet" href="/myBlog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
 <script src="/myBlog/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
-$('#intro').find('img').each(function(){
-  var alt = this.alt;
+    $('#intro').find('img').each(function () {
+        var alt = this.alt;
 
-  if (alt){
-    $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
-  }
+        if (alt) {
+            $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
+        }
 
-  $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
-});
-(function($){
-  $('.fancybox').fancybox();
-})(jQuery);
+        $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
+    });
+
+    (function ($) {
+        $('.fancybox').fancybox();
+    })(jQuery);
 </script>
-
-
 
       
 </body>

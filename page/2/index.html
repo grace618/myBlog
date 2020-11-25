@@ -82,13 +82,16 @@
             <ul class="sb-submenu">
                 
                 <li><a href="/myBlog/categories/js/"
-                        class="animsition-link">js<small>(2)</small></a></li>
+                        class="animsition-link">js<small>(1)</small></a></li>
+                
+                <li><a href="/myBlog/categories/mobile/"
+                        class="animsition-link">mobile<small>(1)</small></a></li>
                 
                 <li><a href="/myBlog/categories/mock/"
                         class="animsition-link">mock<small>(1)</small></a></li>
                 
                 <li><a href="/myBlog/categories/mpvue/"
-                        class="animsition-link">mpvue<small>(2)</small></a></li>
+                        class="animsition-link">mpvue<small>(1)</small></a></li>
                 
                 <li><a href="/myBlog/categories/next/"
                         class="animsition-link">next<small>(1)</small></a></li>
@@ -100,17 +103,26 @@
                         class="animsition-link">react<small>(1)</small></a></li>
                 
                 <li><a href="/myBlog/categories/vue/"
-                        class="animsition-link">vue<small>(15)</small></a></li>
+                        class="animsition-link">vue<small>(16)</small></a></li>
                 
             </ul>
         </li>
         
         
+        <li>
+            <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
+            <ul class="sb-submenu">
+                
+                <li><a target="_blank" rel="noopener" href="https://www.laoqiange.club/" class="animsition-link">老千哥</a></li>
+                
+            </ul>
+        </li>
+        
     </ul>
     <!-- Lists in Slidebars -->
     <ul class="sb-menu secondary">
         
-        <li><a href="/myBlog/about.html" class="animsition-link" title="about">About</a></li>
+        <!-- <li><a href="/myBlog/about.html" class="animsition-link" title="about">About</a></li> -->
         <!-- <li><a href="/myBlog/atom.xml" class="animsition-link" title="rss">RSS</a></li> -->
     </ul>
 </div>
@@ -138,13 +150,29 @@
                 <nav>
                     <ul class="nav">
                         <li><a href="/" class="animsition-link">GRACE'S BLOG</a></li>
-                        <li class="nolink"><span>Always </span>Creative.</li>
+                        <!-- <li class="nolink"><span>Always </span>Creative.</li> -->
+                        <li>
+                            <a href="/myBlog/about.html" title="about" target="_blank"
+                                class="animsition-link">about</a></li>
+                        <li>
+                            <a href="/myBlog/archives" class="animsition-link"
+                                target="_blank" title="archive">archives</a>
+                        </li>
+                        
+                        <li><a href="https://github.com/grace618/myBlog" title="Github" target="_blank"><i class="icon-github"></i></a>
+                        </li>
+                        
+                        
+                        <li><a href="https://twitter.com/SGVOshdkbJJjwj3" title="Twitter" target="_blank"><i
+                                    class="icon-twitter"></i></a></li>
+                        
+                        
+                        <li><a href="https://www.facebook.com/" title="Facebook" target="_blank"><i
+                                    class="icon-facebook"></i></a></li>
                         
                         
                         
-                        
-                        
-                        <li class="nolink"><span>Welcome!</span></li>
+
                     </ul>
                 </nav>
                 <!--// Info-bar -->
@@ -174,11 +202,11 @@
                     data-translatey="100">
                     <div>
                         
-                        <h2>自由的味道很硬，带着柏油和轮胎的气味，让人很想远行</h2>
+                        <h2></h2>
                         <p></p>
                         
                         <h2></h2>
-                        <p></p>
+                        <p>自由的味道很硬，带着柏油和轮胎的气味，让人很想远行</p>
                         
 
                     </div>
@@ -203,16 +231,17 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-12">
-                    <h3><a href="/myBlog/2019/08/09/小程序mpvue/">小程序框架mpvue初步</a></h3>
+                    <h3 style="line-height: 17px;"><a href="/myBlog/2019/08/09/小程序mpvue/">小程序框架mpvue初步</a>
+                    </h3>
                     <div>
                         <span class="post-meta">
-      <time datetime="2019-08-09T04:02:26.000Z" itemprop="datePublished">
-          2019-08-09
-      </time>
+    <time datetime="2019-08-09T04:02:26.000Z" itemprop="datePublished">
+        2019-08-09
+    </time>
     
     
     | 
-    <a href='/myBlog/tags/mpvue/'>mpvue</a>
+    <a href='/myBlog/tags/mpvue/'> <code>mpvue</code> </a> 
     
     
 </span>
@@ -221,12 +250,10 @@
                 <div class="col-md-12">
                     <p style="overflow: hidden;">
                         
-                        小程序原生页面传值的三种方式 
-1.利用url传值url?params=data&amp;params1=data1 取值onLoad: function(option)&#123;option.params&#125;
-2.本地储存
-3.全局的app对象
-跳转到tabbar页的时候
-12345&lt;navigator url&#x3D;&quot;&#x2F;page&#x2F;index&#x2F;index&quot; open
+                        <h3 id="小程序原生"><a href="#小程序原生" class="headerlink" title="小程序原生"></a>小程序原生</h3><p><strong><em>页面传值的三种方式</em></strong> </p>
+<p>1.利用url<br> 传值 <code>url?params=data&amp;params1=data1</code><br> 取值 <code>onLoad: function(option)&#123;option.params&#125;</code></p>
+<p>2.本地储存</p>
+<p>3.全局的app对象</p>
                         
                     </p>
                     
@@ -244,16 +271,17 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-12">
-                    <h3><a href="/myBlog/2019/07/20/vue实现滚动加载更多和函数节流/">了解JS中的函数防抖与函数节流的应用场景+vue实现滚动加载更多</a></h3>
+                    <h3 style="line-height: 17px;"><a href="/myBlog/2019/07/20/vue实现滚动加载更多和函数节流/">了解JS中的函数防抖与函数节流的应用场景+vue实现滚动加载更多</a>
+                    </h3>
                     <div>
                         <span class="post-meta">
-      <time datetime="2019-07-20T04:02:26.000Z" itemprop="datePublished">
-          2019-07-20
-      </time>
+    <time datetime="2019-07-20T04:02:26.000Z" itemprop="datePublished">
+        2019-07-20
+    </time>
     
     
     | 
-    <a href='/myBlog/tags/Fn/'>Fn</a>
+    <a href='/myBlog/tags/Fn/'> <code>Fn</code> </a> 
     
     
 </span>
@@ -262,9 +290,8 @@
                 <div class="col-md-12">
                     <p style="overflow: hidden;">
                         
-                        函数节流发现一个问题就是当浏览器到达底部时，会多次触发函数，为了解决这个问题，进行函数节流。
-浏览器中某些计算和处理要比其他的昂贵很多。例如，DOM 操作比起非 DOM 交互需要更多的内存和 CPU 时间。连续尝试进行过多的 DOM相关操作可能会导致浏览器挂起，有时候甚至会崩溃。尤其在 IE 中使用 onresize 事件处理程序的时候容易发生，当调整浏览器大小的时候，该事件会连续触发。
-在 onresize 事件处理程序内部如果尝试进
+                        <h3 id="函数节流"><a href="#函数节流" class="headerlink" title="函数节流"></a>函数节流</h3><p>发现一个问题就是当浏览器到达底部时，会多次触发函数，为了解决这个问题，进行函数节流。</p>
+<p>浏览器中某些计算和处理要比其他的昂贵很多。例如，DOM 操作比起非 DOM 交互需要更多的内存和 CPU 时间。连续尝试进行过多的 DOM相关操作可能会导致浏览器挂起，有时候甚至会崩溃。尤其在 IE 中使用 onresize 事件处理程序的时候容易发生，当调整浏览器大小的时候，该事件会连续触发。</p>
                         
                     </p>
                     
@@ -282,16 +309,17 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-12">
-                    <h3><a href="/myBlog/2019/06/26/react学习笔记/">react学习笔记</a></h3>
+                    <h3 style="line-height: 17px;"><a href="/myBlog/2019/06/26/react学习笔记/">react学习笔记</a>
+                    </h3>
                     <div>
                         <span class="post-meta">
-      <time datetime="2019-06-26T04:02:26.000Z" itemprop="datePublished">
-          2019-06-26
-      </time>
+    <time datetime="2019-06-26T04:02:26.000Z" itemprop="datePublished">
+        2019-06-26
+    </time>
     
     
     | 
-    <a href='/myBlog/tags/react/'>react</a>
+    <a href='/myBlog/tags/react/'> <code>react</code> </a> 
     
     
 </span>
@@ -300,9 +328,12 @@
                 <div class="col-md-12">
                     <p style="overflow: hidden;">
                         
-                        1.资源文件位置 图片一般放在src/assets目录下2.如何引入文件路径
-
-1.可以使用create-react-app提供的yarn run eject 将所有内建的配置暴露出来，然后配置2.Create React App 3可以使用绝对路径，参考官网或者网上一些文章，例如https://medium.com/@ktruong008/absolute-imports-with-create-react-app-4338fbca7
+                        <p>1.资源文件位置 图片一般放在src/assets目录下<br>2.如何引入文件路径</p>
+<blockquote>
+<p>1.可以使用create-react-app提供的yarn run eject 将所有内建的配置暴露出来，然后配置</p>
+</blockquote>
+<blockquote>
+<p>2.Create React App 3可以使用绝对路径，参考官网或者网上一些文章，例如<a target="_blank" rel="noopener" href="https://medium.com/@ktruong008/absolute-imports-with-create-react-app-4338fbca7e3d">https://medium.com/@ktruong008/absolute-imports-with-create-react-app-4338fbca7e3d</a><br>
                         
                     </p>
                     
@@ -320,16 +351,19 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-12">
-                    <h3><a href="/myBlog/2019/01/20/axios封装和使用/">axios的简单封装以及使用</a></h3>
+                    <h3 style="line-height: 17px;"><a href="/myBlog/2019/01/20/axios封装和使用/">axios的简单封装以及使用</a>
+                    </h3>
                     <div>
                         <span class="post-meta">
-      <time datetime="2019-01-20T04:02:26.000Z" itemprop="datePublished">
-          2019-01-20
-      </time>
+    <time datetime="2019-01-20T04:02:26.000Z" itemprop="datePublished">
+        2019-01-20
+    </time>
     
     
     | 
-    <a href='/myBlog/tags/vue-axios/'>vue  axios</a>
+    <a href='/myBlog/tags/vue/'> <code>vue</code> </a> ,
+    
+    <a href='/myBlog/tags/axios/'> <code>axios</code> </a> 
     
     
 </span>
@@ -338,8 +372,7 @@
                 <div class="col-md-12">
                     <p style="overflow: hidden;">
                         
-                        Axios 是一个基于 promise 的 HTTP 库我会把axios的封装写在工具类的文件里面以下是初始的axios封装，以后应该会根据情况来改变
-123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767
+                        <p>Axios Axios是一个Javascript库，用于从node.js发出HTTP请求或从浏览器发出XMLHttpRequests，它支持JS ES6固有的Promise API。它可以用来拦截HTTP请求和响应，并启用针对XSRF的客户端保护。它还具有取消请求的能力。<br>我会把axios的封装写在工具类的文件里面以下是初始的axios封装，以后应该会根据情况来改变<br>
                         
                     </p>
                     
@@ -357,16 +390,17 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-12">
-                    <h3><a href="/myBlog/2018/12/24/element-table单元格合并/">ElementUI中element table单元格合并的处理</a></h3>
+                    <h3 style="line-height: 17px;"><a href="/myBlog/2018/12/24/element-table单元格合并/">ElementUI中element table单元格合并的处理</a>
+                    </h3>
                     <div>
                         <span class="post-meta">
-      <time datetime="2018-12-24T04:02:26.000Z" itemprop="datePublished">
-          2018-12-24
-      </time>
+    <time datetime="2018-12-24T04:02:26.000Z" itemprop="datePublished">
+        2018-12-24
+    </time>
     
     
     | 
-    <a href='/myBlog/tags/ElementUI/'>ElementUI</a>
+    <a href='/myBlog/tags/ElementUI/'> <code>ElementUI</code> </a> 
     
     
 </span>
@@ -394,16 +428,17 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-12">
-                    <h3><a href="/myBlog/2018/11/26/promise/">promise和async/await</a></h3>
+                    <h3 style="line-height: 17px;"><a href="/myBlog/2018/11/26/promise/">promise和async/await</a>
+                    </h3>
                     <div>
                         <span class="post-meta">
-      <time datetime="2018-11-26T04:02:26.000Z" itemprop="datePublished">
-          2018-11-26
-      </time>
+    <time datetime="2018-11-26T04:02:26.000Z" itemprop="datePublished">
+        2018-11-26
+    </time>
     
     
     | 
-    <a href='/myBlog/tags/js/'>js</a>
+    <a href='/myBlog/tags/js/'> <code>js</code> </a> 
     
     
 </span>
@@ -412,8 +447,13 @@
                 <div class="col-md-12">
                     <p style="overflow: hidden;">
                         
-                        promisePromise 是异步编程的一种解决方案，比传统的解决方案——回调函数和事件——更合理和更强大，ES6规定，Promise对象是一个构造函数，用来生成Promise实例。下面代码创造了一个Promise实例。
-123456789var promise &#x3D; new Promise(function(resolve, reject) &#123;  &#x2F;&#x2F; ... some code  if (&#
+                        <h3 id="promise"><a href="#promise" class="headerlink" title="promise"></a>promise</h3><p>promises的核心思想是，promise表示异步操作的结果。一个承诺处于以下三种不同状态之一：</p>
+<ul>
+<li>未决-承诺的初始状态。</li>
+<li>实现-表示成功操作的承诺状态。</li>
+<li>被拒绝-表示操作失败的承诺状态。</li>
+</ul>
+<p>一旦兑现或兑现了诺言，它就不会改变（即永远无法再改变）。</p>
                         
                     </p>
                     
@@ -431,16 +471,17 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-12">
-                    <h3><a href="/myBlog/2018/08/18/vue2.0自定义过滤器/">vue2.0自定义过滤器</a></h3>
+                    <h3 style="line-height: 17px;"><a href="/myBlog/2018/08/18/vue2.0自定义过滤器/">vue2.0自定义过滤器</a>
+                    </h3>
                     <div>
                         <span class="post-meta">
-      <time datetime="2018-08-18T04:02:26.000Z" itemprop="datePublished">
-          2018-08-18
-      </time>
+    <time datetime="2018-08-18T04:02:26.000Z" itemprop="datePublished">
+        2018-08-18
+    </time>
     
     
     | 
-    <a href='/myBlog/tags/vue/'>vue</a>
+    <a href='/myBlog/tags/vue/'> <code>vue</code> </a> 
     
     
 </span>
@@ -468,16 +509,17 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-12">
-                    <h3><a href="/myBlog/2018/05/20/vue重写CNodejs社区/">初学vue重写CNodejs社区</a></h3>
+                    <h3 style="line-height: 17px;"><a href="/myBlog/2018/05/20/vue重写CNodejs社区/">初学vue重写CNodejs社区</a>
+                    </h3>
                     <div>
                         <span class="post-meta">
-      <time datetime="2018-05-19T16:00:00.000Z" itemprop="datePublished">
-          2018-05-20
-      </time>
+    <time datetime="2018-05-19T16:00:00.000Z" itemprop="datePublished">
+        2018-05-20
+    </time>
     
     
     | 
-    <a href='/myBlog/tags/vue-cnode/'>vue cnode</a>
+    <a href='/myBlog/tags/vue-cnode/'> <code>vue cnode</code> </a> 
     
     
 </span>
@@ -486,9 +528,14 @@
                 <div class="col-md-12">
                     <p style="overflow: hidden;">
                         
-                        项目简介根据CNodejs社区提供的接口地址，用vue2.0重写了一下，界面布局有点粗糙。用到的主要是vue-cli、vue-router、axios、flex布局
-实现功能  个人中心（登录退出） 首页列表（主题分类，下拉加载） 文章详情（包括发表评论，回复评论，点赞，收藏） 用户信息（点击头像） 消息中心（已读、未读） 发布主题（支持markdown编辑且可预览）
-安装123456789安装运行# install dependenc
+                        <h3 id="项目简介"><a href="#项目简介" class="headerlink" title="项目简介"></a>项目简介</h3><p>根据CNodejs社区提供的接口地址，用vue2.0重写了一下，界面布局有点粗糙。<br>用到的主要是vue-cli、vue-router、axios、flex布局</p>
+<h3 id="实现功能"><a href="#实现功能" class="headerlink" title="实现功能"></a>实现功能</h3><ul>
+<li>个人中心（登录退出）</li>
+<li>首页列表（主题分类，下拉加载）</li>
+<li>文章详情（包括发表评论，回复评论，点赞，收藏）</li>
+<li>用户信息（点击头像）</li>
+<li>消息中心（已读、未读）</li>
+<li>发布主题（支持markdown编辑且可预览）
                         
                     </p>
                     
@@ -506,16 +553,17 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-12">
-                    <h3><a href="/myBlog/2018/04/26/vuex状态管理/">vuex状态管理</a></h3>
+                    <h3 style="line-height: 17px;"><a href="/myBlog/2018/04/26/vuex状态管理/">vuex状态管理</a>
+                    </h3>
                     <div>
                         <span class="post-meta">
-      <time datetime="2018-04-25T16:00:00.000Z" itemprop="datePublished">
-          2018-04-26
-      </time>
+    <time datetime="2018-04-25T16:00:00.000Z" itemprop="datePublished">
+        2018-04-26
+    </time>
     
     
     | 
-    <a href='/myBlog/tags/vuex/'>vuex</a>
+    <a href='/myBlog/tags/vuex/'> <code>vuex</code> </a> 
     
     
 </span>
@@ -524,10 +572,13 @@
                 <div class="col-md-12">
                     <p style="overflow: hidden;">
                         
-                        Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式，全局数据，兄弟组件共用的数据一般可以放在state中，主要有以下核心1.State2.Getter3.Mutation4.Action5.Module
-statestate是数据源，有人把state比喻为数据库，用来管理数据的地方
-GetterGetter比喻为API，是用来过滤数据，或者说一般不直接操作state(当然也是可以的)，而是去通过getter函数获得数据
-Mu
+                        <p>Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式，全局数据，兄弟组件共用的数据一般可以放在state中，主要有以下核心</p>
+<ul>
+<li>State</li>
+<li>Getter</li>
+<li>Mutation</li>
+<li>Action</li>
+<li>Module
                         
                     </p>
                     
@@ -545,16 +596,17 @@ Mu
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-12">
-                    <h3><a href="/myBlog/2018/04/14/vue使用模拟数据接口mock.js和json-server/">项目中使用模拟数据接口mock.js和json-server</a></h3>
+                    <h3 style="line-height: 17px;"><a href="/myBlog/2018/04/14/vue使用模拟数据接口mock.js和json-server/">项目中使用模拟数据接口mock.js和json-server</a>
+                    </h3>
                     <div>
                         <span class="post-meta">
-      <time datetime="2018-04-14T04:02:26.000Z" itemprop="datePublished">
-          2018-04-14
-      </time>
+    <time datetime="2018-04-14T04:02:26.000Z" itemprop="datePublished">
+        2018-04-14
+    </time>
     
     
     | 
-    <a href='/myBlog/tags/mock/'>mock</a>
+    <a href='/myBlog/tags/mock/'> <code>mock</code> </a> 
     
     
 </span>
@@ -563,11 +615,10 @@ Mu
                 <div class="col-md-12">
                     <p style="overflow: hidden;">
                         
-                        前后端分离的开发中，如果要同时进行开发，可以前端先模拟数据
-mock.js1.安装npm install mockjs  --save-dev
-2.新建src/mock.js文件
-mockjs里面有很多方法，可以模拟许多数据
-12345import Mock from &#39;mockjs&#39;;  export default Mock.mock(&#39;msg&#39;, &#123;      &#39;user&#39;
+                        <p>前后端分离的开发中，如果要同时进行开发，可以前端先模拟数据</p>
+<h3 id="mock-js"><a href="#mock-js" class="headerlink" title="mock.js"></a>mock.js</h3><p>1.安装<br><code>npm install mockjs  --save-dev</code></p>
+<p>2.新建src/mock.js文件</p>
+<p>mockjs里面有很多方法，可以模拟许多数据</p>
                         
                     </p>
                     
@@ -597,28 +648,38 @@ mockjs里面有很多方法，可以模拟许多数据
 </section>
 <!-- ============================ END Content =========================== -->
 
-      
-<!-- ============================ Footer =========================== -->
+      <!-- ============================ Footer =========================== -->
 
 <footer>
     <div class="container">
-            <div class="copy">
-                <p>
-                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By grace. All Rights Reserved.
-                </p>
-                <p>Theme By <a target="_blank" rel="noopener" href="//go.kieran.top" style="color: #767D84">Kieran</a></p>
-            </div>
-            <div class="social">
-                <ul>
-                    
-                    
-                    
-                    
-                    
-                </ul>
-            </div>
-            <div class="clearfix"> </div>
+        <div class="copy">
+            <p>
+                &copy; 2014<script>
+                    new Date().getFullYear() > 2010 && document.write("-" + new Date().getFullYear());
+                </script>, Content By grace. All Rights Reserved.
+            </p>
+            <p>Theme By <a target="_blank" rel="noopener" href="//go.kieran.top" style="color: #767D84">Kieran</a></p>
         </div>
+        <div class="social">
+            <ul>
+                
+                <li><a href="https://github.com/grace618/myBlog" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;
+                </li>
+                
+                
+                <li><a href="https://twitter.com/SGVOshdkbJJjwj3" title="Twitter" target="_blank"><i
+                            class="icon-twitter"></i></a>&nbsp;</li>
+                
+                
+                <li><a href="https://www.facebook.com/" title="Facebook" target="_blank"><i
+                            class="icon-facebook"></i></a>&nbsp;</li>
+                
+                
+                
+            </ul>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
 </footer>
 
 <!-- ============================ END Footer =========================== -->
@@ -639,28 +700,28 @@ mockjs里面有很多方法，可以模拟许多数据
         resizeHero();
     });
 </script>
-<script src="/myBlog/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/myBlog/js/plugins.min.js"></script>
+<!-- Bootstrap core and concatenated plugins always load here -->
 <script src="/myBlog/js/scripts.js"></script><!-- Theme scripts -->
 
 
 <link rel="stylesheet" href="/myBlog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
 <script src="/myBlog/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
-$('#intro').find('img').each(function(){
-  var alt = this.alt;
+    $('#intro').find('img').each(function () {
+        var alt = this.alt;
 
-  if (alt){
-    $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
-  }
+        if (alt) {
+            $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
+        }
 
-  $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
-});
-(function($){
-  $('.fancybox').fancybox();
-})(jQuery);
+        $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
+    });
+
+    (function ($) {
+        $('.fancybox').fancybox();
+    })(jQuery);
 </script>
-
-
 
       
 </body>

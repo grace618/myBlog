@@ -82,13 +82,16 @@
             <ul class="sb-submenu">
                 
                 <li><a href="/myBlog/categories/js/"
-                        class="animsition-link">js<small>(2)</small></a></li>
+                        class="animsition-link">js<small>(1)</small></a></li>
+                
+                <li><a href="/myBlog/categories/mobile/"
+                        class="animsition-link">mobile<small>(1)</small></a></li>
                 
                 <li><a href="/myBlog/categories/mock/"
                         class="animsition-link">mock<small>(1)</small></a></li>
                 
                 <li><a href="/myBlog/categories/mpvue/"
-                        class="animsition-link">mpvue<small>(2)</small></a></li>
+                        class="animsition-link">mpvue<small>(1)</small></a></li>
                 
                 <li><a href="/myBlog/categories/next/"
                         class="animsition-link">next<small>(1)</small></a></li>
@@ -100,17 +103,26 @@
                         class="animsition-link">react<small>(1)</small></a></li>
                 
                 <li><a href="/myBlog/categories/vue/"
-                        class="animsition-link">vue<small>(15)</small></a></li>
+                        class="animsition-link">vue<small>(16)</small></a></li>
                 
             </ul>
         </li>
         
         
+        <li>
+            <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
+            <ul class="sb-submenu">
+                
+                <li><a target="_blank" rel="noopener" href="https://www.laoqiange.club/" class="animsition-link">老千哥</a></li>
+                
+            </ul>
+        </li>
+        
     </ul>
     <!-- Lists in Slidebars -->
     <ul class="sb-menu secondary">
         
-        <li><a href="/myBlog/about.html" class="animsition-link" title="about">About</a></li>
+        <!-- <li><a href="/myBlog/about.html" class="animsition-link" title="about">About</a></li> -->
         <!-- <li><a href="/myBlog/atom.xml" class="animsition-link" title="rss">RSS</a></li> -->
     </ul>
 </div>
@@ -138,13 +150,29 @@
                 <nav>
                     <ul class="nav">
                         <li><a href="/" class="animsition-link">GRACE'S BLOG</a></li>
-                        <li class="nolink"><span>Always </span>Creative.</li>
+                        <!-- <li class="nolink"><span>Always </span>Creative.</li> -->
+                        <li>
+                            <a href="/myBlog/about.html" title="about" target="_blank"
+                                class="animsition-link">about</a></li>
+                        <li>
+                            <a href="/myBlog/archives" class="animsition-link"
+                                target="_blank" title="archive">archives</a>
+                        </li>
+                        
+                        <li><a href="https://github.com/grace618/myBlog" title="Github" target="_blank"><i class="icon-github"></i></a>
+                        </li>
+                        
+                        
+                        <li><a href="https://twitter.com/SGVOshdkbJJjwj3" title="Twitter" target="_blank"><i
+                                    class="icon-twitter"></i></a></li>
+                        
+                        
+                        <li><a href="https://www.facebook.com/" title="Facebook" target="_blank"><i
+                                    class="icon-facebook"></i></a></li>
                         
                         
                         
-                        
-                        
-                        <li class="nolink"><span>Welcome!</span></li>
+
                     </ul>
                 </nav>
                 <!--// Info-bar -->
@@ -169,13 +197,13 @@
             <div class="col-md-8">
                 <h1>react学习笔记</h1>
                 <span class="post-meta">
-      <time datetime="2019-06-26T04:02:26.000Z" itemprop="datePublished">
-          2019-06-26
-      </time>
+    <time datetime="2019-06-26T04:02:26.000Z" itemprop="datePublished">
+        2019-06-26
+    </time>
     
     
     | 
-    <a href='/myBlog/tags/react/'>react</a>
+    <a href='/myBlog/tags/react/'> <code>react</code> </a> 
     
     
 </span>
@@ -184,7 +212,10 @@
         <div class="col-md-8 col-md-offset-2">
             <p>1.资源文件位置 图片一般放在src/assets目录下<br>2.如何引入文件路径</p>
 <blockquote>
-<p>1.可以使用create-react-app提供的yarn run eject 将所有内建的配置暴露出来，然后配置<br>2.Create React App 3可以使用绝对路径，参考官网或者网上一些文章，例如<a target="_blank" rel="noopener" href="https://medium.com/@ktruong008/absolute-imports-with-create-react-app-4338fbca7e3d">https://medium.com/@ktruong008/absolute-imports-with-create-react-app-4338fbca7e3d</a><br>3.我们需要对 create-react-app 的默认配置进行自定义，这里我们使用 react-app-rewired （一个对 create-react-app 进行自定义配置的社区解决方案）。<br> 引入 react-app-rewired 并修改 package.json 里的启动配置。由于新的 <a href="mailto:&#x72;&#x65;&#97;&#x63;&#x74;&#x2d;&#x61;&#x70;&#112;&#45;&#114;&#101;&#x77;&#105;&#x72;&#101;&#x64;&#64;&#x32;&#x2e;&#120;">&#x72;&#x65;&#97;&#x63;&#x74;&#x2d;&#x61;&#x70;&#112;&#45;&#114;&#101;&#x77;&#105;&#x72;&#101;&#x64;&#64;&#x32;&#x2e;&#120;</a> 版本的关系，你还需要安装 </p>
+<p>1.可以使用create-react-app提供的yarn run eject 将所有内建的配置暴露出来，然后配置</p>
+</blockquote>
+<blockquote>
+<p>2.Create React App 3可以使用绝对路径，参考官网或者网上一些文章，例如<a target="_blank" rel="noopener" href="https://medium.com/@ktruong008/absolute-imports-with-create-react-app-4338fbca7e3d">https://medium.com/@ktruong008/absolute-imports-with-create-react-app-4338fbca7e3d</a><br> <a id="more"></a><br>3.我们需要对 create-react-app 的默认配置进行自定义，这里我们使用 react-app-rewired （一个对 create-react-app 进行自定义配置的社区解决方案）。<br> 引入 react-app-rewired 并修改 package.json 里的启动配置。由于新的 <a href="mailto:&#114;&#101;&#x61;&#99;&#116;&#45;&#x61;&#112;&#x70;&#45;&#114;&#x65;&#x77;&#x69;&#114;&#x65;&#100;&#x40;&#50;&#x2e;&#120;">&#114;&#101;&#x61;&#99;&#116;&#45;&#x61;&#112;&#x70;&#45;&#114;&#x65;&#x77;&#x69;&#114;&#x65;&#100;&#x40;&#50;&#x2e;&#120;</a> 版本的关系，你还需要安装 </p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">customize-cra。</span><br><span class="line">	const &#123;</span><br><span class="line">		override,</span><br><span class="line">		fixBabelImports,</span><br><span class="line">		addWebpackAlias</span><br><span class="line">	&#125; &#x3D; require(&#39;customize-cra&#39;)</span><br><span class="line">	const path &#x3D; require(&#39;path&#39;)</span><br><span class="line"></span><br><span class="line">	function resolve(dir) &#123;</span><br><span class="line">		return path.join(__dirname, &#39;.&#39;, dir)</span><br><span class="line">	&#125;</span><br><span class="line">	module.exports &#x3D; override(</span><br><span class="line">		&#x2F;&#x2F; 配置路径别名</span><br><span class="line">		addWebpackAlias(&#123;</span><br><span class="line">			views: resolve(&#39;src&#x2F;views&#39;),</span><br><span class="line">			service: resolve(&#39;src&#x2F;service&#39;),</span><br><span class="line">			store: resolve(&#39;src&#x2F;store&#39;),</span><br><span class="line">			utils: resolve(&#39;src&#x2F;utils&#39;)</span><br><span class="line">		&#125;),</span><br><span class="line">		&#x2F;&#x2F; antd按需加载</span><br><span class="line">		fixBabelImports(&#39;import&#39;, &#123;</span><br><span class="line">			libraryName: &#39;antd&#39;,</span><br><span class="line">			libraryDirectory: &#39;es&#39;,</span><br><span class="line">			style: &#39;css&#39;</span><br><span class="line">		&#125;)</span><br><span class="line">	)</span><br></pre></td></tr></table></figure>
 <p>3 react中css解决方案</p>
@@ -311,28 +342,38 @@
     </div>
 </section>
 
-      
-<!-- ============================ Footer =========================== -->
+      <!-- ============================ Footer =========================== -->
 
 <footer>
     <div class="container">
-            <div class="copy">
-                <p>
-                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By grace. All Rights Reserved.
-                </p>
-                <p>Theme By <a target="_blank" rel="noopener" href="//go.kieran.top" style="color: #767D84">Kieran</a></p>
-            </div>
-            <div class="social">
-                <ul>
-                    
-                    
-                    
-                    
-                    
-                </ul>
-            </div>
-            <div class="clearfix"> </div>
+        <div class="copy">
+            <p>
+                &copy; 2014<script>
+                    new Date().getFullYear() > 2010 && document.write("-" + new Date().getFullYear());
+                </script>, Content By grace. All Rights Reserved.
+            </p>
+            <p>Theme By <a target="_blank" rel="noopener" href="//go.kieran.top" style="color: #767D84">Kieran</a></p>
         </div>
+        <div class="social">
+            <ul>
+                
+                <li><a href="https://github.com/grace618/myBlog" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;
+                </li>
+                
+                
+                <li><a href="https://twitter.com/SGVOshdkbJJjwj3" title="Twitter" target="_blank"><i
+                            class="icon-twitter"></i></a>&nbsp;</li>
+                
+                
+                <li><a href="https://www.facebook.com/" title="Facebook" target="_blank"><i
+                            class="icon-facebook"></i></a>&nbsp;</li>
+                
+                
+                
+            </ul>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
 </footer>
 
 <!-- ============================ END Footer =========================== -->
@@ -353,28 +394,28 @@
         resizeHero();
     });
 </script>
-<script src="/myBlog/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/myBlog/js/plugins.min.js"></script>
+<!-- Bootstrap core and concatenated plugins always load here -->
 <script src="/myBlog/js/scripts.js"></script><!-- Theme scripts -->
 
 
 <link rel="stylesheet" href="/myBlog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
 <script src="/myBlog/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
-$('#intro').find('img').each(function(){
-  var alt = this.alt;
+    $('#intro').find('img').each(function () {
+        var alt = this.alt;
 
-  if (alt){
-    $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
-  }
+        if (alt) {
+            $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
+        }
 
-  $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
-});
-(function($){
-  $('.fancybox').fancybox();
-})(jQuery);
+        $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
+    });
+
+    (function ($) {
+        $('.fancybox').fancybox();
+    })(jQuery);
 </script>
-
-
 
       
 </body>
