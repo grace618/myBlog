@@ -213,15 +213,15 @@
         </div>
         <div class="col-md-8 col-md-offset-2">
             <p>后台管理系统的项目小结<br>写起来却触及到不少知识点，关于vue全家桶什么的都用到了<br>实现功能或者一些想记录的点</p>
-<ol>
-<li>登录（axios实例和拦截器）</li>
+<ul>
+<li> 登录（axios实例和拦截器）</li>
 <li>动态侧边栏和面包屑(this.$router.options.routes,meta路由元的使用)</li>
 <li>iconfont的使用</li>
 <li>页面布局和可复用组件</li>
 <li>element-ui,js-cookie,一些工具方法的使用</li>
 <li>vuex模块化和抽离api接口</li>
 <li>es6/7和webpack的一些语法<a id="more"></a></li>
-</ol>
+</ul>
 <p><strong><em>实现思路</em></strong></p>
 <p>登录:获取用户表单信息，提交后给后端接口验证，如果匹配则返回一个token,使用cookie存储，再根据token去拉取用户信息接口获取信息，这里的具体操作主要看后端接口如何书写，登录成功后，跳转至主页面。</p>
 <p>这里使用自定义配置创建axios实例：axios.create（[config]），指定的配置将与实例配置合并：axios＃get（url [，config]），这里会配置基本路径和超时时间。还使用了axios拦截器,这里使用request拦截器是为了在每个请求头塞入token,好让后端对请求进行权限验证（根据业务而定），response拦截器，当服务端返回特殊的状态码，做统一处理。</p>

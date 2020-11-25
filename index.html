@@ -373,8 +373,15 @@
                         
                         node.js+koa+mongodb实现登录注册① 思路 : 实现登录注册有三种方式 session和jwt 和oAuth（第三方登录） 我这里选用jwt
 ② 需要 ： 中间件 koa-jwt 权限路由验证 jsonwebtoken 生成token
-③ 密码加密：uuid —唯一识别码sha1 —安全哈希算法bcrypt  —加密算法crypto —加密算法md5 –加密算法
-④  json web token  传输方式用md5/s
+③ 密码加密：
+
+uuid —唯一识别码
+sha1 —安全哈希算法
+bcrypt  —加密算法
+crypto —加密算法
+md5 –加密算法
+
+④  json web token  传输方
                         
                     </p>
                     
@@ -491,8 +498,8 @@
                     <p style="overflow: hidden;">
                         
                         <p>后台管理系统的项目小结<br>写起来却触及到不少知识点，关于vue全家桶什么的都用到了<br>实现功能或者一些想记录的点</p>
-<ol>
-<li>登录（axios实例和拦截器）</li>
+<ul>
+<li> 登录（axios实例和拦截器）</li>
 <li>动态侧边栏和面包屑(this.$router.options.routes,meta路由元的使用)</li>
 <li>iconfont的使用</li>
 <li>页面布局和可复用组件</li>
@@ -538,7 +545,12 @@
                     <p style="overflow: hidden;">
                         
                         <p>在写后台管理系统时涉及到了权限验证，根据登录角色来设置用户权限.</p>
-<p><strong><em>实现思路</em></strong><br>1用户登录返回token,根据token去查询用户信息和用户角色;<br>2在router.js中，区分需要权限的路由和不需要权限的路由，先挂载不需要权限的路由，例如登录页/首页这种;<br>3 在store里面过滤和动态添加路由，生成最后的路由表<code>state.routers=constantRouterMap.concat(asyncRouterMap)</code>;<br>4 当页面刷新时;</p>
+<p><strong><em>实现思路</em></strong></p>
+<ul>
+<li>用户登录返回token,根据token去查询用户信息和用户角色;</li>
+<li>在router.js中，区分需要权限的路由和不需要权限的路由，先挂载不需要权限的路由，例如登录页/首页这种;</li>
+<li>在store里面过滤和动态添加路由，生成最后的路由表<code>state.routers=constantRouterMap.concat(asyncRouterMap)</code>;</li>
+<li>当页面刷新时;
                         
                     </p>
                     

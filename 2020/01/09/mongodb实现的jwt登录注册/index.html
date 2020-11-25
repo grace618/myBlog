@@ -214,7 +214,14 @@
         <div class="col-md-8 col-md-offset-2">
             <h3 id="node-js-koa-mongodb实现登录注册"><a href="#node-js-koa-mongodb实现登录注册" class="headerlink" title="node.js+koa+mongodb实现登录注册"></a>node.js+koa+mongodb实现登录注册</h3><p>① <strong><em>思路</em></strong> :<br> 实现登录注册有三种方式 session和jwt 和oAuth（第三方登录） 我这里选用jwt</p>
 <p>② <strong><em>需要</em></strong> ：<br> 中间件 koa-jwt 权限路由验证<br> jsonwebtoken 生成token</p>
-<p>③ <strong><em>密码加密</em></strong>：<br>uuid —唯一识别码<br>sha1 —安全哈希算法<br>bcrypt  —<a target="_blank" rel="noopener" href="https://www.npmjs.com/package/bcrypt-nodejs">加密算法</a><br>crypto —加密算法<br>md5 –加密算法</p>
+<p>③ <strong><em>密码加密</em></strong>：</p>
+<ul>
+<li>uuid —唯一识别码</li>
+<li>sha1 —安全哈希算法</li>
+<li>bcrypt  —<a target="_blank" rel="noopener" href="https://www.npmjs.com/package/bcrypt-nodejs">加密算法</a></li>
+<li>crypto —加密算法</li>
+<li>md5 –加密算法</li>
+</ul>
 <p>④  <strong><em>json web token  传输方式</em></strong><br>用md5/sha1+salt的方法保存密码是不安全的, 保存密码推荐用Bcrypt.</p>
 <p>⑤  <strong><em>登录的几种实现方式</em></strong><br>1.session 接收用户传过来的信息，存在session中，以cookie的方式传回给浏览器，cookie中有sessionId及值，<br>从http header中提取session Id ,根据session Id 从服务器端的hash中获取请求者身份</p>
 <p>2.token 服务端收到信息后，将username转为userId 存储在jwt的payload中， 与头部进行base64编码进行签名，形成jwt,在cookie中保存，返回给浏览器，<br>浏览器每次请求都携带cookie,服务器对jwt进行解密，与服务器进行比较</p>
