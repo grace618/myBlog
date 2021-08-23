@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+***************  *      *     *
+      8          *    *       *
+      8          *  *         *
+      8          **           *
+      8          *  *         *
+      8          *    *       *
+      8          *      *     *
+      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<!--<![endif]-->
+
+<head>
+  <title>facebook/google/twitter广告转化跟踪 | GRACE&#39;S BLOG</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="GRACE'S BLOG">
+    <meta name="author" content="grace">
+    <meta name="description" content="GRACE'S BLOG" />
+    <meta name="keywords" content="GRACE'S BLOG" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/myBlog/img/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/myBlog/atom.xml" title="GRACE&#39;S BLOG" type="application/atom+xml">
+    <link rel="stylesheet" href="/myBlog/css/all.css" media="screen" type="text/css">
+    
+    <link rel="stylesheet" href="/myBlog/highlightjs/vs.css" type="text/css">
+    
+
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/myBlog/css/ie8.css" />
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/myBlog/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/myBlog/js/html5shiv.min.js"></script>
+    <script src="/myBlog/js/respond.min.js"></script>
+    <![endif]-->
+
+  
+  
+  
+
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+<div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+    <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+        <img src="/myBlog/img/close.png" alt="Close" />
+    </div>
+    <!-- Lists in Slidebars -->
+    <ul class="sb-menu">
+        <li><a href="/myBlog/" class="animsition-link" title="Home">Home</a></li>
+        <li><a href="/myBlog/archives" class="animsition-link" title="archive">archives</a>
+        </li>
+        <!-- Dropdown Menu -->
+        
+                
+                    <li>
+                        <a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
+                        <ul class="sb-submenu">
+                            
+                                <li>
+                                    <a href="/myBlog/categories/js/" class="animsition-link">
+                                        js<small>(1)</small></a>
+                                </li>
+                                
+                                <li>
+                                    <a href="/myBlog/categories/mobile/" class="animsition-link">
+                                        mobile<small>(1)</small></a>
+                                </li>
+                                
+                                <li>
+                                    <a href="/myBlog/categories/mock/" class="animsition-link">
+                                        mock<small>(1)</small></a>
+                                </li>
+                                
+                                <li>
+                                    <a href="/myBlog/categories/mpvue/" class="animsition-link">
+                                        mpvue<small>(1)</small></a>
+                                </li>
+                                
+                                <li>
+                                    <a href="/myBlog/categories/next/" class="animsition-link">
+                                        next<small>(1)</small></a>
+                                </li>
+                                
+                                <li>
+                                    <a href="/myBlog/categories/node/" class="animsition-link">
+                                        node<small>(1)</small></a>
+                                </li>
+                                
+                                <li>
+                                    <a href="/myBlog/categories/other/" class="animsition-link">
+                                        other<small>(2)</small></a>
+                                </li>
+                                
+                                <li>
+                                    <a href="/myBlog/categories/react/" class="animsition-link">
+                                        react<small>(1)</small></a>
+                                </li>
+                                
+                                <li>
+                                    <a href="/myBlog/categories/vue/" class="animsition-link">
+                                        vue<small>(15)</small></a>
+                                </li>
+                                
+                        </ul>
+                    </li>
+                    
+                        
+                            <li>
+                                <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
+                                <ul class="sb-submenu">
+                                    
+                                        <li>
+                                            <a target="_blank" rel="noopener" href="https://www.laoqiange.club/" class="animsition-link">
+                                                老千哥
+                                            </a>
+                                        </li>
+                                        
+                                </ul>
+                            </li>
+                            
+    </ul>
+    <!-- Lists in Slidebars -->
+    <ul class="sb-menu secondary">
+        
+                <!-- <li><a href="/myBlog/about.html" class="animsition-link" title="about">About</a></li> -->
+                <!-- <li><a href="/myBlog/atom.xml" class="animsition-link" title="rss">RSS</a></li> -->
+    </ul>
+</div>
+
+<!-- ============================ END Off-canvas navigation =========================== -->
+
+<!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+<div id="sb-site">
+    <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+    <!-- ============================ Header & Logo bar =========================== -->
+
+    <div id="navigation" class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <!-- Nav logo -->
+                <div class="logo">
+                    <a href="/" title="Logo" class="animsition-link">
+                        
+                    </a>
+                </div>
+                <!-- // Nav logo -->
+                <!-- Info-bar -->
+                <nav>
+                    <ul class="nav">
+                        <li>
+                            <a href="/myBlog" class="animsition-link">
+                                GRACE'S BLOG
+                            </a>
+                        </li>
+                        <li class="nolink"><span>Always </span>Creative.</li>
+                        <li>
+                            <a href="/myBlog/archives" class="animsition-link" target="_blank" title="archive">archives</a>
+                        </li>
+                        <li>
+                            <a href="/myBlog/about.html" title="about" target="_blank" class="animsition-link">about</a></li>
+
+                        
+                            <li><a href="https://github.com/grace618/myBlog" title="Github" target="_blank"><i class="icon-github"></i></a>
+                            </li>
+                            
+                                
+                                    <li><a href="https://twitter.com/SGVOshdkbJJjwj3" title="Twitter" target="_blank"><i
+                                    class="icon-twitter"></i></a></li>
+                                    
+                                        
+                                            <li><a href="https://www.facebook.com/" title="Facebook" target="_blank"><i
+                                    class="icon-facebook"></i></a></li>
+                                            
+                                                
+                                                        
+
+                    </ul>
+                </nav>
+                <!--// Info-bar -->
+            </div>
+            <!-- // .container -->
+            <!-- <div class="learnmore sb-toggle-right">More</div> -->
+            <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+            </button>
+        </div>
+        <!-- // .navbar-inner -->
+    </div>
+
+    <!-- ============================ Header & Logo bar =========================== -->
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+                <h1>facebook/google/twitter广告转化跟踪</h1>
+                <span class="post-meta">
+    <time datetime="2021-06-01T00:02:26.000Z" itemprop="datePublished">
+        2021-06-01
+    </time>
+    
+    
+    | 
+    <a href='/myBlog/tags/js/'> <code>js</code> </a> 
+    
+    
+</span>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+            <h4 id="google埋点"><a href="#google埋点" class="headerlink" title="google埋点"></a>google埋点</h4><p><a target="_blank" rel="noopener" href="https://support.google.com/analytics/topic/3544906?hl=zh-Hans&ref_topic=10094551">google分析</a>有两种方式：<br>1 Universal Analytics （旧版）<br>2 Google Analytics （新版）<br>使用gtag和Google Tag Manager(TMS)<a target="_blank" rel="noopener" href="https://support.google.com/tagmanager/answer/6103696?hl=en&ref_topic=3441530">谷歌代码跟踪管理器</a>两种方式 <a target="_blank" rel="noopener" href="https://support.google.com/tagmanager/answer/7582054">区别</a><br>Universal Analytics 是 <a target="_blank" rel="noopener" href="https://support.google.com/analytics/answer/10269537">Google Analytics（分析）</a>的早期版本，仅支持网站衡量功能。</p>
+<p>创建账号后获取代码这是针对此媒体资源的全局网站代码 (gtag.js) 跟踪代码。请复制此代码，并将其作为第一个项目粘贴到您要跟踪的每个网页的 <HEAD> 标记中。如果您的网页上已经有全局网站代码，则只需将以下代码段中的 config 行添加到现有的全局网站代码。<a target="_blank" rel="noopener" href="https://support.google.com/tagmanager/answer/6106716?hl=zh-Hans">事件代码 </a>  </p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- Global site tag (gtag.js) - Google Analytics --&gt;</span><br><span class="line">&lt;script async src&#x3D;&quot;https:&#x2F;&#x2F;www.googletagmanager.com&#x2F;gtag&#x2F;js?id&#x3D;UA-154795933-1&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">  window.dataLayer &#x3D; window.dataLayer || [];</span><br><span class="line">  function gtag()&#123;dataLayer.push(arguments);&#125;</span><br><span class="line">  gtag(&#39;js&#39;, new Date());</span><br><span class="line">  gtag(&#39;config&#39;, &#39;UA-154795933-1&#39;);</span><br><span class="line">&lt;&#x2F;script&gt;</span><br><span class="line">  &lt;!-- Event snippet for Click to Store and Twitter conversion page In your html page,</span><br><span class="line"> add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. --&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        function gtag_report_conversion(url) &#123;</span><br><span class="line">            var callback &#x3D; function() &#123;</span><br><span class="line">                if (typeof(url) !&#x3D; &#39;undefined&#39;) &#123;</span><br><span class="line">                    window.location &#x3D; url;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;;</span><br><span class="line">            gtag(&#39;event&#39;, &#39;conversion&#39;, &#123;</span><br><span class="line">                &#39;send_to&#39;: &#39;AW-328469561&#x2F;dBn9CJTm3N4CELmY0JwB&#39;,</span><br><span class="line">                &#39;event_callback&#39;: callback</span><br><span class="line">            &#125;);</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;&#x2F;script&gt;</span><br><span class="line">&lt;div onclick&#x3D;&quot;gtag_report_conversion(&#39;https:&#x2F;&#x2F;arkajp-test.ulugame.com&#x2F;&#39;)&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line"> window.gtag(&quot;event&quot;, &quot;conversion&quot;, &#123;</span><br><span class="line">        send_to: &quot;AW-328469561&#x2F;SFBxCIqUtOICELmY0JwB&quot;</span><br><span class="line">      &#125;);</span><br><span class="line">&#x2F;&#x2F;gtag_report_conversion是自定义事件，可以在a标签跳转，button按钮，或者img图片中埋点</span><br></pre></td></tr></table></figure>
+<p>可以使用 <a target="_blank" rel="noopener" href="https://support.google.com/tagassistant/answer/2947093?hl=en">Google Tag Assistant</a> 来确定自己的代码是否已正确植入。</p>
+<p><a target="_blank" rel="noopener" href="https://support.google.com/google-ads/answer/6331304#zippy=">google ads</a> 和Google Analytics 是两个后台，一个是广告投放的埋点，一个是谷歌分析的埋点，可以将二者关联起来</p>
+<h4 id="twitter埋点"><a href="#twitter埋点" class="headerlink" title="twitter埋点"></a>twitter埋点</h4> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"> &lt;!-- twitter事件代码 --&gt;</span><br><span class="line">    &lt;script src&#x3D;&quot;https:&#x2F;&#x2F;static.ads-twitter.com&#x2F;oct.js&quot; type&#x3D;&quot;text&#x2F;javascript&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">    &lt;!-- Twitter universal website tag code --&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        ! function(e, t, n, s, u, a) &#123;</span><br><span class="line">            e.twq || (s &#x3D; e.twq &#x3D; function() &#123;</span><br><span class="line">                    s.exe ? s.exe.apply(s, arguments) : s.queue.push(arguments);</span><br><span class="line">                &#125;, s.version &#x3D; &#39;1.1&#39;, s.queue &#x3D; [], u &#x3D; t.createElement(n), u.async &#x3D; !0, u.src &#x3D;</span><br><span class="line">                &#39;&#x2F;&#x2F;static.ads-twitter.com&#x2F;uwt.js&#39;,</span><br><span class="line">                a &#x3D; t.getElementsByTagName(n)[0], a.parentNode.insertBefore(u, a))</span><br><span class="line">        &#125;(window, document, &#39;script&#39;);</span><br><span class="line">        &#x2F;&#x2F; Insert Twitter Pixel ID and Standard Event data below</span><br><span class="line">        twq(&#39;init&#39;, &#39;o6gg2&#39;);</span><br><span class="line">        twq(&#39;track&#39;, &#39;PageView&#39;);</span><br><span class="line">    &lt;&#x2F;script&gt;</span><br><span class="line">    &lt;!-- End Twitter universal website tag code --&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- Twitter single-event website tag code --&gt;</span><br><span class="line">    &lt;script src&#x3D;&quot;&#x2F;&#x2F;platform.twitter.com&#x2F;oct.js&quot; type&#x3D;&quot;text&#x2F;javascript&quot;&gt;&lt;&#x2F;script&gt;</span><br><span class="line">    &lt;noscript&gt;</span><br><span class="line">        &lt;img height&#x3D;&quot;1&quot; width&#x3D;&quot;1&quot; style&#x3D;&quot;display:none;&quot; alt&#x3D;&quot;&quot;</span><br><span class="line">            src&#x3D;&quot;https:&#x2F;&#x2F;analytics.twitter.com&#x2F;i&#x2F;adsct?txn_id&#x3D;o6hm2&amp;p_id&#x3D;Twitter&amp;tw_sale_amount&#x3D;0&amp;tw_order_quantity&#x3D;0&quot; &#x2F;&gt;</span><br><span class="line">        &lt;img height&#x3D;&quot;1&quot; width&#x3D;&quot;1&quot; style&#x3D;&quot;display:none;&quot; alt&#x3D;&quot;&quot;</span><br><span class="line">            src&#x3D;&quot;&#x2F;&#x2F;t.co&#x2F;i&#x2F;adsct?txn_id&#x3D;o6hm2&amp;p_id&#x3D;Twitter&amp;tw_sale_amount&#x3D;0&amp;tw_order_quantity&#x3D;0&quot; &#x2F;&gt;</span><br><span class="line">    &lt;&#x2F;noscript&gt;</span><br><span class="line">    &lt;!-- End Twitter single-event website tag code --&gt;</span><br><span class="line">事件</span><br><span class="line"> window.twttr.conversion.trackPid(&quot;o6guj&quot;, &#123;</span><br><span class="line">        tw_sale_amount: 0,</span><br><span class="line">        tw_order_quantity: 0</span><br><span class="line">      &#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="facebook埋点"><a href="#facebook埋点" class="headerlink" title="facebook埋点"></a>facebook埋点</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"> &lt;!-- Facebook Pixel Code --&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        ! function(f, b, e, v, n, t, s) &#123;</span><br><span class="line">            if (f.fbq) return;</span><br><span class="line">            n &#x3D; f.fbq &#x3D; function() &#123;</span><br><span class="line">                n.callMethod ?</span><br><span class="line">                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)</span><br><span class="line">            &#125;;</span><br><span class="line">            if (!f._fbq) f._fbq &#x3D; n;</span><br><span class="line">            n.push &#x3D; n;</span><br><span class="line">            n.loaded &#x3D; !0;</span><br><span class="line">            n.version &#x3D; &#39;2.0&#39;;</span><br><span class="line">            n.queue &#x3D; [];</span><br><span class="line">            t &#x3D; b.createElement(e);</span><br><span class="line">            t.async &#x3D; !0;</span><br><span class="line">            t.src &#x3D; v;</span><br><span class="line">            s &#x3D; b.getElementsByTagName(e)[0];</span><br><span class="line">            s.parentNode.insertBefore(t, s)</span><br><span class="line">        &#125;(window, document, &#39;script&#39;,</span><br><span class="line">            &#39;https:&#x2F;&#x2F;connect.facebook.net&#x2F;en_US&#x2F;fbevents.js&#39;);</span><br><span class="line">        fbq(&#39;init&#39;, &#39;2991050374466353&#39;);</span><br><span class="line">        fbq(&#39;track&#39;, &#39;PageView&#39;);</span><br><span class="line">    &lt;&#x2F;script&gt;</span><br><span class="line">    &lt;noscript&gt;&lt;img height&#x3D;&quot;1&quot; width&#x3D;&quot;1&quot; style&#x3D;&quot;display:none&quot;</span><br><span class="line">            src&#x3D;&quot;https:&#x2F;&#x2F;www.facebook.com&#x2F;tr?id&#x3D;2991050374466353&amp;ev&#x3D;PageView&amp;noscript&#x3D;1&quot; &#x2F;&gt;&lt;&#x2F;noscript&gt;</span><br><span class="line">    &lt;!-- End Facebook Pixel Code --&gt;</span><br><span class="line">事件</span><br><span class="line"> window.fbq(&quot;track&quot;, &quot;ViewContent&quot;);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="tiktok埋点"><a href="#tiktok埋点" class="headerlink" title="tiktok埋点"></a>tiktok埋点</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">       ! function(w, d, t) &#123;</span><br><span class="line">           w.TiktokAnalyticsObject &#x3D; t;</span><br><span class="line">           var ttq &#x3D; w[t] &#x3D; w[t] || [];</span><br><span class="line">           ttq.methods &#x3D; [&quot;page&quot;, &quot;track&quot;, &quot;identify&quot;, &quot;instances&quot;, &quot;debug&quot;, &quot;on&quot;, &quot;off&quot;, &quot;once&quot;, &quot;ready&quot;, &quot;alias&quot;,</span><br><span class="line">               &quot;group&quot;, &quot;enableCookie&quot;, &quot;disableCookie&quot;</span><br><span class="line">           ], ttq.setAndDefer &#x3D; function(t, e) &#123;</span><br><span class="line">               t[e] &#x3D; function() &#123;</span><br><span class="line">                   t.push([e].concat(Array.prototype.slice.call(arguments, 0)))</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;;</span><br><span class="line">           for (var i &#x3D; 0; i &lt; ttq.methods.length; i++) ttq.setAndDefer(ttq, ttq.methods[i]);</span><br><span class="line">           ttq.instance &#x3D; function(t) &#123;</span><br><span class="line">               for (var e &#x3D; ttq._i[t] || [], n &#x3D; 0; n &lt; ttq.methods.length; n++) ttq.setAndDefer(e, ttq.methods[</span><br><span class="line">                   n]);</span><br><span class="line">               return e</span><br><span class="line">           &#125;, ttq.load &#x3D; function(e, n) &#123;</span><br><span class="line">               var i &#x3D; &quot;https:&#x2F;&#x2F;analytics.tiktok.com&#x2F;i18n&#x2F;pixel&#x2F;events.js&quot;;</span><br><span class="line">               ttq._i &#x3D; ttq._i || &#123;&#125;, ttq._i[e] &#x3D; [], ttq._i[e]._u &#x3D; i, ttq._t &#x3D; ttq._t || &#123;&#125;, ttq._t[e] &#x3D; +</span><br><span class="line">                   new Date, ttq._o &#x3D; ttq._o || &#123;&#125;, ttq._o[e] &#x3D; n || &#123;&#125;;</span><br><span class="line">               var o &#x3D; document.createElement(&quot;script&quot;);</span><br><span class="line">               o.type &#x3D; &quot;text&#x2F;javascript&quot;, o.async &#x3D; !0, o.src &#x3D; i + &quot;?sdkid&#x3D;&quot; + e + &quot;&amp;lib&#x3D;&quot; + t;</span><br><span class="line">               var a &#x3D; document.getElementsByTagName(&quot;script&quot;)[0];</span><br><span class="line">               a.parentNode.insertBefore(o, a)</span><br><span class="line">           &#125;;</span><br><span class="line"></span><br><span class="line">           ttq.load(&#39;C451BEEI9NESIEHM1HLG&#39;);</span><br><span class="line">           ttq.page();</span><br><span class="line">       &#125;(window, document, &#39;ttq&#39;);</span><br><span class="line">   &lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
+    
+    
+    <a class="pull-right" href="/myBlog/2020/06/08/next.js%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+        next.js学习笔记 →
+    </a>
+    
+</nav>
+
+        <div class="col-md-8 col-md-offset-2 col-sm-24"><script type="text/javascript">
+  /**
+   * 搜狐畅言
+   */
+
+  /*
+  document.write('<div id="SOHUCS" sid="' + window.location.pathname.slice(1) + '" ></div>');
+
+  window.onload = function () {
+    (function () {
+      var appid = 'cytXXXX';
+      var conf = 'prod_xxxxxxxxxxxxxxxxx';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      var loadJs = function (d, a, id) {
+        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+        var b = document.createElement("script");
+        b.setAttribute("type", "text/javascript");
+        b.setAttribute("charset", "UTF-8");
+        b.setAttribute("src", d);
+        if (id) {
+          b.setAttribute("id", id);
+        }
+        if (typeof a === "function") {
+          if (window.attachEvent) {
+            b.onreadystatechange = function () {
+              var e = b.readyState;
+              if (e === "loaded" || e === "complete") {
+                b.onreadystatechange = null;
+                a()
+              }
+            }
+          } else {
+            b.onload = a
+          }
+        }
+        c.appendChild(b)
+      };
+
+      loadJs("https://changyan.sohu.com/upload/changyan.js", function () {
+        window.changyan.api.config({
+          appid: appid,
+          conf: conf
+        })
+      });
+    })();
+  }
+  */
+
+</script>
+</div>
+    </div>
+</section>
+
+      <!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+        <div class="copy">
+            <p>
+                &copy; 2014
+                <script>
+                    new Date().getFullYear() > 2010 && document.write("-" + new Date().getFullYear());
+                </script>, Content By
+                grace. All Rights Reserved.
+            </p>
+            <p>Theme By <a href="https://grace618.github.io/myBlog/" style="color: #767D84">Grace</a></p>
+        </div>
+        <div class="social">
+            <ul>
+                
+                    <li><a href="https://github.com/grace618/myBlog" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;
+                    </li>
+                    
+                        
+                            <li><a href="https://twitter.com/SGVOshdkbJJjwj3" title="Twitter" target="_blank"><i
+                            class="icon-twitter"></i></a>&nbsp;</li>
+                            
+                                
+                                    <li><a href="https://www.facebook.com/" title="Facebook" target="_blank"><i
+                            class="icon-facebook"></i></a>&nbsp;</li>
+                                    
+                                        
+                                                
+            </ul>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+
+    resizeHero();
+
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/myBlog/js/plugins.min.js"></script>
+<!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/myBlog/js/scripts.js"></script><!-- Theme scripts -->
+
+
+<link rel="stylesheet" href="/myBlog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/myBlog/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+    $('#intro').find('img').each(function () {
+        var alt = this.alt;
+
+        if (alt) {
+            $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
+        }
+
+        $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
+    });
+
+    (function ($) {
+        $('.fancybox').fancybox();
+    })(jQuery);
+</script>
+
+      
+</body>
+</html>

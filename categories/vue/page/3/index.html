@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>如何在vue中使用Iconfont网站的图标？ | GRACE&#39;S BLOG</title>
+  <title>Category: vue | GRACE&#39;S BLOG</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -59,7 +59,7 @@
 </head>
 
 <!--
-<body class="post-template">
+<body class="home-template">
 -->
 <body id="index" class="lightnav animsition">
 
@@ -112,13 +112,18 @@
                                 </li>
                                 
                                 <li>
+                                    <a href="/myBlog/categories/other/" class="animsition-link">
+                                        other<small>(2)</small></a>
+                                </li>
+                                
+                                <li>
                                     <a href="/myBlog/categories/react/" class="animsition-link">
                                         react<small>(1)</small></a>
                                 </li>
                                 
                                 <li>
                                     <a href="/myBlog/categories/vue/" class="animsition-link">
-                                        vue<small>(16)</small></a>
+                                        vue<small>(15)</small></a>
                                 </li>
                                 
                         </ul>
@@ -174,12 +179,13 @@
                                 GRACE'S BLOG
                             </a>
                         </li>
-                        <!-- <li class="nolink"><span>Always </span>Creative.</li> -->
-                        <li>
-                            <a href="/myBlog/about.html" title="about" target="_blank" class="animsition-link">about</a></li>
+                        <li class="nolink"><span>Always </span>Creative.</li>
                         <li>
                             <a href="/myBlog/archives" class="animsition-link" target="_blank" title="archive">archives</a>
                         </li>
+                        <li>
+                            <a href="/myBlog/about.html" title="about" target="_blank" class="animsition-link">about</a></li>
+
                         
                             <li><a href="https://github.com/grace618/myBlog" title="Github" target="_blank"><i class="icon-github"></i></a>
                             </li>
@@ -212,120 +218,97 @@
     </div>
 
     <!-- ============================ Header & Logo bar =========================== -->
-      
-<section id="intro">
-    <div class="container">
-        <div class="row col-md-offset-2">
-            <div class="col-md-8">
-                <h1>如何在vue中使用Iconfont网站的图标？</h1>
-                <span class="post-meta">
-    <time datetime="2020-04-30T16:00:00.000Z" itemprop="datePublished">
-        2020-05-01
-    </time>
-    
-    
-    | 
-    <a href='/myBlog/tags/vue/'> <code>vue</code> </a> ,
-    
-    <a href='/myBlog/tags/iconfont/'> <code>iconfont</code> </a> 
-    
-    
-</span>
+      <!-- ============================ Hero Image =========================== -->
+
+<section id="hero" class="scrollme">
+    <div class="container-fluid element-img" style="background: url(/myBlog/img/4.jpg) no-repeat top center fixed;background-size:cover;">
+        <div class="row">
+
+            <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost
+                text-center">
+                <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
+                    <div>
+                        
+                            <h2>
+                                
+                            </h2>
+                            <p>
+                                
+                            </p>
+                            
+                            <h2>
+                                
+                            </h2>
+                            <p>
+                                自由的味道很硬，带着柏油和轮胎的气味，让人很想远行
+                            </p>
+                            
+
+
+                    </div>
+                </div>
             </div>
+            <!-- // .col-md-12 -->
         </div>
-        <div class="col-md-8 col-md-offset-2">
-            <p>开发一个项目时总会碰到使用图标的问题，如果小图片太多，就要请求多个资源，使用雪碧图的话，更新图标和制作都挺麻烦的，并且使用时要各种定位找到相应位置。那么svg的优点是什么呢？<br>SVG 是一种基于 XML 语法的图像格式，全称是可缩放矢量图（Scalable Vector Graphics）。其他图像格式都是基于像素处理的，SVG 则是属于对图像的形状描述，所以它本质上是文本文件，体积较小，且不管放大多少倍都不会失真。而Iconfont中有大量图标可以使用，下面是我对使用Iconfont图标的经验总结。</p>
-<a id="more"></a>
-<p>1.新建components/SvgIcon.vue组件<br>使用的是阿里巴巴的iconfont图标库，有三种方式可以引用，我使用的是symbol方式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;svg :class&#x3D;&quot;svgClass&quot; aria-hidden&#x3D;&quot;true&quot;&gt;</span><br><span class="line">    &lt;use :xlink:href&#x3D;&quot;iconName&quot;&gt;&lt;&#x2F;use&gt;</span><br><span class="line">  &lt;&#x2F;svg&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &#39;svg-icon&#39;,</span><br><span class="line">  props: &#123;</span><br><span class="line">    iconClass: &#123;</span><br><span class="line">      type: String,</span><br><span class="line">      required: true</span><br><span class="line">    &#125;,</span><br><span class="line">    className: &#123;</span><br><span class="line">      type: String</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  computed: &#123;</span><br><span class="line">    iconName() &#123;</span><br><span class="line">      return &#96;#icon-$&#123;this.iconClass&#125;&#96;</span><br><span class="line">    &#125;,</span><br><span class="line">    svgClass() &#123;</span><br><span class="line">      if (this.className) &#123;</span><br><span class="line">        return &#39;svg-icon &#39; + this.className</span><br><span class="line">      &#125; else &#123;</span><br><span class="line">        return &#39;svg-icon&#39;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line">.svg-icon &#123;</span><br><span class="line">  width: 1em;</span><br><span class="line">  height: 1em;</span><br><span class="line">  vertical-align: -0.15em;</span><br><span class="line">  fill: currentColor;</span><br><span class="line">  overflow: hidden;</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;style&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p> 2 svg文件</p>
-<p>新建src/icons/svg文件夹和src/icons/index.js文件<br>svg文件夹放从图标库中下载的svg文件</p>
-<p><img src="./tree.png"></p>
-<p>src/icons/index.js文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">import Vue from &#39;vue&#39;</span><br><span class="line">import SvgIcon from &#39;@&#x2F;components&#x2F;SvgIcon.vue&#39;</span><br><span class="line"></span><br><span class="line">&#x2F;*</span><br><span class="line">require.context(&quot;.&#x2F;test&quot;, false, &#x2F;.test.js$&#x2F;);这行代码就会去 test 文件夹（不包含子目录）</span><br><span class="line">下面的找所有文件名以 .test.js 结尾的文件能被 require 的文件。</span><br><span class="line">更直白的说就是 我们可以通过正则匹配引入相应的文件模块。</span><br><span class="line">require.context有三个参数：</span><br><span class="line">directory：说明需要检索的目录</span><br><span class="line">useSubdirectories：是否检索子目录</span><br><span class="line">regExp: 匹配文件的正则表达式</span><br><span class="line"> *&#x2F;</span><br><span class="line">&#x2F;&#x2F;全局注册</span><br><span class="line">Vue.component(&#39;svg-icon&#39;, SvgIcon)</span><br><span class="line"></span><br><span class="line">const requireAll &#x3D; requireContext &#x3D;&gt; requireContext.keys().map(requireContext)</span><br><span class="line">const req &#x3D; require.context(&#39;.&#x2F;svg&#39;, false, &#x2F;\.svg$&#x2F;)</span><br><span class="line">requireAll(req)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p> 3 在main.js中引入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import &#39;@&#x2F;icons&#x2F;index.js&#39;</span><br></pre></td></tr></table></figure>
-<p> 4在组件中使用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;svg-icon  :icon-class&#x3D;&quot;form&quot;&gt;&lt;&#x2F;svg-icon&gt;</span><br></pre></td></tr></table></figure>
+        <div class="herofade beige-dk">
 
-<p> 5配置<br>下载插件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i svg-sprite-loader --save</span><br></pre></td></tr></table></figure>
-<p>在build/webpack.base.conf.js文件中，加入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">         test: &#x2F;\.svg$&#x2F;,</span><br><span class="line">        loader: &#39;svg-sprite-loader&#39;,</span><br><span class="line">        include: [resolve(&#39;src&#x2F;icons&#39;)],</span><br><span class="line">        options: &#123;</span><br><span class="line">          symbolId: &#39;icon-[name]&#39;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;,</span><br></pre></td></tr></table></figure>
-
-
-<p><img src="./webpack.webp"></p>
-<p> 总结<br>在icon-font的symbol使用方法中，一般是引入一个iconfont.js文件，但是这次并没有引入，主要是为了按需加载和便于添加新图标，不然每加入新的图标，就要覆盖iconfont.js文件一次，比较麻烦</p>
-
-            <div class="clearfix"></div>
-            <hr class="nogutter">
         </div>
-        <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
-    
-    <a class="pull-left" href="/myBlog/2020/06/08/next.js%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="float: left;">
-        ← next.js学习笔记
-    </a>
-    
-    
-    <a class="pull-right" href="/myBlog/2020/04/19/vue%20%E5%85%B3%E4%BA%8Efacebooke%E5%92%8Cgoogle%E7%9A%84%E4%B8%80%E4%BA%9B%E6%93%8D%E4%BD%9C/">
-        使用facebook sdk 和google sdk中的社交功能(点赞、分享和第三方登录)——vue →
-    </a>
-    
-</nav>
-
-        <div class="col-md-8 col-md-offset-2 col-sm-24"><script type="text/javascript">
-  /**
-   * 搜狐畅言
-   */
-
-  /*
-  document.write('<div id="SOHUCS" sid="' + window.location.pathname.slice(1) + '" ></div>');
-
-  window.onload = function () {
-    (function () {
-      var appid = 'cytXXXX';
-      var conf = 'prod_xxxxxxxxxxxxxxxxx';
-      var width = window.innerWidth || document.documentElement.clientWidth;
-      var loadJs = function (d, a, id) {
-        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
-        var b = document.createElement("script");
-        b.setAttribute("type", "text/javascript");
-        b.setAttribute("charset", "UTF-8");
-        b.setAttribute("src", d);
-        if (id) {
-          b.setAttribute("id", id);
-        }
-        if (typeof a === "function") {
-          if (window.attachEvent) {
-            b.onreadystatechange = function () {
-              var e = b.readyState;
-              if (e === "loaded" || e === "complete") {
-                b.onreadystatechange = null;
-                a()
-              }
-            }
-          } else {
-            b.onload = a
-          }
-        }
-        c.appendChild(b)
-      };
-
-      loadJs("https://changyan.sohu.com/upload/changyan.js", function () {
-        window.changyan.api.config({
-          appid: appid,
-          conf: conf
-        })
-      });
-    })();
-  }
-  */
-
-</script>
-</div>
     </div>
 </section>
 
+<!-- Height spacing helper -->
+<div class="heightblock"></div>
+<!-- // End height spacing helper -->
+
+<!-- ============================ END Hero Image =========================== -->
+
+
+
+    
+        <section id="services">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="row boxes">
+                            
+                                
+                                    
+                                    
+
+                                        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 wow fadeInUp" data-wow-delay="0.3s">
+
+                                            
+                                                                <h4 class="title">
+                                                                    <a href="/myBlog/2018/01/13/vue预渲染/">
+                                                                        vue预渲染
+                                                                    </a>
+                                                                </h4>
+                                                                
+                                                                    <p><time datetime="2018-01-12T16:00:00.000Z"><a
+                                    href="/myBlog/2018/01/13/vue预渲染/">2018-01-13</a></time>
+                                                                    </p>
+                                        </div>
+                                        
+                        </div>
+                    </div>
+                </div>
+                <nav class="pagination" role="pagination">
+                    <a class="pull-left" href="/myBlog/categories/vue/page/2/">← Prev Page</a>
+                        
+                            
+                </nav>
+            </div>
+        </section>
+        
+                <section id="statement">
+                    <div class="container text-center wow fadeInUp" data-wow-delay="0.5s">
+                        <div class="row">
+                            <p>
+                                
+                            </p>
+                        </div>
+                    </div>
+                </section>
       <!-- ============================ Footer =========================== -->
 
 <footer>

@@ -112,13 +112,18 @@
                                 </li>
                                 
                                 <li>
+                                    <a href="/myBlog/categories/other/" class="animsition-link">
+                                        other<small>(2)</small></a>
+                                </li>
+                                
+                                <li>
                                     <a href="/myBlog/categories/react/" class="animsition-link">
                                         react<small>(1)</small></a>
                                 </li>
                                 
                                 <li>
                                     <a href="/myBlog/categories/vue/" class="animsition-link">
-                                        vue<small>(16)</small></a>
+                                        vue<small>(15)</small></a>
                                 </li>
                                 
                         </ul>
@@ -174,12 +179,13 @@
                                 GRACE'S BLOG
                             </a>
                         </li>
-                        <!-- <li class="nolink"><span>Always </span>Creative.</li> -->
-                        <li>
-                            <a href="/myBlog/about.html" title="about" target="_blank" class="animsition-link">about</a></li>
+                        <li class="nolink"><span>Always </span>Creative.</li>
                         <li>
                             <a href="/myBlog/archives" class="animsition-link" target="_blank" title="archive">archives</a>
                         </li>
+                        <li>
+                            <a href="/myBlog/about.html" title="about" target="_blank" class="animsition-link">about</a></li>
+
                         
                             <li><a href="https://github.com/grace618/myBlog" title="Github" target="_blank"><i class="icon-github"></i></a>
                             </li>
@@ -234,7 +240,7 @@
         <div class="col-md-8 col-md-offset-2">
             <p>为了不让自己日后有这样的疑问，这段时间到底在干嘛？？所以来记录一下。今天是周末，还在公司，唉。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Vue.filter(id,[definition])</span><br><span class="line">参数</span><br><span class="line">&#123;string&#125; id</span><br><span class="line">&#123;Function&#125; [definition]</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 注册</span><br><span class="line">Vue.filter(&#39;my-filter&#39;, function (value) &#123;</span><br><span class="line">  &#x2F;&#x2F; 返回处理后的值</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; getter，返回已注册的过滤器</span><br><span class="line">var myFilter &#x3D; Vue.filter(&#39;my-filter&#39;)</span><br></pre></td></tr></table></figure>
-
+<a id="more"></a>
 <p>过滤器串联</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; message | filterA | filterB &#125;&#125;</span><br><span class="line">&#123;&#123; message | filterA(&#39;arg1&#39;, arg2) &#125;&#125;  </span><br><span class="line">&#x2F;&#x2F;filterA 被定义为接收三个参数的过滤器函数,其中 message 的值作为第一个参数，</span><br><span class="line">普通字符串 &#39;arg1&#39; 作为第二个参数，表达式 arg2 的值作为第三个参数</span><br></pre></td></tr></table></figure>
 <p>在组件内部定义</p>

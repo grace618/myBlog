@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+***************  *      *     *
+      8          *    *       *
+      8          *  *         *
+      8          **           *
+      8          *  *         *
+      8          *    *       *
+      8          *      *     *
+      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
+<!--<![endif]-->
+
+<head>
+  <title>axios的简单封装以及使用 | GRACE&#39;S BLOG</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="GRACE'S BLOG">
+    <meta name="author" content="grace">
+    <meta name="description" content="GRACE'S BLOG" />
+    <meta name="keywords" content="GRACE'S BLOG" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/myBlog/img/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/myBlog/atom.xml" title="GRACE&#39;S BLOG" type="application/atom+xml">
+    <link rel="stylesheet" href="/myBlog/css/all.css" media="screen" type="text/css">
+    
+    <link rel="stylesheet" href="/myBlog/highlightjs/vs.css" type="text/css">
+    
+
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/myBlog/css/ie8.css" />
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/myBlog/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/myBlog/js/html5shiv.min.js"></script>
+    <script src="/myBlog/js/respond.min.js"></script>
+    <![endif]-->
+
+  
+  
+  
+
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+<div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+    <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+        <img src="/myBlog/img/close.png" alt="Close" />
+    </div>
+    <!-- Lists in Slidebars -->
+    <ul class="sb-menu">
+        <li><a href="/myBlog/" class="animsition-link" title="Home">Home</a></li>
+        <li><a href="/myBlog/archives" class="animsition-link" title="archive">archives</a>
+        </li>
+        <!-- Dropdown Menu -->
+        
+                
+                    <li>
+                        <a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
+                        <ul class="sb-submenu">
+                            
+                                <li>
+                                    <a href="/myBlog/categories/js/" class="animsition-link">
+                                        js<small>(1)</small></a>
+                                </li>
+                                
+                                <li>
+                                    <a href="/myBlog/categories/mobile/" class="animsition-link">
+                                        mobile<small>(1)</small></a>
+                                </li>
+                                
+                                <li>
+                                    <a href="/myBlog/categories/mock/" class="animsition-link">
+                                        mock<small>(1)</small></a>
+                                </li>
+                                
+                                <li>
+                                    <a href="/myBlog/categories/mpvue/" class="animsition-link">
+                                        mpvue<small>(1)</small></a>
+                                </li>
+                                
+                                <li>
+                                    <a href="/myBlog/categories/next/" class="animsition-link">
+                                        next<small>(1)</small></a>
+                                </li>
+                                
+                                <li>
+                                    <a href="/myBlog/categories/node/" class="animsition-link">
+                                        node<small>(1)</small></a>
+                                </li>
+                                
+                                <li>
+                                    <a href="/myBlog/categories/other/" class="animsition-link">
+                                        other<small>(2)</small></a>
+                                </li>
+                                
+                                <li>
+                                    <a href="/myBlog/categories/react/" class="animsition-link">
+                                        react<small>(1)</small></a>
+                                </li>
+                                
+                                <li>
+                                    <a href="/myBlog/categories/vue/" class="animsition-link">
+                                        vue<small>(15)</small></a>
+                                </li>
+                                
+                        </ul>
+                    </li>
+                    
+                        
+                            <li>
+                                <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
+                                <ul class="sb-submenu">
+                                    
+                                        <li>
+                                            <a target="_blank" rel="noopener" href="https://www.laoqiange.club/" class="animsition-link">
+                                                老千哥
+                                            </a>
+                                        </li>
+                                        
+                                </ul>
+                            </li>
+                            
+    </ul>
+    <!-- Lists in Slidebars -->
+    <ul class="sb-menu secondary">
+        
+                <!-- <li><a href="/myBlog/about.html" class="animsition-link" title="about">About</a></li> -->
+                <!-- <li><a href="/myBlog/atom.xml" class="animsition-link" title="rss">RSS</a></li> -->
+    </ul>
+</div>
+
+<!-- ============================ END Off-canvas navigation =========================== -->
+
+<!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+<div id="sb-site">
+    <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+    <!-- ============================ Header & Logo bar =========================== -->
+
+    <div id="navigation" class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <!-- Nav logo -->
+                <div class="logo">
+                    <a href="/" title="Logo" class="animsition-link">
+                        
+                    </a>
+                </div>
+                <!-- // Nav logo -->
+                <!-- Info-bar -->
+                <nav>
+                    <ul class="nav">
+                        <li>
+                            <a href="/myBlog" class="animsition-link">
+                                GRACE'S BLOG
+                            </a>
+                        </li>
+                        <li class="nolink"><span>Always </span>Creative.</li>
+                        <li>
+                            <a href="/myBlog/archives" class="animsition-link" target="_blank" title="archive">archives</a>
+                        </li>
+                        <li>
+                            <a href="/myBlog/about.html" title="about" target="_blank" class="animsition-link">about</a></li>
+
+                        
+                            <li><a href="https://github.com/grace618/myBlog" title="Github" target="_blank"><i class="icon-github"></i></a>
+                            </li>
+                            
+                                
+                                    <li><a href="https://twitter.com/SGVOshdkbJJjwj3" title="Twitter" target="_blank"><i
+                                    class="icon-twitter"></i></a></li>
+                                    
+                                        
+                                            <li><a href="https://www.facebook.com/" title="Facebook" target="_blank"><i
+                                    class="icon-facebook"></i></a></li>
+                                            
+                                                
+                                                        
+
+                    </ul>
+                </nav>
+                <!--// Info-bar -->
+            </div>
+            <!-- // .container -->
+            <!-- <div class="learnmore sb-toggle-right">More</div> -->
+            <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+            </button>
+        </div>
+        <!-- // .navbar-inner -->
+    </div>
+
+    <!-- ============================ Header & Logo bar =========================== -->
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+                <h1>axios的简单封装以及使用</h1>
+                <span class="post-meta">
+    <time datetime="2019-01-20T04:02:26.000Z" itemprop="datePublished">
+        2019-01-20
+    </time>
+    
+    
+    | 
+    <a href='/myBlog/tags/vue/'> <code>vue</code> </a> ,
+    
+    <a href='/myBlog/tags/axios/'> <code>axios</code> </a> 
+    
+    
+</span>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+            <p>Axios Axios是一个Javascript库，用于从node.js发出HTTP请求或从浏览器发出XMLHttpRequests，它支持JS ES6固有的Promise API。它可以用来拦截HTTP请求和响应，并启用针对XSRF的客户端保护。它还具有取消请求的能力。<br>我会把axios的封装写在工具类的文件里面以下是初始的axios封装，以后应该会根据情况来改变<br> <a id="more"></a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br></pre></td><td class="code"><pre><span class="line">import axios from &#39;axios&#39;</span><br><span class="line">import store from &#39;@&#x2F;store&#39;</span><br><span class="line">import &#123; Message &#125; from &#39;element-ui&#39;</span><br><span class="line">import &#123;getCookie&#125; from &#39;@&#x2F;utils&#x2F;cookie&#39;</span><br><span class="line">const CancelToken &#x3D; axios.CancelToken</span><br><span class="line">var cancel;</span><br><span class="line">var service&#x3D;axios.create(&#123;</span><br><span class="line">    baseURL:process.env.BASE_API,</span><br><span class="line">    timeout:5000</span><br><span class="line">&#125;)</span><br><span class="line"> &#x2F;&#x2F;添加请求拦截器</span><br><span class="line"> service.interceptors.request.use(function(config)&#123;</span><br><span class="line">    if(store.getters.token)&#123;</span><br><span class="line">        config.headers[&#39;TOKEN&#39;]&#x3D;getCookie(&#39;TOKEN&#39;)</span><br><span class="line">    &#125;</span><br><span class="line">    return config</span><br><span class="line">&#125;,function(error)&#123;</span><br><span class="line">    return Promise.reject(error)</span><br><span class="line">&#125;)</span><br><span class="line">&#x2F;&#x2F;添加响应拦截器</span><br><span class="line">service.interceptors.response.use(function(response)&#123;</span><br><span class="line">   &#x2F;**</span><br><span class="line">   * 下面的注释为通过在response里，自定义code来标示请求状态</span><br><span class="line">   * 当code返回如下情况则说明权限有问题，登出并返回到登录页</span><br><span class="line">   * 如想通过xmlhttprequest来状态码标识 逻辑可写在下面error中</span><br><span class="line">   *&#x2F;</span><br><span class="line">  &#x2F;&#x2F; response &#x3D;&gt; &#123;</span><br><span class="line">  &#x2F;&#x2F;   const res &#x3D; response.data</span><br><span class="line">  &#x2F;&#x2F;   if (res.code !&#x3D;&#x3D; 20000) &#123;</span><br><span class="line">  &#x2F;&#x2F;     &#125;)</span><br><span class="line">  &#x2F;&#x2F;     &#x2F;&#x2F; 50008:非法的token; 50012:其他客户端登录了;  50014:Token 过期了;</span><br><span class="line">  &#x2F;&#x2F;     if (res.code &#x3D;&#x3D;&#x3D; 50008 || res.code &#x3D;&#x3D;&#x3D; 50012 || res.code &#x3D;&#x3D;&#x3D; 50014) &#123;</span><br><span class="line">  &#x2F;&#x2F;       &#125;).then(() &#x3D;&gt; &#123;</span><br><span class="line">  &#x2F;&#x2F;         &#125;)</span><br><span class="line">  &#x2F;&#x2F;       &#125;)</span><br><span class="line">  &#x2F;&#x2F;     &#125;</span><br><span class="line">  &#x2F;&#x2F;     return Promise.reject(&#39;error&#39;)</span><br><span class="line">  &#x2F;&#x2F;   &#125; else &#123;</span><br><span class="line">  &#x2F;&#x2F;     return response.data</span><br><span class="line">  &#x2F;&#x2F;   &#125;</span><br><span class="line">  &#x2F;&#x2F; &#125;,</span><br><span class="line">    return response</span><br><span class="line">&#125;,function(error)&#123;</span><br><span class="line">    console.log(&#39;err&#39;+error)</span><br><span class="line">    Message(&#123;</span><br><span class="line">        Message:error.message,</span><br><span class="line">        type:&#39;error&#39;,</span><br><span class="line">        duration:5*1000 </span><br><span class="line">    &#125;)</span><br><span class="line">    return Promise.reject(error)</span><br><span class="line">&#125;</span><br><span class="line">)</span><br><span class="line">export default&#123;</span><br><span class="line">    &#x2F;&#x2F;get请求</span><br><span class="line">    get(url,param)&#123;</span><br><span class="line">        &#x2F;&#x2F;promise示例</span><br><span class="line">        &#x2F;&#x2F;   axios.post(&#39;&#x2F;user&#39;, &#123;</span><br><span class="line">        &#x2F;&#x2F;     firstName: &#39;Fred&#39;,</span><br><span class="line">        &#x2F;&#x2F;     lastName: &#39;Flintstone&#39;</span><br><span class="line">        &#x2F;&#x2F;   &#125;)</span><br><span class="line">        &#x2F;&#x2F;   .then(function (response) &#123;</span><br><span class="line">        &#x2F;&#x2F;     console.log(response);</span><br><span class="line">        &#x2F;&#x2F;   &#125;)</span><br><span class="line">        &#x2F;&#x2F;   .catch(function (error) &#123;</span><br><span class="line">        &#x2F;&#x2F;     console.log(error);</span><br><span class="line">        &#x2F;&#x2F;   &#125;); </span><br><span class="line">        return new Promise((resolve,reject)&#x3D;&gt;&#123;</span><br><span class="line">            service(&#123;</span><br><span class="line">                method:&#39;get&#39;,</span><br><span class="line">                url,</span><br><span class="line">                params:param,</span><br><span class="line">                cancelToken:new CancelToken(c&#x3D;&gt;&#123;</span><br><span class="line">                    cancel&#x3D;c</span><br><span class="line">                &#125;)</span><br><span class="line">            &#125;).then(res&#x3D;&gt;&#123;  &#x2F;&#x2F;axios返回的是一个promise对象</span><br><span class="line">                resolve(res)  &#x2F;&#x2F;resolve在promise执行器内部 </span><br><span class="line">            &#125;).catch(err&#x3D;&gt;&#123;</span><br><span class="line">                console.log(err,&#39;异常&#39;)</span><br><span class="line">            &#125;)</span><br><span class="line"></span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">    &#x2F;&#x2F;post请求</span><br><span class="line">    post(url,param)&#123;</span><br><span class="line">        return new Promise((resolve,reject)&#x3D;&gt;&#123;</span><br><span class="line">            service(&#123;</span><br><span class="line">                method:&#39;post&#39;,</span><br><span class="line">                url,</span><br><span class="line">                data:param,</span><br><span class="line">                cancelToken:new CancelToken(c&#x3D;&gt;&#123;</span><br><span class="line">                    cancel&#x3D;c</span><br><span class="line">                &#125;)</span><br><span class="line">            &#125;).then(res&#x3D;&gt;&#123;</span><br><span class="line">                resolve(res)</span><br><span class="line">            &#125;).catch(err&#x3D;&gt;&#123;</span><br><span class="line">                console.log(err,&#39;异常&#39;)</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F; export default service</span><br></pre></td></tr></table></figure>
+<p><strong><em>api.js</em></strong><br>一般会在项目里把API请求单独出来写，所以在api.js文件里面的请求方式是这样的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import req from &#39;@&#x2F;utils&#x2F;axios.js&#39;</span><br><span class="line">&#x2F;&#x2F; export 的另一种写法</span><br><span class="line">&#x2F;&#x2F; export const getToken&#x3D;(username,password)&#x3D;&gt;&#123;    </span><br><span class="line">&#x2F;&#x2F; &#125;</span><br><span class="line">const getToken&#x3D;(username,password)&#x3D;&gt;&#123;</span><br><span class="line">      return req.post(&#39;&#x2F;login&#x2F;login&#39;,&#123;username,password&#125;)    </span><br><span class="line">    &#x2F;&#x2F;</span><br><span class="line">&#125;</span><br><span class="line">export&#123;getToken&#125;</span><br></pre></td></tr></table></figure>
+<p><strong><em>store</em></strong><br>涉及到异步操作时在store的actions里面进行请求</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">actions:&#123;</span><br><span class="line">  async gettoken(&#123;commit,state&#125;,userinfo)&#123;</span><br><span class="line">            try&#123;</span><br><span class="line">              var token&#x3D;await getToken(userinfo.name,userinfo.password)</span><br><span class="line">                  commit(&#39;GETUSERINFO&#39;,token.data.token) </span><br><span class="line">                  setCookie(&#39;TOKEN&#39;,token.data.token)</span><br><span class="line">            &#125;catch(err)&#123;</span><br><span class="line">                console.log(err)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
+    
+    <a class="pull-left" href="/myBlog/2019/06/26/react%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="float: left;">
+        ← react学习笔记
+    </a>
+    
+    
+    <a class="pull-right" href="/myBlog/2018/12/24/ElementUI%E4%B8%ADelement%20table%E5%8D%95%E5%85%83%E6%A0%BC%E5%90%88%E5%B9%B6%E7%9A%84%E5%A4%84%E7%90%86/">
+        ElementUI中element table单元格合并的处理 →
+    </a>
+    
+</nav>
+
+        <div class="col-md-8 col-md-offset-2 col-sm-24"><script type="text/javascript">
+  /**
+   * 搜狐畅言
+   */
+
+  /*
+  document.write('<div id="SOHUCS" sid="' + window.location.pathname.slice(1) + '" ></div>');
+
+  window.onload = function () {
+    (function () {
+      var appid = 'cytXXXX';
+      var conf = 'prod_xxxxxxxxxxxxxxxxx';
+      var width = window.innerWidth || document.documentElement.clientWidth;
+      var loadJs = function (d, a, id) {
+        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
+        var b = document.createElement("script");
+        b.setAttribute("type", "text/javascript");
+        b.setAttribute("charset", "UTF-8");
+        b.setAttribute("src", d);
+        if (id) {
+          b.setAttribute("id", id);
+        }
+        if (typeof a === "function") {
+          if (window.attachEvent) {
+            b.onreadystatechange = function () {
+              var e = b.readyState;
+              if (e === "loaded" || e === "complete") {
+                b.onreadystatechange = null;
+                a()
+              }
+            }
+          } else {
+            b.onload = a
+          }
+        }
+        c.appendChild(b)
+      };
+
+      loadJs("https://changyan.sohu.com/upload/changyan.js", function () {
+        window.changyan.api.config({
+          appid: appid,
+          conf: conf
+        })
+      });
+    })();
+  }
+  */
+
+</script>
+</div>
+    </div>
+</section>
+
+      <!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+        <div class="copy">
+            <p>
+                &copy; 2014
+                <script>
+                    new Date().getFullYear() > 2010 && document.write("-" + new Date().getFullYear());
+                </script>, Content By
+                grace. All Rights Reserved.
+            </p>
+            <p>Theme By <a href="https://grace618.github.io/myBlog/" style="color: #767D84">Grace</a></p>
+        </div>
+        <div class="social">
+            <ul>
+                
+                    <li><a href="https://github.com/grace618/myBlog" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;
+                    </li>
+                    
+                        
+                            <li><a href="https://twitter.com/SGVOshdkbJJjwj3" title="Twitter" target="_blank"><i
+                            class="icon-twitter"></i></a>&nbsp;</li>
+                            
+                                
+                                    <li><a href="https://www.facebook.com/" title="Facebook" target="_blank"><i
+                            class="icon-facebook"></i></a>&nbsp;</li>
+                                    
+                                        
+                                                
+            </ul>
+        </div>
+        <div class="clearfix"> </div>
+    </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+
+    resizeHero();
+
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/myBlog/js/plugins.min.js"></script>
+<!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/myBlog/js/scripts.js"></script><!-- Theme scripts -->
+
+
+<link rel="stylesheet" href="/myBlog/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/myBlog/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+    $('#intro').find('img').each(function () {
+        var alt = this.alt;
+
+        if (alt) {
+            $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
+        }
+
+        $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
+    });
+
+    (function ($) {
+        $('.fancybox').fancybox();
+    })(jQuery);
+</script>
+
+      
+</body>
+</html>
